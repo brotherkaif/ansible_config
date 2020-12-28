@@ -4,6 +4,12 @@
   become: true
 
   tasks:
-    - name: install htop
+    - name: install base packages
       package:
-        name: htop
+        name:
+          - tmux
+          - tree
+          - htop
+          - git
+          - pass
+          - ffmpeg
