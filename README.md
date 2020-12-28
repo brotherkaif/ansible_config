@@ -6,6 +6,7 @@ Work in progress repository to hold Ansible configuration files. To be used as p
 ```sh
 sudo apt update -y
 sudo apt upgrade -y
+sudo apt install python -y
 sudo apt install ansible -y
 sudo ansible-pull -U https://github.com/brotherkaif/ansible-config.git
 ```
