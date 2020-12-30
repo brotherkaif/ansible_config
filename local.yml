@@ -20,9 +20,9 @@
           - figlet
           - toilet
 
-    - name: DOTFILES bash
+    - name: copy .bashrc file
       copy:
         src: 'files/dotfiles/bash/.bashrc'
-        dest: '~/.bashrc'
+        dest: '/home/kaifahmed/.bashrc'
         owner: kaifahmed
         group: kaifahmed
