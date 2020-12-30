@@ -52,13 +52,6 @@
         owner: kaifahmed
         group: kaifahmed
 
-    - name: sychronise gcs dotfiles
-      copy:
-        src: 'files/dotfiles/gcs/.customize_environment*'
-        dest: '/home/kaifahmed/.customize_environment*'
-        owner: kaifahmed
-        group: kaifahmed
-
     - name: sychronise vim dotfiles
       copy:
         src: 'files/dotfiles/vim/{{ item }}'
