@@ -22,8 +22,8 @@
 
     - name: copy .bashrc file
       copy:
-        src: 'files/dotfiles/bash/{{input}}'
-        dest: '/home/kaifahmed/{{input}}'
+        src: 'files/dotfiles/bash/{{ item }}'
+        dest: '/home/kaifahmed/{{ item }}'
         owner: kaifahmed
         group: kaifahmed
       loop:
