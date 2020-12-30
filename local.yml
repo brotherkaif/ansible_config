@@ -20,7 +20,7 @@
           - figlet
           - toilet
 
-    - name: copy bash dotfiles
+    - name: sychronise bash dotfiles
       copy:
         src: 'files/dotfiles/bash/{{ item }}'
         dest: '/home/kaifahmed/{{ item }}'
@@ -30,3 +30,51 @@
         - .bashrc
         - .bash_profile
         - .inputrc
+
+    - name: sychronise zsh dotfiles
+      copy:
+        src: 'files/dotfiles/zsh/.zshrc'
+        dest: '/home/kaifahmed/.zshrc'
+        owner: kaifahmed
+        group: kaifahmed
+
+    - name: sychronise tmux dotfiles
+      copy:
+        src: 'files/dotfiles/tmux/.tmux.conf'
+        dest: '/home/kaifahmed/.tmux.conf'
+        owner: kaifahmed
+        group: kaifahmed
+
+    - name: sychronise git dotfiles
+      copy:
+        src: 'files/dotfiles/git/.gitconfig'
+        dest: '/home/kaifahmed/.gitconfig'
+        owner: kaifahmed
+        group: kaifahmed
+
+    - name: sychronise gcs dotfiles
+      copy:
+        src: 'files/dotfiles/gcs/.customize_environment*'
+        dest: '/home/kaifahmed/.customize_environment*'
+        owner: kaifahmed
+        group: kaifahmed
+
+    - name: sychronise vim dotfiles
+      copy:
+        src: 'files/dotfiles/vim/{{ item }}'
+        dest: '/home/kaifahmed/{{ item }}'
+        owner: kaifahmed
+        group: kaifahmed
+      loop:
+        - .vimrc
+        - .vim/coc-settings.json
+
+    - name: sychronise neovim dotfiles
+      copy:
+        src: 'files/dotfiles/nvim/{{ item }}'
+        dest: '/home/kaifahmed/{{ item }}'
+        owner: kaifahmed
+        group: kaifahmed
+      loop:
+        - .config/nvim/init.vim
+        - .config/nvim/coc-settings.json
