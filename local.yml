@@ -22,7 +22,11 @@
 
     - name: DOTFILES bash
       copy:
-        src: files/dotfiles/bash/*
-        dest: ~/
+        src: '{{item}}'
+        dest: ~
         owner: kaifahmed
         group: kaifahmed
+      loop:
+        - files/dotfiles/bash/.bashrc
+        - files/dotfiles/bash/.bash_profile
+        - files/dotfiles/bash/.inputrc
