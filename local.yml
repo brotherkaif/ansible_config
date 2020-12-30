@@ -20,7 +20,7 @@
           - figlet
           - toilet
 
-    - name: copy .bashrc file
+    - name: copy bash dotfiles
       copy:
         src: 'files/dotfiles/bash/{{ item }}'
         dest: '/home/kaifahmed/{{ item }}'
@@ -28,3 +28,5 @@
         group: kaifahmed
       loop:
         - .bashrc
+        - .bash_profile
+        - .inputrc
