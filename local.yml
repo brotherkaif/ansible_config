@@ -19,3 +19,10 @@
         name:
           - figlet
           - toilet
+
+    - name: DOTFILES bash
+      copy:
+        src: files/dotfiles/bash/*
+        dest: ~/
+        owner: kaifahmed
+        group: kaifahmed
