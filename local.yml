@@ -20,16 +20,11 @@
           - figlet
           - toilet
 
-    - name: add neovim repo
-      apt_repository:
-        repo: ppa:neovim-ppa/stable
-        state: present
-
-    - name: install neovim
-      apt:
-        state: present
-        update_cache: yes
-        name: ['neovim']
+    - name: install neovim appimage
+      get_url:
+        url: "https://github.com/neovim/neovim/releases/download/{{ neovim_version }}/nvim.appimage"
+        dest: /usr/bin/nvim
+        mode: 0755
 
     - name: sychronise dotfiles
       copy:
