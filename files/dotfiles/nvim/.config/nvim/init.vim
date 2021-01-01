@@ -13,42 +13,25 @@ endif
 
 " PLUG-IN CONFIG
 " coc.nvim
-" let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier']
-
-" ultisnips
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" goyo/limelight
-let g:limelight_conceal_ctermfg = 'DarkGray'
-let g:limelight_conceal_guifg = 'DarkGray'
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-prettier']
 
 " PLUG-IN LIST
 call plug#begin()
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/completion-nvim'
+	" Plug 'neovim/nvim-lspconfig'
+	" Plug 'nvim-lua/completion-nvim'
 	Plug 'tpope/vim-vinegar'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	" Plug 'SirVer/ultisnips'
-	" Plug 'honza/vim-snippets'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
-	" Plug 'jszakmeister/vim-togglecursor'
-	Plug 'junegunn/goyo.vim'
-	Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " LSP CONFIG
-lua require("lsp_config")
-
+" lua require("lsp_config")
 " Javascipt/TypeScript
 
 " VIM CUSTOMISATION
@@ -64,7 +47,7 @@ set number
 set relativenumber
 
 " display
-set background=light
+" set background=light
 " colorscheme desert
 " syntax enable
 " set nowrap
@@ -89,7 +72,7 @@ nnoremap <leader>ne :tabnew<CR>:Explore<CR>
 nnoremap <leader>se :Sexplore<CR>
 nnoremap <leader>ve :Vexplore<CR>
 " terminal
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>nt :tabnew<CR>:term<CR>
 nnoremap <leader>st :split<CR>:term<CR>
 nnoremap <leader>vt :vsplit<CR>:term<CR>
@@ -104,9 +87,9 @@ nnoremap <leader>c :CocCommand eslint.executeAutofix<CR>
 " navigation
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>t :GFiles<CR>
-" nmap <silent> <leader>gd <Plug>(coc-definition)
-" nmap <silent> <leader>gt <Plug>(coc-type-definition)
-" nmap <silent> <leader>gi <Plug>(coc-implementation)
-" nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
 " non-flush paste
 vnoremap <leader>p "_dP
