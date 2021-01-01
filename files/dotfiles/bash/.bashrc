@@ -61,8 +61,3 @@ alias gco='git checkout'
 
 # app aliases
 alias tmux='tmux -2'
-
-# linux config
-if [ "$(uname)" == "Linux" ]; then
-	alias nvim="$HOME/.apps/nvim/nvim.appimage"
-fi
