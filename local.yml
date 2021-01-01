@@ -20,6 +20,17 @@
           - figlet
           - toilet
 
+    - name: add neovim repo
+      apt_repository:
+        repo: ppa:neovim-ppa/stable
+        state: present
+
+    - name: install neovim
+      apt:
+        state: present
+        update_cache: yes
+        name: ['neovim']
+
     - name: sychronise dotfiles
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
