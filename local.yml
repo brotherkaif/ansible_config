@@ -29,7 +29,7 @@
 
     - name: install neovim via homebrew
       package:
-        name: nvim
+        name: neovim
       when: ansible_distribution == 'MacOSX'
 
     - name: sychronise dotfiles
