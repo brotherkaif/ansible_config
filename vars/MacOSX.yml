@@ -1,2 +1,3 @@
 ---
 home_directory: /Users/kaifahmed
+should_be_root: false

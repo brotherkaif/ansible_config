@@ -1,22 +1,23 @@
 ---
 - hosts: localhost
   connection: local
-  become: true
   vars_files:
     - vars/{{ ansible_distribution }}.yml
 
   tasks:
-    - name: install base packages
-      package:
-        name:
-          - tmux
-          - tree
-          - htop
-          - git
-          - pass
-          - ffmpeg
-          - figlet
-          - toilet
+    - block:
+      - name: install base packages
+        package:
+          name:
+            - tmux
+            - tree
+            - htop
+            - git
+            - pass
+            - ffmpeg
+            - figlet
+            - toilet
+      become: '{{ should_be_root }}'
 
     - name: install neovim via appimage
       get_url:
@@ -25,10 +26,12 @@
         mode: 0755
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
-    - name: install neovim via homebrew
-      package:
-        name: neovim
-      when: ansible_distribution == 'MacOSX'
+    - block:
+      - name: install neovim via homebrew
+        package:
+          name: neovim
+        when: ansible_distribution == 'MacOSX'
+      become: '{{ should_be_root }}'
 
     - name: create required directories
       file:
