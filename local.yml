@@ -50,8 +50,8 @@
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
         dest: '{{ home_directory }}/{{ item.path }}'
-        owner: kaifahmed
-        group: kaifahmed
+        owner: '{{ owner }}'
+        group: '{{ group }}'
       loop:
         - { package: 'bash', path: '.bashrc' }
         - { package: 'bash', path: '.bash_profile' }
