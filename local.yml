@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   become: true
+  vars_files:
+    - vars/{{ ansible_distribution }}.yml
 
   tasks:
     - name: install base packages
@@ -30,7 +32,7 @@
 
     - name: create required directories
       file:
-        path: '/home/kaifahmed/{{ item }}'
+        path: '{{ home_directory }}/{{ item }}'
         state: directory
         owner: kaifahmed
         group: kaifahmed
@@ -44,7 +46,7 @@
     - name: sync dotfiles
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
-        dest: '/home/kaifahmed/{{ item.path }}'
+        dest: '{{ home_directory }}/{{ item.path }}'
         owner: kaifahmed
         group: kaifahmed
       loop:
@@ -59,3 +61,8 @@
         - { package: 'vim', path: '.vim/coc-settings.json' }
         - { package: 'nvim', path: '.config/nvim/init.vim' }
         - { package: 'nvim', path: '.config/nvim/coc-settings.json' }
+
+    - name: remove init.sh script
+      file:
+        path: '{{ home_directory }}/init.sh'
+        state: absent
