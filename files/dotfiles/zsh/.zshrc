@@ -40,7 +40,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # convenience aliases
 alias ll='ls -la'
-alias sc='sudo ansible-pull -U https://github.com/brotherkaif/ansible-config.git'
+alias sc='ansible-pull -U https://github.com/brotherkaif/ansible-config.git'
 
 # git aliases
 alias gst='git status'
