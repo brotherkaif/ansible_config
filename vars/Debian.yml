@@ -1,3 +1,5 @@
 ---
 home_directory: /home/kaifahmed
 should_be_root: true
+owner: kaifahmed
+group: kaifahmed
