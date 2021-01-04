@@ -20,11 +20,17 @@
           - figlet
           - toilet
 
-    - name: install neovim appimage
+    - name: install neovim via appimage
       get_url:
         url: "https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage"
         dest: /usr/bin/nvim
         mode: 0755
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+    - name: install neovim via homebrew
+      package:
+        name: nvim
+      when: ansible_distribution == 'MacOSX'
 
     - name: sychronise dotfiles
       copy:
