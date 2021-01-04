@@ -13,10 +13,6 @@
           - git
           - pass
           - ffmpeg
-
-    - name: install stupid terminal nonsense
-      package:
-        name:
           - figlet
           - toilet
 
@@ -32,7 +28,20 @@
         name: neovim
       when: ansible_distribution == 'MacOSX'
 
-    - name: sychronise dotfiles
+    - name: create required directories
+      file:
+        path: '/home/kaifahmed/{{ item }}'
+        state: directory
+        owner: kaifahmed
+        group: kaifahmed
+        mode: 0755
+      loop:
+        - projects
+        - playground
+        - .vim
+        - .config/nvim
+
+    - name: sync dotfiles
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
         dest: '/home/kaifahmed/{{ item.path }}'
