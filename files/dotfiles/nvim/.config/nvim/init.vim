@@ -50,6 +50,7 @@ set scrolloff=8
 " display
 set nowrap
 set signcolumn=yes
+highlight clear SignColumn
 " set background=light
 " colorscheme desert
 " syntax enable
