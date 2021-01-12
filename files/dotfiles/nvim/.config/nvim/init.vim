@@ -45,13 +45,20 @@ set nobackup
 " line numbers
 set number
 set relativenumber
+set scrolloff=8
 
 " display
+set nowrap
+set signcolumn=yes
 " set background=light
 " colorscheme desert
 " syntax enable
-" set nowrap
 " highlight Pmenu ctermfg=white ctermbg=black guibg=black
+
+"searching
+set ignorecase
+set smartcase
+set nohlsearch
 
 " interface
 set showmatch
