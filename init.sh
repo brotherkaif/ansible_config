@@ -1,3 +1,4 @@
+#!/bin/bash
 welcome_message () {
 		echo " _       _ _   "
 		echo "(_)_ __ (_) |_ "
