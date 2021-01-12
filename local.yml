@@ -7,6 +7,7 @@
   tasks:
     - block:
       - name: install base packages
+        tags: always
         package:
           name:
             - tmux
@@ -20,6 +21,7 @@
       become: '{{ should_be_root }}'
 
     - name: install neovim via appimage
+      tags: dev
       get_url:
         url: "https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage"
         dest: /usr/bin/nvim
@@ -28,12 +30,14 @@
 
     - block:
       - name: install neovim via homebrew
+        tags: dev
         package:
           name: neovim
         when: ansible_distribution == 'MacOSX'
       become: '{{ should_be_root }}'
 
     - name: create required directories
+      tags: always
       file:
         path: '{{ home_directory }}/{{ item }}'
         state: directory
@@ -47,6 +51,7 @@
         - .config/nvim
 
     - name: sync dotfiles
+      tags: always
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
         dest: '{{ home_directory }}/{{ item.path }}'
@@ -66,6 +71,7 @@
         - { package: 'nvim', path: '.config/nvim/coc-settings.json' }
 
     - name: remove init.sh script
+      tags: always
       file:
         path: '{{ home_directory }}/init.sh'
         state: absent
