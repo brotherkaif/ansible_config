@@ -79,8 +79,13 @@ let mapleader = "\<Space>"
 nnoremap <leader>ne :tabnew<CR>:Explore<CR>
 nnoremap <leader>se :Sexplore<CR>
 nnoremap <leader>ve :Vexplore<CR>
+" panes
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
 " terminal
-" tnoremap <Esc> <C-\><C-n>
+tnoremap <leader><Esc> <C-\><C-n>
 nnoremap <leader>nt :tabnew<CR>:term<CR>
 nnoremap <leader>st :split<CR>:term<CR>
 nnoremap <leader>vt :vsplit<CR>:term<CR>
