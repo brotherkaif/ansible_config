@@ -51,7 +51,7 @@
         - .config/nvim
 
     - name: sync dotfiles
-      tags: always
+      tags: always,dotfiles
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
         dest: '{{ home_directory }}/{{ item.path }}'
