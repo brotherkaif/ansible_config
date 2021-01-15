@@ -106,3 +106,10 @@ nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 " non-flush paste
 vnoremap <leader>p "_dP
+
+" TEMP MACROS
+nnoremap <leader>mc 0f{v%lyggOconst INPUT = <esc>%o<esc>
+nnoremap <leader>mu 0wve~j
+nnoremap <leader>mi 0wywf:a INPUT.<esc>pvb~elc$,<esc>0j
+nnoremap <leader>mo 0f{xxf}xxxF'xiINPUT.<esc>ebve~0j
+nnoremap <leader>ms 0wveyf'asome <esc>pvb~0j
