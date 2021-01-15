@@ -20,7 +20,40 @@
             - toilet
       become: '{{ should_be_root }}'
 
-    - name: install neovim via appimage
+    - name: install the gpg key for nodejs LTS (Linux)
+      tags: dev
+      apt_key:
+        url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+        state: present
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
+
+    - name: install the nodejs LTS repos (Linux)
+      tags: dev
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
+        state: present
+        update_cache: yes
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
+
+    - name: Install the nodejs (Linux)
+      tags: dev
+      apt:
+        name: nodejs
+        state: present
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
+
+    - block:
+      - name: install nodejs (Darwin)
+        tags: dev
+        package:
+          name: node
+        when: ansible_distribution == 'MacOSX'
+      become: '{{ should_be_root }}'
+
+    - name: install neovim (Linux)
       tags: dev
       get_url:
         url: "https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage"
@@ -29,7 +62,7 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
     - block:
-      - name: install neovim via homebrew
+      - name: install neovim (Darwin)
         tags: dev
         package:
           name: neovim
@@ -51,7 +84,7 @@
         - .config/nvim
 
     - name: sync dotfiles
-      tags: always
+      tags: always,dotfiles
       copy:
         src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
         dest: '{{ home_directory }}/{{ item.path }}'
