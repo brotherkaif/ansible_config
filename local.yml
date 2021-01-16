@@ -60,6 +60,7 @@
         dest: /usr/bin/nvim
         mode: 0755
       when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
 
     - name: install neovim (Darwin)
       tags: dev
