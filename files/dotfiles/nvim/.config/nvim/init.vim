@@ -108,8 +108,15 @@ nmap <silent> <leader>gr <Plug>(coc-references)
 vnoremap <leader>p "_dP
 
 " TEMP MACROS
+" c = create const object from input
 nnoremap <leader>mc 0f{v%lyggOconst INPUT = <esc>p%o<esc>
+" p = set const input param string
+nnoremap <leader>mp 0wveyf'asome <esc>pvb~0j
+" u = make const input param upcase
 nnoremap <leader>mu 0wve~j
+" i = fix input param ref
 nnoremap <leader>mi 0wywf:a INPUT.<esc>pvb~elc$,<esc>0j
+" o = fix output param ref
 nnoremap <leader>mo 0f{xxf}xxxF'xiINPUT.<esc>ebve~0j
-nnoremap <leader>ms 0wveyf'asome <esc>pvb~0j
+" s = replace endpoint ref with string template literal
+nnoremap <leader>ms 0f'r`f'r`F{;r$f}xbve~iINPUT.<esc>0
