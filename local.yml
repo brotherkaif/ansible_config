@@ -56,18 +56,18 @@
     - name: install neovim (Linux)
       tags: dev
       get_url:
-        url: "https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage"
+        url: "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
         dest: /usr/bin/nvim
         mode: 0755
       when: ansible_distribution in ["Debian", "Ubuntu"]
-
-    - block:
-      - name: install neovim (Darwin)
-        tags: dev
-        package:
-          name: neovim
-        when: ansible_distribution == 'MacOSX'
       become: '{{ should_be_root }}'
+
+    - name: install neovim (Darwin)
+      tags: dev
+      homebrew:
+        name: neovim
+        state: head
+      when: ansible_distribution == 'MacOSX'
 
     - name: create required directories
       tags: always
