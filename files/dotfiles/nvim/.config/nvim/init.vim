@@ -17,8 +17,6 @@ let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-e
 
 " PLUG-IN LIST
 call plug#begin()
-	" Plug 'neovim/nvim-lspconfig'
-	" Plug 'nvim-lua/completion-nvim'
 	Plug 'tpope/vim-vinegar'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-fugitive'
@@ -29,10 +27,6 @@ call plug#begin()
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
 call plug#end()
-
-" LSP CONFIG
-" lua require("lsp_config")
-" Javascipt/TypeScript
 
 " VIM CUSTOMISATION
 " disable annoying stuff
@@ -51,10 +45,6 @@ set scrolloff=8
 set nowrap
 set signcolumn=yes
 highlight clear SignColumn
-" set background=light
-" colorscheme desert
-" syntax enable
-" highlight Pmenu ctermfg=white ctermbg=black guibg=black
 
 "searching
 set ignorecase
@@ -79,11 +69,18 @@ let mapleader = "\<Space>"
 nnoremap <leader>ne :tabnew<CR>:Explore<CR>
 nnoremap <leader>se :Sexplore<CR>
 nnoremap <leader>ve :Vexplore<CR>
-" panes
-nnoremap <leader>j <C-W><C-J>
-nnoremap <leader>k <C-W><C-K>
-nnoremap <leader>l <C-W><C-L>
-nnoremap <leader>h <C-W><C-H>
+" window
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
+nnoremap <leader>h <C-W>h
+nnoremap <leader>J <C-W>J
+nnoremap <leader>K <C-W>K
+nnoremap <leader>L <C-W>L
+nnoremap <leader>H <C-W>H
+" focus
+nnoremap <leader>i <C-W>_<C-W>\|
+nnoremap <leader>o <C-W>=
 " terminal
 tnoremap <leader><Esc> <C-\><C-n>
 nnoremap <leader>nt :tabnew<CR>:term<CR>
