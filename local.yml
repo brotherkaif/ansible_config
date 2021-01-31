@@ -37,7 +37,7 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
       become: '{{ should_be_root }}'
 
-    - name: Install the nodejs (Linux)
+    - name: install the nodejs (Linux)
       tags: dev
       apt:
         name: nodejs
@@ -68,6 +68,23 @@
         name: neovim
         state: head
       when: ansible_distribution == 'MacOSX'
+
+    - name: install the buster backports repos (Linux)
+      tags: dev
+      apt_repository:
+        repo: "deb http://deb.debian.org/debian buster-backports main contrib non-free"
+        state: present
+        update_cache: yes
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
+
+    - name: install TBB (Linux)
+      tags: dev
+      apt:
+        name: torbrowser-launcher
+        state: present
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
 
     - name: create required directories
       tags: always
