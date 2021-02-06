@@ -4,6 +4,22 @@
   vars_files:
     - vars/{{ ansible_distribution }}.yml
 
+  pre_tasks:
+    - name: install updates (Debian)
+      tags: always
+      apt:
+        upgrade: dist
+        update_cache: yes
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+      become: '{{ should_be_root }}'
+
+    - name: install updates (Darwin)
+      tags: always
+      homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
+      when: ansible_distribution == 'MacOSX'
+
   tasks:
     - block:
       - name: install base packages
@@ -20,7 +36,7 @@
             - toilet
       become: '{{ should_be_root }}'
 
-    - name: install the gpg key for nodejs LTS (Linux)
+    - name: install the gpg key for nodejs LTS (Debian)
       tags: dev
       apt_key:
         url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
@@ -28,7 +44,7 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
       become: '{{ should_be_root }}'
 
-    - name: install the nodejs LTS repos (Linux)
+    - name: install the nodejs LTS repos (Debian)
       tags: dev
       apt_repository:
         repo: "deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
@@ -37,7 +53,7 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
       become: '{{ should_be_root }}'
 
-    - name: install the nodejs (Linux)
+    - name: install the nodejs (Debian)
       tags: dev
       apt:
         name: nodejs
@@ -53,7 +69,7 @@
         when: ansible_distribution == 'MacOSX'
       become: '{{ should_be_root }}'
 
-    - name: install neovim (Linux)
+    - name: install neovim (Debian)
       tags: dev
       get_url:
         url: "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
@@ -69,7 +85,7 @@
         state: head
       when: ansible_distribution == 'MacOSX'
 
-    - name: install the buster backports repos (Linux)
+    - name: install the buster backports repos (Debian)
       tags: dev
       apt_repository:
         repo: "deb http://deb.debian.org/debian buster-backports main contrib non-free"
@@ -78,7 +94,7 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
       become: '{{ should_be_root }}'
 
-    - name: install TBB (Linux)
+    - name: install TBB (Debian)
       tags: dev
       apt:
         name: torbrowser-launcher
