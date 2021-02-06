@@ -85,22 +85,31 @@
         state: head
       when: ansible_distribution == 'MacOSX'
 
-    - name: install the buster backports repos (Debian)
-      tags: dev
-      apt_repository:
-        repo: "deb http://deb.debian.org/debian buster-backports main contrib non-free"
-        state: present
-        update_cache: yes
+    - name: install Brave Browser (Debian)
+      block:
+        - name: install|deb| install the https method driver for apt
+          become: true
+          apt:
+            name: apt-transport-https
+            state: present
+            update_cache: yes
+        - name: install|deb| add the apt key
+          become: true
+          apt_key:
+            url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
+            state: present
+        - name: install|deb| add the apt repository
+          become: true
+          apt_repository:
+            repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+            state: present
+        - name: install|deb| install package
+          become: true
+          apt:
+            name: brave-browser
+            state: present
+          when: ansible_distribution in ["Debian", "Ubuntu"]
       when: ansible_distribution in ["Debian", "Ubuntu"]
-      become: '{{ should_be_root }}'
-
-    - name: install TBB (Debian)
-      tags: dev
-      apt:
-        name: torbrowser-launcher
-        state: present
-      when: ansible_distribution in ["Debian", "Ubuntu"]
-      become: '{{ should_be_root }}'
 
     - name: create required directories
       tags: always
