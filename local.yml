@@ -93,12 +93,6 @@
       become: true
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
-    - name: install brave (Darwin)
-      tags: dev
-      homebrew:
-        name: brave-browser
-      when: ansible_distribution == 'MacOSX'
-
     - name: create required directories
       tags: always
       file:
