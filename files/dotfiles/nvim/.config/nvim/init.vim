@@ -28,6 +28,7 @@ call plug#begin()
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
+	" Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " VIM CUSTOMISATION
@@ -47,6 +48,7 @@ set scrolloff=8
 set nowrap
 set signcolumn=yes
 highlight clear SignColumn
+" colorscheme nord
 
 "searching
 set ignorecase
