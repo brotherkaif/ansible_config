@@ -129,6 +129,7 @@
         - { package: 'nvim', path: '.config/nvim/coc-settings.json' }
         - { package: 'nvim', path: '.config/nvim/lua/init.lua' }
         - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
+        - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
 
     - name: remove init.sh script
       tags: always

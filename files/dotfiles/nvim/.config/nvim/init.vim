@@ -60,12 +60,13 @@ set showmatch
 set cursorline
 
 " indentation behaviour
-set noexpandtab
-set smartindent
-set preserveindent
-set softtabstop=0
-set shiftwidth=2
-set tabstop=2
+" set noexpandtab
+" set smartindent
+" set preserveindent
+" set softtabstop=0
+" set shiftwidth=2
+" set tabstop=2
+" set foldmethod=indent
 
 " TEMP MACROS
 " c = create const object from input
