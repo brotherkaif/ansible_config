@@ -31,34 +31,6 @@ call plug#begin()
 	" Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-" VIM CUSTOMISATION
-" disable annoying stuff
-" set noerrorbells
-
-" disable backup and swp files
-" set noswapfile
-" set nobackup
-
-" line numbers
-" set number
-" set relativenumber
-" set scrolloff=8
-
-" display
-" set nowrap
-" set signcolumn=yes
-" highlight clear SignColumn
-" colorscheme nord
-
-"searching
-" set ignorecase
-" set smartcase
-" set nohlsearch
-
-" interface
-" set showmatch
-" set cursorline
-
 " TEMP MACROS
 " c = create const object from input
 nnoremap <leader>mc 0f{v%lyggOconst INPUT = <esc>p%o<esc>
