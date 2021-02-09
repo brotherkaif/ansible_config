@@ -33,40 +33,31 @@ call plug#end()
 
 " VIM CUSTOMISATION
 " disable annoying stuff
-set noerrorbells
+" set noerrorbells
 
 " disable backup and swp files
-set noswapfile
-set nobackup
+" set noswapfile
+" set nobackup
 
 " line numbers
-set number
-set relativenumber
-set scrolloff=8
+" set number
+" set relativenumber
+" set scrolloff=8
 
 " display
-set nowrap
-set signcolumn=yes
-highlight clear SignColumn
+" set nowrap
+" set signcolumn=yes
+" highlight clear SignColumn
 " colorscheme nord
 
 "searching
-set ignorecase
-set smartcase
-set nohlsearch
+" set ignorecase
+" set smartcase
+" set nohlsearch
 
 " interface
-set showmatch
-set cursorline
-
-" indentation behaviour
-" set noexpandtab
-" set smartindent
-" set preserveindent
-" set softtabstop=0
-" set shiftwidth=2
-" set tabstop=2
-" set foldmethod=indent
+" set showmatch
+" set cursorline
 
 " TEMP MACROS
 " c = create const object from input
