@@ -28,7 +28,6 @@ call plug#begin()
 	Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
-	" Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " TEMP MACROS

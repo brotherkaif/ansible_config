@@ -18,7 +18,7 @@ o.scrolloff = 8
 wo.wrap = false
 wo.signcolumn = 'yes'
 vim.cmd('highlight clear SignColumn')
--- vim.cmd('colorscheme nord')
+vim.cmd('highlight clear Folded')
 
 -- searching
 o.ignorecase = true
