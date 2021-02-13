@@ -4,8 +4,6 @@
 "| | | | | | |_ \ V /| | | | | | |
 "|_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 "=================================
-lua require 'init'
-
 " VIM-PLUG AUTO-LOAD
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
@@ -24,11 +22,14 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'sheerun/vim-polyglot'
+	Plug 'neovim/nvim-lspconfig'
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'millermedeiros/vim-statline'
 call plug#end()
+
+lua require 'init'
 
 " TEMP MACROS
 " c = create const object from input

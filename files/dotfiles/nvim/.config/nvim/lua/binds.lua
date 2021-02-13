@@ -46,6 +46,17 @@ local binds = {
     {'n', '<silent>', '<leader>gt <Plug>(coc-type-definition)'},
     {'n', '<silent>', '<leader>gi <Plug>(coc-implementation)'},
     {'n', '<silent>', '<leader>gr <Plug>(coc-references)'},
+
+
+    -- lsp
+    {'n', '<silent>gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
+    {'n', '<silent>gh', '<cmd>lua vim.lsp.buf.hover()<CR>'},
+    {'n', '<silent>gD', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
+    -- {'n', '<silent><c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
+    -- {'n', '<silent>1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
+    {'n', '<silent>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
+    -- {'n', '<silent>g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>'},
+    -- {'n', '<silent>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>'},
 }
 
 local opts = {noremap = true, silent = true}
