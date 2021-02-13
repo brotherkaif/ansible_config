@@ -23,6 +23,7 @@ call plug#begin()
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'nvim-lua/completion-nvim'
 	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	" Plug 'sheerun/vim-polyglot'
 	Plug 'rhlobo/vim-super-retab'
@@ -30,6 +31,16 @@ call plug#begin()
 call plug#end()
 
 lua require 'init'
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing message extra message when using completion
+set shortmess+=c
 
 " TEMP MACROS
 " c = create const object from input
