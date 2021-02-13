@@ -1,6 +1,11 @@
 local lspconfig = require('lspconfig')
 
--- JavaScript/TypeScript
--- currently requires typescript and typescript-language-server to be installed
--- npm install -g typescript typescript-language-server
+-- language: JavaScript/TypeScript
+-- requirements: 'typescript', 'typescript-language-server'
+-- command: npm install -g typescript typescript-language-server
 lspconfig.tsserver.setup{}
+
+-- language: YAML
+-- requirements: 'yaml-language-server'
+-- command: npm install -g yaml-language-server
+lspconfig.yamlls.setup{}
