@@ -39,24 +39,19 @@ local binds = {
     -- correct errors
     {'n', '<leader>c', ':CocCommand eslint.executeAutofix<CR>'},
 
-    -- code navigation
+    -- navigation
     {'n', '<leader>p', ':Files<CR>'},
     {'n', '<leader>t', ':GFiles<CR>'},
-    {'n', '<silent>', '<leader>gd <Plug>(coc-definition)'},
-    {'n', '<silent>', '<leader>gt <Plug>(coc-type-definition)'},
-    {'n', '<silent>', '<leader>gi <Plug>(coc-implementation)'},
-    {'n', '<silent>', '<leader>gr <Plug>(coc-references)'},
-
 
     -- lsp
-    {'n', '<silent>gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
-    {'n', '<silent>gh', '<cmd>lua vim.lsp.buf.hover()<CR>'},
-    {'n', '<silent>gD', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
-    -- {'n', '<silent><c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
-    -- {'n', '<silent>1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
-    {'n', '<silent>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
-    -- {'n', '<silent>g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>'},
-    -- {'n', '<silent>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>'},
+    {'n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>'},
+    {'n', '<leader>gh', ':lua vim.lsp.buf.hover()<CR>'},
+    {'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
+    -- {'n', '<leader>gm', ':lua vim.lsp.buf.implementation()<CR>'},
+    -- {'n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
+    -- {'n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
+    -- {'n', '<leader>gy', '<cmd>lua vim.lsp.buf.document_symbol()<CR>'},
+    -- {'n', '<silent>gu', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>'},
 }
 
 local opts = {noremap = true, silent = true}
