@@ -47,7 +47,7 @@ local binds = {
     {'n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>'},
     {'n', '<leader>gh', ':lua vim.lsp.buf.hover()<CR>'},
     {'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
-    -- {'n', '<leader>gm', ':lua vim.lsp.buf.implementation()<CR>'},
+    {'n', '<leader>gg', ':lua vim.lsp.buf.implementation()<CR>'},
     -- {'n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
     -- {'n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
     -- {'n', '<leader>gy', '<cmd>lua vim.lsp.buf.document_symbol()<CR>'},
