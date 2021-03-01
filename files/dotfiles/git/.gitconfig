@@ -1,3 +1,5 @@
 [user]
 	email = dm@kaif.dev
 	name = Kaif Ahmed
+[pull]
+	rebase = false
