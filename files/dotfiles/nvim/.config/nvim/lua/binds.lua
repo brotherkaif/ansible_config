@@ -36,21 +36,27 @@ local binds = {
     -- search files
     {'n', '<Leader>/', ':Ag<CR>'},
 
-    -- correct errors
-    {'n', '<leader>c', ':CocCommand eslint.executeAutofix<CR>'},
+    -- correct formatting and lint
+    {'n', '<leader>c', ':ALEFix<CR>'},
 
-    -- code navigation
+    -- navigation
     {'n', '<leader>p', ':Files<CR>'},
     {'n', '<leader>t', ':GFiles<CR>'},
-    {'n', '<silent>', '<leader>gd <Plug>(coc-definition)'},
-    {'n', '<silent>', '<leader>gt <Plug>(coc-type-definition)'},
-    {'n', '<silent>', '<leader>gi <Plug>(coc-implementation)'},
-    {'n', '<silent>', '<leader>gr <Plug>(coc-references)'},
+
+    -- lsp
+    {'n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>'},
+    {'n', '<leader>gh', ':lua vim.lsp.buf.hover()<CR>'},
+    {'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
+    {'n', '<leader>gg', ':lua vim.lsp.buf.implementation()<CR>'},
+    -- {'n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
+    -- {'n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
+    -- {'n', '<leader>gy', '<cmd>lua vim.lsp.buf.document_symbol()<CR>'},
+    -- {'n', '<silent>gu', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>'},
 }
 
-local opts = {noremap = true, silent = true}
-
 vim.g.mapleader = " "
+
+local opts = {noremap = true, silent = true}
 
 for i = 1, #binds do
     local mode = binds[i][1]

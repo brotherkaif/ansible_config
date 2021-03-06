@@ -38,3 +38,13 @@ bo.tabstop = 4
 o.shiftwidth = 4
 wo.foldmethod = 'indent'
 o.foldlevel = 1
+
+-- lsp
+vim.cmd('hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red')
+vim.cmd('hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow')
+vim.cmd('hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White')
+vim.cmd('hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White')
+vim.cmd('hi lspdiagnosticsunderlineerror guifg=none ctermfg=none cterm=underline gui=underline')
+vim.cmd('hi lspdiagnosticsunderlinewarning guifg=none ctermfg=none cterm=underline gui=underline')
+vim.cmd('hi lspdiagnosticsunderlineinformation guifg=none ctermfg=none cterm=underline gui=underline')
+vim.cmd('hi lspdiagnosticsunderlinehint guifg=none ctermfg=none cterm=underline gui=underline')
