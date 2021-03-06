@@ -21,33 +21,40 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing message extra message when using completion
 set shortmess+=c
 
+" ale
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+let g:ale_fixers = {
+	\    'javascript': ['eslint'],
+	\    'typescriptreact': ['eslint'],
+	\    'typescript': ['eslint'],
+	\    'json': ['eslint'],
+	\}
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_set_highlights = 0
+let g:ale_disable_lsp = 1 
+let g:ale_completion_enabled = 0
+
 " PLUG-IN LIST
 call plug#begin()
-	Plug 'tpope/vim-vinegar'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-fugitive'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/completion-nvim'
-	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	" Plug 'sheerun/vim-polyglot'
-	Plug 'rhlobo/vim-super-retab'
-	Plug 'millermedeiros/vim-statline'
+    " interface
+    Plug 'tpope/vim-vinegar'
+    Plug 'millermedeiros/vim-statline'
+
+    " helpers
+    Plug 'rhlobo/vim-super-retab'
+    Plug 'tpope/vim-commentary'
+
+    " tools
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+    " lsp
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+
+    " linting
+    Plug 'dense-analysis/ale'
 call plug#end()
 
 lua require 'init'
-
-" TEMP MACROS
-" c = create const object from input
-nnoremap <leader>mc 0f{v%lyggOconst INPUT = <esc>p%o<esc>
-" p = set const input param string
-nnoremap <leader>mp 0wveyf'asome <esc>pvb~0j
-" u = make const input param upcase
-nnoremap <leader>mu 0wve~j
-" i = fix input param ref
-nnoremap <leader>mi 0wywf:a INPUT.<esc>pvb~elc$,<esc>0j
-" o = fix output param ref
-nnoremap <leader>mo 0f{xxf}xxxF'xiINPUT.<esc>ebve~0j
-" s = replace endpoint ref with string template literal
-nnoremap <leader>ms 0f'r`f'r`F{;r$f}xbve~iINPUT.<esc>0

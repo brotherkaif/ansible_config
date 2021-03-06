@@ -36,8 +36,8 @@ local binds = {
     -- search files
     {'n', '<Leader>/', ':Ag<CR>'},
 
-    -- correct errors
-    {'n', '<leader>c', ':CocCommand eslint.executeAutofix<CR>'},
+    -- correct formatting and lint
+    {'n', '<leader>c', ':ALEFix<CR>'},
 
     -- navigation
     {'n', '<leader>p', ':Files<CR>'},
@@ -54,9 +54,9 @@ local binds = {
     -- {'n', '<silent>gu', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>'},
 }
 
-local opts = {noremap = true, silent = true}
-
 vim.g.mapleader = " "
+
+local opts = {noremap = true, silent = true}
 
 for i = 1, #binds do
     local mode = binds[i][1]
