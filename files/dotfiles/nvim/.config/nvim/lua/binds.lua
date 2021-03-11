@@ -4,6 +4,10 @@ local binds = {
     {'n', '<leader>se', ':Sexplore<CR>'},
     {'n', '<leader>ve', ':Vexplore<CR>'},
 
+    -- theme control
+    {'n', '<leader>[', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'},
+    {'n', '<leader>]', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'},
+
     -- window movement
     {'n', '<leader>j', '<C-W>j'},
     {'n', '<leader>k', '<C-W>k'},
