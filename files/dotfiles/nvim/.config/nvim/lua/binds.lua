@@ -48,14 +48,14 @@ local binds = {
     {'n', '<leader>t', ':GFiles<CR>'},
 
     -- lsp
-    {'n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>'},
-    {'n', '<leader>gh', ':lua vim.lsp.buf.hover()<CR>'},
-    {'n', '<leader>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
-    {'n', '<leader>gg', ':lua vim.lsp.buf.implementation()<CR>'},
-    -- {'n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
-    -- {'n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
-    -- {'n', '<leader>gy', '<cmd>lua vim.lsp.buf.document_symbol()<CR>'},
-    -- {'n', '<silent>gu', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>'},
+    {'n', '<silent>gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
+    {'n', '<silent>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>'},
+    {'n', '<silent>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
+    {'n', '<silent>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
+    {'n', '<silent>K', '<cmd>lua vim.lsp.buf.hover()<CR>'},
+    {'n', '<silent><C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
+    {'n', '<silent><C-n>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'},
+    {'n', '<silent><C-p>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'},
 }
 
 vim.g.mapleader = " "

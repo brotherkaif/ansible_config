@@ -12,27 +12,18 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 " PLUG-IN CONFIG
-" completetion-nvim
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-" Avoid showing message extra message when using completion
-set shortmess+=c
-
 " ale
-let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
-let g:ale_fixers = {
-	\    'javascript': ['eslint'],
-	\    'typescriptreact': ['eslint'],
-	\    'typescript': ['eslint'],
-	\    'json': ['eslint'],
-	\}
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_set_highlights = 0
-let g:ale_disable_lsp = 1 
-let g:ale_completion_enabled = 0
+" let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+" let g:ale_fixers = {
+" 	\    'javascript': ['eslint'],
+" 	\    'typescriptreact': ['eslint'],
+" 	\    'typescript': ['eslint'],
+" 	\    'json': ['eslint'],
+" 	\}
+" let g:ale_javascript_prettier_use_local_config = 1
+" let g:ale_set_highlights = 0
+" let g:ale_disable_lsp = 1 
+" let g:ale_completion_enabled = 0
 
 " PLUG-IN LIST
 call plug#begin()
@@ -51,10 +42,11 @@ call plug#begin()
 
     " lsp
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'anott03/nvim-lspinstall'
 
     " linting
-    Plug 'dense-analysis/ale'
+    " Plug 'dense-analysis/ale'
 call plug#end()
 
 lua require 'init'
