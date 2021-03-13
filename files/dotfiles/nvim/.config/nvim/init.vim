@@ -46,7 +46,7 @@ call plug#begin()
     Plug 'anott03/nvim-lspinstall'
 
     " linting
-    " Plug 'dense-analysis/ale'
+    Plug 'dense-analysis/ale'
 call plug#end()
 
 lua require 'init'
