@@ -1,14 +1,19 @@
 local lspconfig = require('lspconfig')
 
 -- language: JavaScript/TypeScript
--- requirements: 'typescript', 'typescript-language-server'
+-- requirements: 'npm', 'typescript', 'typescript-language-server'
 -- command: npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup{on_attach=require'completion'.on_attach}
+lspconfig.tsserver.setup{}
 
 -- language: YAML
--- requirements: 'yaml-language-server'
+-- requirements: 'npm', 'yaml-language-server'
 -- command: npm install -g yaml-language-server
-lspconfig.yamlls.setup{on_attach=require'completion'.on_attach}
+lspconfig.yamlls.setup{}
+
+-- language: BASH
+-- requirements: 'npm', 'bash-language-server'
+-- command: npm i -g bash-language-server
+lspconfig.bashls.setup{}
 
 -- options
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

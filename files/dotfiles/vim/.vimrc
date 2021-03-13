@@ -4,40 +4,6 @@
 " \ V /| | | | | | | | | (__
 "  \_/ |_|_| |_| |_|_|  \___|
 "============================
-" VIM-PLUG AUTO-LOAD
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" PLUG-IN CONFIG
-" coc.nvim
-let g:coc_global_extensions = ['coc-snippets', 'coc-git', 'coc-tsserver', 'coc-eslint', 'coc-json', 'coc-emmet', 'coc-prettier']
-
-" ultisnips
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" PLUG-IN LIST
-call plug#begin('$XDG_DATA_HOME/vim/plugged')
-	Plug 'tpope/vim-sensible'
-	Plug 'tpope/vim-vinegar'
-	Plug 'tpope/vim-commentary'
-	Plug 'tpope/vim-fugitive'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'MarcWeber/vim-addon-mw-utils' "(snipmate dependency)
-	Plug 'tomtom/tlib_vim' "(snipmate dependency)
-	Plug 'garbas/vim-snipmate'
-	Plug 'honza/vim-snippets'
-	Plug 'sheerun/vim-polyglot'
-	Plug 'rhlobo/vim-super-retab'
-	Plug 'millermedeiros/vim-statline'
-	Plug 'jszakmeister/vim-togglecursor'
-call plug#end()
-
 " VIM CUSTOMISATION
 " disable annoying stuff
 set noerrorbells
