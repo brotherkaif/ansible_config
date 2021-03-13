@@ -15,6 +15,47 @@
 
   tasks:
     - block:
+      - name: create required directories
+        tags: always
+        file:
+          path: '{{ home_directory }}/{{ item }}'
+          state: directory
+          owner: '{{ owner }}'
+          group: '{{ group }}'
+          mode: 0755
+        loop:
+          - projects
+          - playground
+          - .local/share/applications
+          - .vim
+          - .config/nvim
+          - .config/nvim/lua
+          - .config/nvim/lua/plugins
+
+      - name: sync dotfiles
+        tags: always,dotfiles
+        copy:
+          src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
+          dest: '{{ home_directory }}/{{ item.path }}'
+          owner: '{{ owner }}'
+          group: '{{ group }}'
+        loop:
+          - { package: 'bash', path: '.bashrc' }
+          - { package: 'bash', path: '.bash_profile' }
+          - { package: 'bash', path: '.inputrc' }
+          - { package: 'zsh', path: '.zshrc' }
+          - { package: 'tmux', path: '.tmux.conf' }
+          - { package: 'git', path: '.gitconfig' }
+          - { package: 'gcs', path: '.customize_environment' }
+          - { package: 'vim', path: '.vimrc' }
+          - { package: 'vim', path: '.vim/coc-settings.json' }
+          - { package: 'nvim', path: '.config/nvim/init.vim' }
+          - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/init.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
+
       - name: install base packages
         tags: always
         package:
@@ -93,53 +134,47 @@
       become: true
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
-#    - name: install brave (Darwin)
-#      tags: always
-#      community.general.homebrew_cask:
-#        name: brave-browser
-#        state: present
-#      when: ansible_distribution == 'MacOSX'
-#      ignore_errors: yes
+    - name: install godot (Debian)
+      block:
+        - name: install godot (Debian) | check if already installed
+          stat: path=/usr/local/bin/godot
+          register: godot_installed
+        - name: install godot (Debian) | download and unzip
+          unarchive:
+            src: https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_x11.64.zip
+            dest: /usr/local/bin
+            remote_src: yes
+          when: godot_installed.stat.exists == false
+        - name: install godot (Debian) | check if rename required
+          stat: path=/usr/local/bin/Godot_v3.2.3-stable_x11.64
+          register: godot_rename_required
+        - name: install godot (Debian) | rename file
+          command: mv /usr/local/bin/Godot_v3.2.3-stable_x11.64 /usr/local/bin/godot
+          when: godot_rename_required.stat.exists == true
+        - name: install godot (Debian) | copy icon
+          copy:
+            src: 'files/icons/godot-icon.png'
+            dest: '/usr/local/bin'
+            owner: '{{ owner }}'
+            group: '{{ group }}'
+        - name: install godot (Debian) | copy desktop shortcut
+          copy:
+            src: 'files/icons/Godot.desktop'
+            dest: '{{ home_directory }}/.local/share/applications'
+            owner: '{{ owner }}'
+            group: '{{ group }}'
+      become: true
+      when: ansible_distribution in ["Debian", "Ubuntu"]
 
-    - name: create required directories
-      tags: always
-      file:
-        path: '{{ home_directory }}/{{ item }}'
-        state: directory
-        owner: '{{ owner }}'
-        group: '{{ group }}'
-        mode: 0755
-      loop:
-        - projects
-        - playground
-        - .vim
-        - .config/nvim
-        - .config/nvim/lua
-        - .config/nvim/lua/plugins
-
-    - name: sync dotfiles
-      tags: always,dotfiles
-      copy:
-        src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
-        dest: '{{ home_directory }}/{{ item.path }}'
-        owner: '{{ owner }}'
-        group: '{{ group }}'
-      loop:
-        - { package: 'bash', path: '.bashrc' }
-        - { package: 'bash', path: '.bash_profile' }
-        - { package: 'bash', path: '.inputrc' }
-        - { package: 'zsh', path: '.zshrc' }
-        - { package: 'tmux', path: '.tmux.conf' }
-        - { package: 'git', path: '.gitconfig' }
-        - { package: 'gcs', path: '.customize_environment' }
-        - { package: 'vim', path: '.vimrc' }
-        - { package: 'vim', path: '.vim/coc-settings.json' }
-        - { package: 'nvim', path: '.config/nvim/init.vim' }
-        - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
-        - { package: 'nvim', path: '.config/nvim/lua/init.lua' }
-        - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
-        - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
-        - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
+    - name: install brave (Darwin)
+      block:
+        - name: install brave (Darwin) | install via homebrew
+          tags: always
+          homebrew_cask:
+            name: brave-browser
+            state: present
+            ignore_errors: yes
+      when: ansible_distribution == 'MacOSX'
 
     - name: remove init.sh script
       tags: always

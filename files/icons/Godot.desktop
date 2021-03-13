@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Godot
+Comment=The game engine you waited for
+Exec=/usr/local/bin/godot
+Icon=/usr/local/bin/godot-icon.png
+Type=Application
+Categories=Development
