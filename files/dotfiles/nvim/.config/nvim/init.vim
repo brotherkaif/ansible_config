@@ -13,17 +13,17 @@ endif
 
 " PLUG-IN CONFIG
 " ale
-" let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
-" let g:ale_fixers = {
-" 	\    'javascript': ['eslint'],
-" 	\    'typescriptreact': ['eslint'],
-" 	\    'typescript': ['eslint'],
-" 	\    'json': ['eslint'],
-" 	\}
-" let g:ale_javascript_prettier_use_local_config = 1
-" let g:ale_set_highlights = 0
-" let g:ale_disable_lsp = 1 
-" let g:ale_completion_enabled = 0
+let g:ale_linter_aliases = {'typescriptreact': 'typescript'}
+let g:ale_fixers = {
+	\    'javascript': ['eslint'],
+	\    'typescriptreact': ['eslint'],
+	\    'typescript': ['eslint'],
+	\    'json': ['eslint'],
+	\}
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_set_highlights = 0
+let g:ale_disable_lsp = 1 
+let g:ale_completion_enabled = 0
 
 " PLUG-IN LIST
 call plug#begin()
