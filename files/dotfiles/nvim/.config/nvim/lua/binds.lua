@@ -35,17 +35,17 @@ local binds = {
     {'n', '<leader>b', ':G<CR>'},
 
     -- command palatte
-    {'n', '<Leader>P', ':Commands<CR>'},
+    {'n', '<Leader>P', ':Telescope commands<CR>'},
 
     -- search files
-    {'n', '<Leader>/', ':Ag<CR>'},
+    {'n', '<Leader>/', ':Telescope live_grep<CR>'},
 
     -- correct formatting and lint
-    {'n', '<leader>c', ':ALEFix<CR>'},
+    -- {'n', '<leader>c', ':ALEFix<CR>'},
 
     -- navigation
-    {'n', '<leader>p', ':Files<CR>'},
-    {'n', '<leader>t', ':GFiles<CR>'},
+    {'n', '<leader>p', ':Telescope find_files<CR>'},
+    {'n', '<leader>t', ':Telescope git_files<CR>'},
 
     -- lsp
     {'n', '<silent>gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},

@@ -61,6 +61,7 @@
         tags: always
         package:
           name:
+            - ripgrep
             - tmux
             - tree
             - htop

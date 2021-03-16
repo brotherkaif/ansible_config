@@ -21,6 +21,10 @@ return require('packer').startup(function()
     use 'tpope/vim-commentary'
 
     -- tools
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
     use 'tpope/vim-fugitive'
 
     -- linting
