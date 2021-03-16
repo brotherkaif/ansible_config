@@ -49,11 +49,12 @@
           - { package: 'gcs', path: '.customize_environment' }
           - { package: 'vim', path: '.vimrc' }
           - { package: 'vim', path: '.vim/coc-settings.json' }
-          - { package: 'nvim', path: '.config/nvim/init.vim' }
+          - { package: 'nvim', path: '.config/nvim/init.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/init.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/plugins/ale-config.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
 
       - name: install base packages
