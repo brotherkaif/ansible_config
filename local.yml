@@ -50,7 +50,6 @@
           - { package: 'vim', path: '.vimrc' }
           - { package: 'vim', path: '.vim/coc-settings.json' }
           - { package: 'nvim', path: '.config/nvim/init.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
@@ -118,18 +117,18 @@
       tags: dev
       block:
         # lsp
-        # - name: install neovim plugin | nvim-lspconfig
-        #   git:
-        #     repo: https://github.com/neovim/nvim-lspconfig
-        #     dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
-        # - name: install neovim plugin | nvim-lspinstall
-        #   git:
-        #     repo: https://github.com/anott03/nvim-lspinstall
-        #     dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspinstall
-        # - name: install neovim plugin | nvim-compe
-        #   git:
-        #     repo: https://github.com/hrsh7th/nvim-compe
-        #     dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-compe
+        - name: install neovim plugin | nvim-lspconfig
+          git:
+            repo: https://github.com/neovim/nvim-lspconfig
+            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
+        - name: install neovim plugin | nvim-lspinstall
+          git:
+            repo: https://github.com/anott03/nvim-lspinstall
+            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspinstall
+        - name: install neovim plugin | nvim-compe
+          git:
+            repo: https://github.com/hrsh7th/nvim-compe
+            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-compe
         # helpers
         - name: install neovim plugin | vim-vinegar
           git:

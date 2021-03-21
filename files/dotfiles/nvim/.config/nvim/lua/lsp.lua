@@ -27,3 +27,5 @@ lspconfig.bashls.setup{}
 --    },
 --  }
 -- )
+
+print('- lsp.lua loaded!')
