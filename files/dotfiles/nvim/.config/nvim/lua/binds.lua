@@ -41,21 +41,21 @@ local binds = {
     {'n', '<Leader>/', ':Telescope live_grep<CR>'},
 
     -- correct formatting and lint
-    -- {'n', '<leader>c', ':ALEFix<CR>'},
+    {'n', '<leader>c', ':ALEFix<CR>'},
 
     -- navigation
     {'n', '<leader>p', ':Telescope find_files<CR>'},
     {'n', '<leader>t', ':Telescope git_files<CR>'},
 
     -- lsp
-    {'n', '<silent>gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
-    {'n', '<silent>gD', '<cmd>lua vim.lsp.buf.declaration()<CR>'},
-    {'n', '<silent>gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
-    {'n', '<silent>gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
-    {'n', '<silent>K', '<cmd>lua vim.lsp.buf.hover()<CR>'},
-    {'n', '<silent><C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
-    {'n', '<silent><C-n>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'},
-    {'n', '<silent><C-p>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'},
+    {'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
+    {'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>'},
+    {'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
+    {'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
+    {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'},
+    {'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
+    {'n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'},
+    {'n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'},
 }
 
 vim.g.mapleader = " "
@@ -70,4 +70,4 @@ for i = 1, #binds do
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-print('- binds.lua loaded!')
+print('- binds.lua...OK!')

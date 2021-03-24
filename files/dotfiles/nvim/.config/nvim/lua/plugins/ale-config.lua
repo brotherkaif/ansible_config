@@ -10,4 +10,4 @@ vim.api.nvim_set_var('ale_set_highlights', 0)
 vim.api.nvim_set_var('ale_disable_lsp', 1 )
 vim.api.nvim_set_var('ale_completion_enabled', 0)
 
-print('- plugins/ale-config.lua loaded!')
+print('- plugins/ale-config.lua...OK!')

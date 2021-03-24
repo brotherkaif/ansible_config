@@ -49,4 +49,4 @@ vim.cmd('hi lspdiagnosticsunderlinewarning guifg=none ctermfg=none cterm=underli
 vim.cmd('hi lspdiagnosticsunderlineinformation guifg=none ctermfg=none cterm=underline gui=underline')
 vim.cmd('hi lspdiagnosticsunderlinehint guifg=none ctermfg=none cterm=underline gui=underline')
 
-print('- options.lua loaded!')
+print('- options.lua...OK!')
