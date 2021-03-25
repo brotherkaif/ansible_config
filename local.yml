@@ -11,7 +11,7 @@
         upgrade: dist
         update_cache: yes
       become: true
-      when: ansible_distribution in ["Debian", "Ubuntu"]
+      when: ansible_distribution in ['Debian', 'Ubuntu']
 
   tasks:
     - block:
@@ -49,17 +49,18 @@
           - { package: 'gcs', path: '.customize_environment' }
           - { package: 'vim', path: '.vimrc' }
           - { package: 'vim', path: '.vim/coc-settings.json' }
-          - { package: 'nvim', path: '.config/nvim/init.vim' }
+          - { package: 'nvim', path: '.config/nvim/init.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/init.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
+          - { package: 'nvim', path: '.config/nvim/lua/plugins/ale-config.lua' }
           - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
 
       - name: install base packages
         tags: always
         package:
           name:
+            - ripgrep
             - tmux
             - tree
             - htop
@@ -75,12 +76,12 @@
         - name: install nodejs (Debian) | install the gpg key
           tags: dev
           apt_key:
-            url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+            url: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
             state: present
         - name: install nodejs (Debian) | install the nodejs LTS repos
           tags: dev
           apt_repository:
-            repo: "deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
+            repo: 'deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main'
             state: present
             update_cache: yes
         - name: install nodejs (Debian) | install package (Debian)
@@ -89,7 +90,7 @@
             name: nodejs
             state: present
       become: true
-      when: ansible_distribution in ["Debian", "Ubuntu"]
+      when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: install nodejs (Darwin)
       tags: dev
@@ -100,10 +101,10 @@
     - name: install neovim (Debian)
       tags: dev
       get_url:
-        url: "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+        url: 'https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
         dest: /usr/bin/nvim
         mode: 0755
-      when: ansible_distribution in ["Debian", "Ubuntu"]
+      when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: install neovim (Darwin)
       tags: dev
@@ -111,6 +112,62 @@
         name: neovim
         state: head
       when: ansible_distribution == 'MacOSX'
+
+    - name: install neovim plugins
+      tags: dev
+      block:
+        # lsp
+        - name: install neovim plugin | nvim-lspconfig
+          git:
+            repo: https://github.com/neovim/nvim-lspconfig
+            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
+        - name: install neovim plugin | nvim-lspinstall
+          git:
+            repo: https://github.com/anott03/nvim-lspinstall
+            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspinstall
+        - name: install neovim plugin | nvim-compe
+          git:
+            repo: https://github.com/hrsh7th/nvim-compe
+            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-compe
+        # helpers
+        - name: install neovim plugin | vim-vinegar
+          git:
+            repo: https://github.com/tpope/vim-vinegar
+            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-vinegar
+        - name: install neovim plugin | vim-commentary
+          git:
+            repo: https://github.com/tpope/vim-commentary
+            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-commentary
+        - name: install neovim plugin | vim-statline
+          git:
+            repo: https://github.com/millermedeiros/vim-statline
+            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-statline
+        - name: install neovim plugin | vim-super-retab
+          git:
+            repo: https://github.com/rhlobo/vim-super-retab
+            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-super-retab
+        # tools
+        - name: install neovim plugin | telescope.nvim
+          git:
+            repo: https://github.com/nvim-telescope/telescope.nvim
+            dest: ~/.local/share/nvim/site/pack/plugins/start/telescope.nvim
+        - name: install neovim plugin | popup.nvim
+          git:
+            repo: https://github.com/nvim-lua/popup.nvim
+            dest: ~/.local/share/nvim/site/pack/plugins/start/popup.nvim
+        - name: install neovim plugin | plenary.nvim
+          git:
+            repo: https://github.com/nvim-lua/plenary.nvim
+            dest: ~/.local/share/nvim/site/pack/plugins/start/plenary.nvim
+        - name: install neovim plugin | vim-fugitive
+          git:
+            repo: https://github.com/tpope/vim-fugitive
+            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-fugitive
+        # linting
+        - name: install neovim plugin | ale
+          git:
+            repo: https://github.com/dense-analysis/ale
+            dest: ~/.local/share/nvim/site/pack/plugins/start/ale
 
     - name: install brave (Debian)
       block:
@@ -132,7 +189,7 @@
             name: brave-browser
             state: present
       become: true
-      when: ansible_distribution in ["Debian", "Ubuntu"]
+      when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: install godot (Debian)
       block:
@@ -164,7 +221,7 @@
             owner: '{{ owner }}'
             group: '{{ group }}'
       become: true
-      when: ansible_distribution in ["Debian", "Ubuntu"]
+      when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: install brave (Darwin)
       block:
