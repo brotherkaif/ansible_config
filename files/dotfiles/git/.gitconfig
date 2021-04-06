@@ -3,3 +3,5 @@
 	name = Kaif Ahmed
 [pull]
 	rebase = false
+[commit]
+	template = ~/.config/git/git-commit-template.txt
