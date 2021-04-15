@@ -28,6 +28,7 @@
           - playground
           - .local/share/applications
           - .vim
+          - .config/git
           - .config/nvim
           - .config/nvim/lua
           - .config/nvim/lua/plugins
@@ -46,6 +47,7 @@
           - { package: 'zsh', path: '.zshrc' }
           - { package: 'tmux', path: '.tmux.conf' }
           - { package: 'git', path: '.gitconfig' }
+          - { package: 'git', path: '.config/git/git-commit-template.txt' }
           - { package: 'gcs', path: '.customize_environment' }
           - { package: 'vim', path: '.vimrc' }
           - { package: 'vim', path: '.vim/coc-settings.json' }
