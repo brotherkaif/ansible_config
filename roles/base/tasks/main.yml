@@ -1,0 +1,56 @@
+- name: create required directories
+  tags: always
+  file:
+    path: '{{ home_directory }}/{{ item }}'
+    state: directory
+    owner: '{{ owner }}'
+    group: '{{ group }}'
+    mode: 0755
+  loop:
+    - projects
+    - playground
+    - .local/share/applications
+    - .vim
+    - .config/git
+    - .config/nvim
+    - .config/nvim/lua
+    - .config/nvim/lua/plugins
+
+- name: sync dotfiles
+  tags: always,dotfiles
+  copy:
+    src: '{{ item.package }}/{{ item.path }}'
+    dest: '{{ home_directory }}/{{ item.path }}'
+    owner: '{{ owner }}'
+    group: '{{ group }}'
+  loop:
+    - { package: 'bash', path: '.bashrc' }
+    - { package: 'bash', path: '.bash_profile' }
+    - { package: 'bash', path: '.inputrc' }
+    - { package: 'zsh', path: '.zshrc' }
+    - { package: 'tmux', path: '.tmux.conf' }
+    - { package: 'git', path: '.gitconfig' }
+    - { package: 'git', path: '.config/git/git-commit-template.txt' }
+    - { package: 'gcs', path: '.customize_environment' }
+    - { package: 'vim', path: '.vimrc' }
+    - { package: 'vim', path: '.vim/coc-settings.json' }
+    - { package: 'nvim', path: '.config/nvim/init.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/ale-config.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
+
+- name: install base packages
+  tags: always
+  package:
+    name:
+      - ripgrep
+      - tmux
+      - tree
+      - htop
+      - git
+      - pass
+      - ffmpeg
+      - figlet
+      - toilet
