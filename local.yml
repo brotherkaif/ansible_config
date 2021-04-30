@@ -1,7 +1,10 @@
 ---
 - hosts: localhost
   connection: local
+  vars_files:
+    - vars/{{ ansible_distribution }}.yml
   pre_tasks:
+
     - name: install updates (Debian)
       tags: always
       apt:
@@ -9,6 +12,12 @@
         update_cache: yes
       become: true
       when: ansible_distribution in ['Debian', 'Ubuntu']
+
+    - name: remove init.sh script
+      tags: always
+      file:
+        path: '{{ home_directory }}/init.sh'
+        state: absent
 
 - hosts: localhost
   vars_files:
@@ -18,102 +27,10 @@
     - personal_config
     - neovim
     - brave
+    - godot
   become: '{{ should_be_root }}'
 
-  tasks:
-    - name: install nodejs (Debian)
-      block:
-        - name: install nodejs (Debian) | install the gpg key
-          tags: dev
-          apt_key:
-            url: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
-            state: present
-        - name: install nodejs (Debian) | install the nodejs LTS repos
-          tags: dev
-          apt_repository:
-            repo: 'deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main'
-            state: present
-            update_cache: yes
-        - name: install nodejs (Debian) | install package (Debian)
-          tags: dev
-          apt:
-            name: nodejs
-            state: present
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install nodejs (Darwin)
-      tags: dev
-      package:
-        name: node
-      when: ansible_distribution == 'MacOSX'
-
-    # - name: install brave (Debian)
-    #   block:
-    #     - name: install brave (Debian) | install the https method driver for apt
-    #       apt:
-    #         name: apt-transport-https
-    #         state: present
-    #         update_cache: yes
-    #     - name: install brave (Debian) | add the apt key
-    #       apt_key:
-    #         url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
-    #         state: present
-    #     - name: install brave (Debian) | add the apt repository
-    #       apt_repository:
-    #         repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
-    #         state: present
-    #     - name: install brave (Debian) | install package
-    #       apt:
-    #         name: brave-browser
-    #         state: present
-    #   become: true
-    #   when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install godot (Debian)
-      block:
-        - name: install godot (Debian) | check if already installed
-          stat: path=/usr/local/bin/godot
-          register: godot_installed
-        - name: install godot (Debian) | download and unzip
-          unarchive:
-            src: https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_x11.64.zip
-            dest: /usr/local/bin
-            remote_src: yes
-          when: godot_installed.stat.exists == false
-        - name: install godot (Debian) | check if rename required
-          stat: path=/usr/local/bin/Godot_v3.2.3-stable_x11.64
-          register: godot_rename_required
-        - name: install godot (Debian) | rename file
-          command: mv /usr/local/bin/Godot_v3.2.3-stable_x11.64 /usr/local/bin/godot
-          when: godot_rename_required.stat.exists == true
-        - name: install godot (Debian) | copy icon
-          copy:
-            src: 'files/icons/godot-icon.png'
-            dest: '/usr/local/bin'
-            owner: '{{ owner }}'
-            group: '{{ group }}'
-        - name: install godot (Debian) | copy desktop shortcut
-          copy:
-            src: 'files/icons/Godot.desktop'
-            dest: '{{ home_directory }}/.local/share/applications'
-            owner: '{{ owner }}'
-            group: '{{ group }}'
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install brave (Darwin)
-      block:
-        - name: install brave (Darwin) | install via homebrew
-          tags: always
-          homebrew_cask:
-            name: brave-browser
-            state: present
-            ignore_errors: yes
-      when: ansible_distribution == 'MacOSX'
-
-    - name: remove init.sh script
-      tags: always
-      file:
-        path: '{{ home_directory }}/init.sh'
-        state: absent
+- hosts: localhost
+  tags: work
+  roles:
+    - nodejs
