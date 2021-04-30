@@ -17,6 +17,7 @@
   roles:
     - personal_config
     - neovim
+    - brave
   become: '{{ should_be_root }}'
 
   tasks:
@@ -47,27 +48,27 @@
         name: node
       when: ansible_distribution == 'MacOSX'
 
-    - name: install brave (Debian)
-      block:
-        - name: install brave (Debian) | install the https method driver for apt
-          apt:
-            name: apt-transport-https
-            state: present
-            update_cache: yes
-        - name: install brave (Debian) | add the apt key
-          apt_key:
-            url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
-            state: present
-        - name: install brave (Debian) | add the apt repository
-          apt_repository:
-            repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
-            state: present
-        - name: install brave (Debian) | install package
-          apt:
-            name: brave-browser
-            state: present
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
+    # - name: install brave (Debian)
+    #   block:
+    #     - name: install brave (Debian) | install the https method driver for apt
+    #       apt:
+    #         name: apt-transport-https
+    #         state: present
+    #         update_cache: yes
+    #     - name: install brave (Debian) | add the apt key
+    #       apt_key:
+    #         url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
+    #         state: present
+    #     - name: install brave (Debian) | add the apt repository
+    #       apt_repository:
+    #         repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+    #         state: present
+    #     - name: install brave (Debian) | install package
+    #       apt:
+    #         name: brave-browser
+    #         state: present
+    #   become: true
+    #   when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: install godot (Debian)
       block:
