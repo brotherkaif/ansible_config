@@ -3,8 +3,8 @@
   connection: local
   vars_files:
     - vars/{{ ansible_distribution }}.yml
-
   pre_tasks:
+
     - name: install updates (Debian)
       tags: always
       apt:
@@ -13,230 +13,24 @@
       become: true
       when: ansible_distribution in ['Debian', 'Ubuntu']
 
-  tasks:
-    - block:
-      - name: create required directories
-        tags: always
-        file:
-          path: '{{ home_directory }}/{{ item }}'
-          state: directory
-          owner: '{{ owner }}'
-          group: '{{ group }}'
-          mode: 0755
-        loop:
-          - projects
-          - playground
-          - .local/share/applications
-          - .vim
-          - .config/git
-          - .config/nvim
-          - .config/nvim/lua
-          - .config/nvim/lua/plugins
-
-      - name: sync dotfiles
-        tags: always,dotfiles
-        copy:
-          src: 'files/dotfiles/{{ item.package }}/{{ item.path }}'
-          dest: '{{ home_directory }}/{{ item.path }}'
-          owner: '{{ owner }}'
-          group: '{{ group }}'
-        loop:
-          - { package: 'bash', path: '.bashrc' }
-          - { package: 'bash', path: '.bash_profile' }
-          - { package: 'bash', path: '.inputrc' }
-          - { package: 'zsh', path: '.zshrc' }
-          - { package: 'tmux', path: '.tmux.conf' }
-          - { package: 'git', path: '.gitconfig' }
-          - { package: 'git', path: '.config/git/git-commit-template.txt' }
-          - { package: 'gcs', path: '.customize_environment' }
-          - { package: 'vim', path: '.vimrc' }
-          - { package: 'vim', path: '.vim/coc-settings.json' }
-          - { package: 'nvim', path: '.config/nvim/init.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/plugins/ale-config.lua' }
-          - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
-
-      - name: install base packages
-        tags: always
-        package:
-          name:
-            - ripgrep
-            - tmux
-            - tree
-            - htop
-            - git
-            - pass
-            - ffmpeg
-            - figlet
-            - toilet
-      become: '{{ should_be_root }}'
-
-    - name: install nodejs (Debian)
-      block:
-        - name: install nodejs (Debian) | install the gpg key
-          tags: dev
-          apt_key:
-            url: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
-            state: present
-        - name: install nodejs (Debian) | install the nodejs LTS repos
-          tags: dev
-          apt_repository:
-            repo: 'deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main'
-            state: present
-            update_cache: yes
-        - name: install nodejs (Debian) | install package (Debian)
-          tags: dev
-          apt:
-            name: nodejs
-            state: present
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install nodejs (Darwin)
-      tags: dev
-      package:
-        name: node
-      when: ansible_distribution == 'MacOSX'
-
-    - name: install neovim (Debian)
-      tags: dev
-      get_url:
-        url: 'https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
-        dest: /usr/bin/nvim
-        mode: 0755
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install neovim (Darwin)
-      tags: dev
-      homebrew:
-        name: neovim
-        state: head
-      when: ansible_distribution == 'MacOSX'
-
-    - name: install neovim plugins
-      tags: dev
-      block:
-        # lsp
-        - name: install neovim plugin | nvim-lspconfig
-          git:
-            repo: https://github.com/neovim/nvim-lspconfig
-            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
-        - name: install neovim plugin | nvim-lspinstall
-          git:
-            repo: https://github.com/anott03/nvim-lspinstall
-            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspinstall
-        - name: install neovim plugin | nvim-compe
-          git:
-            repo: https://github.com/hrsh7th/nvim-compe
-            dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-compe
-        # helpers
-        - name: install neovim plugin | vim-vinegar
-          git:
-            repo: https://github.com/tpope/vim-vinegar
-            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-vinegar
-        - name: install neovim plugin | vim-commentary
-          git:
-            repo: https://github.com/tpope/vim-commentary
-            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-commentary
-        - name: install neovim plugin | vim-statline
-          git:
-            repo: https://github.com/millermedeiros/vim-statline
-            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-statline
-        - name: install neovim plugin | vim-super-retab
-          git:
-            repo: https://github.com/rhlobo/vim-super-retab
-            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-super-retab
-        # tools
-        - name: install neovim plugin | telescope.nvim
-          git:
-            repo: https://github.com/nvim-telescope/telescope.nvim
-            dest: ~/.local/share/nvim/site/pack/plugins/start/telescope.nvim
-        - name: install neovim plugin | popup.nvim
-          git:
-            repo: https://github.com/nvim-lua/popup.nvim
-            dest: ~/.local/share/nvim/site/pack/plugins/start/popup.nvim
-        - name: install neovim plugin | plenary.nvim
-          git:
-            repo: https://github.com/nvim-lua/plenary.nvim
-            dest: ~/.local/share/nvim/site/pack/plugins/start/plenary.nvim
-        - name: install neovim plugin | vim-fugitive
-          git:
-            repo: https://github.com/tpope/vim-fugitive
-            dest: ~/.local/share/nvim/site/pack/plugins/start/vim-fugitive
-        # linting
-        - name: install neovim plugin | ale
-          git:
-            repo: https://github.com/dense-analysis/ale
-            dest: ~/.local/share/nvim/site/pack/plugins/start/ale
-
-    - name: install brave (Debian)
-      block:
-        - name: install brave (Debian) | install the https method driver for apt
-          apt:
-            name: apt-transport-https
-            state: present
-            update_cache: yes
-        - name: install brave (Debian) | add the apt key
-          apt_key:
-            url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
-            state: present
-        - name: install brave (Debian) | add the apt repository
-          apt_repository:
-            repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
-            state: present
-        - name: install brave (Debian) | install package
-          apt:
-            name: brave-browser
-            state: present
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install godot (Debian)
-      block:
-        - name: install godot (Debian) | check if already installed
-          stat: path=/usr/local/bin/godot
-          register: godot_installed
-        - name: install godot (Debian) | download and unzip
-          unarchive:
-            src: https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_x11.64.zip
-            dest: /usr/local/bin
-            remote_src: yes
-          when: godot_installed.stat.exists == false
-        - name: install godot (Debian) | check if rename required
-          stat: path=/usr/local/bin/Godot_v3.2.3-stable_x11.64
-          register: godot_rename_required
-        - name: install godot (Debian) | rename file
-          command: mv /usr/local/bin/Godot_v3.2.3-stable_x11.64 /usr/local/bin/godot
-          when: godot_rename_required.stat.exists == true
-        - name: install godot (Debian) | copy icon
-          copy:
-            src: 'files/icons/godot-icon.png'
-            dest: '/usr/local/bin'
-            owner: '{{ owner }}'
-            group: '{{ group }}'
-        - name: install godot (Debian) | copy desktop shortcut
-          copy:
-            src: 'files/icons/Godot.desktop'
-            dest: '{{ home_directory }}/.local/share/applications'
-            owner: '{{ owner }}'
-            group: '{{ group }}'
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
-    - name: install brave (Darwin)
-      block:
-        - name: install brave (Darwin) | install via homebrew
-          tags: always
-          homebrew_cask:
-            name: brave-browser
-            state: present
-            ignore_errors: yes
-      when: ansible_distribution == 'MacOSX'
-
     - name: remove init.sh script
       tags: always
       file:
         path: '{{ home_directory }}/init.sh'
         state: absent
+
+- hosts: localhost
+  vars_files:
+    - vars/{{ ansible_distribution }}.yml
+  tags: personal
+  roles:
+    - personal_config
+    - neovim
+    - brave
+    - godot
+  become: '{{ should_be_root }}'
+
+- hosts: localhost
+  tags: work
+  roles:
+    - nodejs

@@ -1,0 +1,28 @@
+- name: package installation (Debian)
+  block:
+    - name: install nodejs (Debian) | install the gpg key
+      tags: dev
+      apt_key:
+        url: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
+        state: present
+
+    - name: install nodejs (Debian) | install the nodejs LTS repos
+      tags: dev
+      apt_repository:
+        repo: 'deb https://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main'
+        state: present
+        update_cache: yes
+
+    - name: install nodejs (Debian) | install package (Debian)
+      tags: dev
+      apt:
+        name: nodejs
+        state: present
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: package installation (Darwin)
+  tags: dev
+  package:
+    name: node
+  when: ansible_distribution == 'MacOSX'

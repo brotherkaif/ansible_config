@@ -1,0 +1,85 @@
+- name: app installation (Debian)
+  tags: dev
+  get_url:
+    url: 'https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
+    dest: /usr/bin/nvim
+    mode: 0755
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: app installation (Darwin)
+  tags: dev
+  homebrew:
+    name: neovim
+    state: head
+  when: ansible_distribution == 'MacOSX'
+
+- name: plugins installation
+  tags: dev
+  block:
+    # lsp
+    # ===
+    - name: nvim-lspconfig
+      git:
+        repo: https://github.com/neovim/nvim-lspconfig
+        dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspconfig
+
+    - name: nvim-lspinstall
+      git:
+        repo: https://github.com/anott03/nvim-lspinstall
+        dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-lspinstall
+
+    - name: nvim-compe
+      git:
+        repo: https://github.com/hrsh7th/nvim-compe
+        dest: ~/.local/share/nvim/site/pack/plugins/start/nvim-compe
+
+    # helpers
+    # =======
+    - name: vim-vinegar
+      git:
+        repo: https://github.com/tpope/vim-vinegar
+        dest: ~/.local/share/nvim/site/pack/plugins/start/vim-vinegar
+
+    - name: vim-commentary
+      git:
+        repo: https://github.com/tpope/vim-commentary
+        dest: ~/.local/share/nvim/site/pack/plugins/start/vim-commentary
+
+    - name: vim-statline
+      git:
+        repo: https://github.com/millermedeiros/vim-statline
+        dest: ~/.local/share/nvim/site/pack/plugins/start/vim-statline
+
+    - name: vim-super-retab
+      git:
+        repo: https://github.com/rhlobo/vim-super-retab
+        dest: ~/.local/share/nvim/site/pack/plugins/start/vim-super-retab
+
+    # tools
+    # =====
+    - name: telescope.nvim
+      git:
+        repo: https://github.com/nvim-telescope/telescope.nvim
+        dest: ~/.local/share/nvim/site/pack/plugins/start/telescope.nvim
+
+    - name: popup.nvim
+      git:
+        repo: https://github.com/nvim-lua/popup.nvim
+        dest: ~/.local/share/nvim/site/pack/plugins/start/popup.nvim
+
+    - name: plenary.nvim
+      git:
+        repo: https://github.com/nvim-lua/plenary.nvim
+        dest: ~/.local/share/nvim/site/pack/plugins/start/plenary.nvim
+
+    - name: vim-fugitive
+      git:
+        repo: https://github.com/tpope/vim-fugitive
+        dest: ~/.local/share/nvim/site/pack/plugins/start/vim-fugitive
+
+    # linting
+    # =======
+    - name: ale
+      git:
+        repo: https://github.com/dense-analysis/ale
+        dest: ~/.local/share/nvim/site/pack/plugins/start/ale

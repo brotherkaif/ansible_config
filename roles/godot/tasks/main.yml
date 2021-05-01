@@ -1,0 +1,36 @@
+- name: installation (Debian)
+  block:
+    - name: check if already installed (Debian)
+      stat: path=/usr/local/bin/godot
+      register: godot_installed
+
+    - name: download and unzip (Debian)
+      unarchive:
+        src: https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_x11.64.zip
+        dest: /usr/local/bin
+        remote_src: yes
+      when: godot_installed.stat.exists == false
+
+    - name: check if rename required (Debian)
+      stat: path=/usr/local/bin/Godot_v3.2.3-stable_x11.64
+      register: godot_rename_required
+
+    - name: rename file (Debian)
+      command: mv /usr/local/bin/Godot_v3.2.3-stable_x11.64 /usr/local/bin/godot
+      when: godot_rename_required.stat.exists == true
+
+    - name: copy icon (Debian)
+      copy:
+        src: 'godot-icon.png'
+        dest: '/usr/local/bin'
+        owner: '{{ owner }}'
+        group: '{{ group }}'
+
+    - name: copy desktop shortcut (Debian)
+      copy:
+        src: 'Godot.desktop'
+        dest: '{{ home_directory }}/.local/share/applications'
+        owner: '{{ owner }}'
+        group: '{{ group }}'
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
