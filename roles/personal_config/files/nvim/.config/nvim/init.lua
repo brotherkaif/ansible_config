@@ -13,5 +13,6 @@ require('options')
 require('lsp')
 require('plugins/ale-config')
 require('plugins/compe-config')
+require('plugins/telescope-config')
 
 print('[COMPLETED]')
