@@ -62,6 +62,11 @@
         repo: https://github.com/nvim-telescope/telescope.nvim
         dest: ~/.local/share/nvim/site/pack/plugins/start/telescope.nvim
 
+    - name: telescope-fzy-native.nvim
+      git:
+        repo: https://github.com/nvim-telescope/telescope-fzy-native.nvim
+        dest: ~/.local/share/nvim/site/pack/plugins/start/telescope-fzy-native.nvim
+
     - name: popup.nvim
       git:
         repo: https://github.com/nvim-lua/popup.nvim
