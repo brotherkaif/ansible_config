@@ -28,7 +28,6 @@
     - neovim
     - brave
     - godot
-  become: '{{ should_be_root }}'
 
 - hosts: localhost
   tags: work

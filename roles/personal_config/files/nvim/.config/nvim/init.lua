@@ -10,6 +10,7 @@ print('LOADING CONFIGS...')
 
 require('binds')
 require('options')
+require('plugins')
 require('lsp')
 require('plugins/ale-config')
 require('plugins/compe-config')
