@@ -38,7 +38,7 @@ local binds = {
     {'n', '<Leader>P', ':Telescope commands<CR>'},
 
     -- search files
-    {'n', '<Leader>/', ':Telescope live_grep<CR>'},
+    {'n', '<Leader>/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'},
 
     -- correct formatting and lint
     {'n', '<leader>c', ':ALEFix<CR>'},

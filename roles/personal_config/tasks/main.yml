@@ -47,6 +47,7 @@
   tags: always
   package:
     name:
+      - build-essential
       - ripgrep
       - tmux
       - tree
@@ -56,3 +57,4 @@
       - ffmpeg
       - figlet
       - toilet
+  become: '{{ should_be_root }}'
