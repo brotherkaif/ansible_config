@@ -47,7 +47,6 @@
   tags: always
   package:
     name:
-      - build-essential
       - ripgrep
       - tmux
       - tree
@@ -58,3 +57,11 @@
       - figlet
       - toilet
   become: '{{ should_be_root }}'
+
+- name: additional linux packages
+  tags: always
+  package:
+    name:
+      - build-essential
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
