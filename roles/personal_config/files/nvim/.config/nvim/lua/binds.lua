@@ -1,63 +1,51 @@
 local binds = {
-    -- directory exploration
-    {'n', '<leader>ne', ':tabnew<CR>:Explore<CR>'},
-    {'n', '<leader>se', ':Sexplore<CR>'},
-    {'n', '<leader>ve', ':Vexplore<CR>'},
+    -- THEME CONTROL = `[` + `]`
+    {'n', '<leader>[', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to light
+    {'n', '<leader>]', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to dark
 
-    -- theme control
-    {'n', '<leader>[', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'},
-    {'n', '<leader>]', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'},
+    -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
+    {'n', '<leader>h', '<C-W>h'}, -- move cursor to left window
+    {'n', '<leader>j', '<C-W>j'}, -- move cursor to bottom window
+    {'n', '<leader>k', '<C-W>k'}, -- move cursor to top window
+    {'n', '<leader>l', '<C-W>l'}, -- move cursor to right window
 
-    -- window movement
-    {'n', '<leader>j', '<C-W>j'},
-    {'n', '<leader>k', '<C-W>k'},
-    {'n', '<leader>l', '<C-W>l'},
-    {'n', '<leader>h', '<C-W>h'},
+    -- WINDOW CONTROL = `w`
+    {'n', '<leader>wi', '<C-W>_<C-W>|'}, -- zoom in window
+    {'n', '<leader>wo', '<C-W>='}, -- zoom out window
+    {'n', '<leader>wq', ':q<CR>'}, -- quit window
+    {'n', '<leader>wh', '<C-W>H'}, -- move window to left
+    {'n', '<leader>wj', '<C-W>J'}, -- move window to bottom
+    {'n', '<leader>wk', '<C-W>K'}, -- move window to top
+    {'n', '<leader>wl', '<C-W>L'}, -- move window to right
 
-    -- window arrangement
-    {'n', '<leader>J', '<C-W>J'},
-    {'n', '<leader>K', '<C-W>K'},
-    {'n', '<leader>L', '<C-W>L'},
-    {'n', '<leader>H', '<C-W>H'},
+    -- TERMINAL CONTROL = `t`
+    {'n', '<leader>th', ':split<CR>:term<CR>'}, -- open horizontal terminal window
+    {'n', '<leader>tv', ':vsplit<CR>:term<CR>'}, -- open vertical terminal window
+    {'t', '<leader><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
-    -- window focus
-    {'n', '<leader>i', '<C-W>_<C-W>|'},
-    {'n', '<leader>o', '<C-W>='},
-    {'n', '<leader>q', ':q<CR>'},
+    -- FILES = `f`
+    {'n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>'}, -- open file finder
+    {'n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>'}, -- open git file finder
+    {'n', '<leader>fb', '<cmd>lua require("telescope.builtin").file_browser()<CR>'}, -- open file browser
 
-    -- terminal control
-    {'t', '<leader><Esc>', '<C-\\><C-n>'},
-    {'n', '<leader>nt', ':tabnew<CR>:term<CR>'},
-    {'n', '<leader>st', ':split<CR>:term<CR>'},
-    {'n', '<leader>vt', ':vsplit<CR>:term<CR>'},
+    -- SEARCHING = `s`
+    {'n', '<Leader>sf', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
+    {'n', '<Leader>sb', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
-    -- git branch status
-    {'n', '<leader>b', ':G<CR>'},
+    -- GIT CONTROL = `g`
+    {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
+    {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
+    {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
+    {'n', '<leader>gg', ':Git<CR>'}, -- open git commit manager
 
-    -- command palatte
-    {'n', '<Leader>P', ':Telescope commands<CR>'},
+    -- TELESCOPE PICKERS = `p`
+    {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR><CR>'}, -- opens list of Telescope pickers
 
-    -- search files
-    {'n', '<Leader>/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'},
-
-    -- correct formatting and lint
-    {'n', '<leader>c', ':ALEFix<CR>'},
-
-    -- navigation
-    {'n', '<leader>p', ':Telescope find_files<CR>'},
-    {'n', '<leader>t', ':Telescope git_files<CR>'},
-
-    -- lsp
-    {'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
-    {'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>'},
-    {'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
-    {'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
-    {'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>'},
-    {'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
-    {'n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'},
-    {'n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'},
+    -- CORRECT FILE WITH LINTER = `c`
+    {'n', '<leader>c', ':ALEFix<CR>'}, -- runs linter on current buffer
 }
 
+-- <leader> = space
 vim.g.mapleader = " "
 
 local opts = {noremap = true, silent = true}
