@@ -7,6 +7,19 @@ print('- plugins/telescope-config.lua...OK!')
 -- picker configurations for use with binds
 local picker_configs = {}
 
+-- live_grep with tweaked layout
+picker_configs.live_grep = function()
+    local opts = {
+	sorting_strategy = 'ascending',
+
+	layout_config = {
+	    prompt_position = 'top'
+	}
+    }
+
+    require('telescope.builtin').live_grep(opts)
+end
+
 -- current_buffer_fuzzy_find with tweaked layout
 picker_configs.current_buffer_fuzzy_find = function()
     local opts = {
