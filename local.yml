@@ -13,6 +13,14 @@
       become: true
       when: ansible_distribution in ['Debian', 'Ubuntu']
 
+    - name: install updates (Darwin)
+      tags: always
+      community.general.homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
+      become: false
+      when: ansible_distribution == 'MacOSX'
+
     - name: remove init.sh script
       tags: always
       file:

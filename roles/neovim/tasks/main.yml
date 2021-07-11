@@ -1,7 +1,7 @@
 - name: app installation (Debian)
   tags: dev
   get_url:
-    url: 'https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage'
+    url: 'https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage'
     dest: /usr/bin/nvim
     mode: 0755
   when: ansible_distribution in ['Debian', 'Ubuntu']
@@ -10,7 +10,7 @@
   tags: dev
   homebrew:
     name: neovim
-    state: head
+    # state: head
   when: ansible_distribution == 'MacOSX'
 
 - name: packer installation

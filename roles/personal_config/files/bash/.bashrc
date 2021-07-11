@@ -42,6 +42,9 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 # ENV VARIABLES
 export MYVIMRC="$HOME/.vimrc"
 
+# ANSIBLE OPTIONS
+export ANSIBLE_NOCOWS=1
+
 # NVM SETUP
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
