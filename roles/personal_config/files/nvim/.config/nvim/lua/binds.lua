@@ -10,8 +10,7 @@ local binds = {
     {'n', '<leader>l', '<C-W>l'}, -- move cursor to right window
 
     -- WINDOW CONTROL = `w`
-    {'n', '<leader>wi', '<C-W>_<C-W>|'}, -- zoom in window
-    {'n', '<leader>wo', '<C-W>='}, -- zoom out window
+    {'n', '<leader>wz', ':ZenMode<CR>'}, -- zen mode toggle
     {'n', '<leader>wq', ':q<CR>'}, -- quit window
     {'n', '<leader>wh', '<C-W>H'}, -- move window to left
     {'n', '<leader>wj', '<C-W>J'}, -- move window to bottom
