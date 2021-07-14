@@ -27,9 +27,9 @@ local binds = {
     {'n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>'}, -- open git file finder
     {'n', '<leader>fb', '<cmd>lua require("telescope.builtin").file_browser()<CR>'}, -- open file browser
 
-    -- SEARCHING = `s`
-    {'n', '<Leader>sf', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
-    {'n', '<Leader>sb', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
+    -- SEARCHING = `/`
+    {'n', '<Leader>/f', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
+    {'n', '<Leader>/b', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
     -- GIT CONTROL = `g`
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
@@ -38,7 +38,7 @@ local binds = {
     {'n', '<leader>gg', ':Git<CR>'}, -- open git commit manager
 
     -- TELESCOPE PICKERS = `p`
-    {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR><CR>'}, -- opens list of Telescope pickers
+    {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
 
     -- CORRECT FILE WITH LINTER = `c`
     {'n', '<leader>c', ':ALEFix<CR>'}, -- runs linter on current buffer
