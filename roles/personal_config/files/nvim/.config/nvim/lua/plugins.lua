@@ -15,7 +15,15 @@ return require('packer').startup(function()
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+    -- interface
+    use {
+	'folke/zen-mode.nvim',
+	config = function()
+	    require("zen-mode").setup{}
+	end
+    }
 
     -- linting
     use 'dense-analysis/ale'
