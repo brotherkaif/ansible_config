@@ -29,5 +29,5 @@ return require('packer').startup(function()
     use 'hrsh7th/nvim-compe'
 
     -- linting
-    use 'dense-analysis/ale'
+    use 'mhartington/formatter.nvim'
 end)

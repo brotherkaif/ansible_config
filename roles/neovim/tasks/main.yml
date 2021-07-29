@@ -32,6 +32,7 @@
     - typescript-language-server
     - diagnostic-languageserver
     - eslint_d
+    - prettier
     # YAML
     - yaml-language-server
     # Bash
