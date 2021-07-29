@@ -27,6 +27,7 @@ return require('packer').startup(function()
 	end
     }
     use 'hrsh7th/nvim-compe'
+    use 'hoob3rt/lualine.nvim'
 
     -- linting
     use 'mhartington/formatter.nvim'

@@ -19,6 +19,7 @@ wo.wrap = false
 wo.signcolumn = 'yes'
 vim.cmd('highlight clear SignColumn')
 vim.cmd('highlight clear Folded')
+vim.cmd('highlight VertSplit cterm=NONE')
 
 -- searching
 o.ignorecase = true
