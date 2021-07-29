@@ -33,11 +33,7 @@
   tags: personal
   roles:
     - personal_config
+    - nodejs
     - neovim
     - brave
     - godot
-
-- hosts: localhost
-  tags: work
-  roles:
-    - nodejs

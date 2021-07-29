@@ -2,8 +2,10 @@ return require('packer').startup(function()
     -- core
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-compe'
-    use 'millermedeiros/vim-statline'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     -- quality of life
     use 'tpope/vim-vinegar'
@@ -24,7 +26,9 @@ return require('packer').startup(function()
 	    require("zen-mode").setup{}
 	end
     }
+    use 'hrsh7th/nvim-compe'
+    use 'hoob3rt/lualine.nvim'
 
     -- linting
-    use 'dense-analysis/ale'
+    use 'mhartington/formatter.nvim'
 end)

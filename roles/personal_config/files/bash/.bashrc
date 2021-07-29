@@ -19,9 +19,9 @@ if [ -f "/google/devshell/bashrc.google" ]; then
 fi
 
 # TMUX AUTO LOAD
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-	tmux -2 attach -t MAIN || tmux -2 new -s MAIN
-fi
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+# 	tmux -2 attach -t MAIN || tmux -2 new -s MAIN
+# fi
 
 # MOTD
 echo -e "\e[43;30m T E R M I N A L \e[0m"
@@ -40,7 +40,8 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 # ENV VARIABLES
-export MYVIMRC="$HOME/.vimrc"
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # ANSIBLE OPTIONS
 export ANSIBLE_NOCOWS=1

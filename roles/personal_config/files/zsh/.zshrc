@@ -9,9 +9,9 @@
 bindkey -v
 
 # TMUX AUTO LOAD
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-	tmux -2 attach -t MAIN || tmux -2 new -s MAIN
-fi
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+# 	tmux -2 attach -t MAIN || tmux -2 new -s MAIN
+# fi
 
 # MOTD
 clear
@@ -31,7 +31,8 @@ export XDG_DATA_DIRS="/usr/local/share:/usr/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 # ENV VARIABLES
-export MYVIMRC="$HOME/.vimrc"
+export VISUAL=nvim
+export EDITOR="$VISUAL"
 
 # ANSIBLE OPTIONS
 export ANSIBLE_NOCOWS=1
