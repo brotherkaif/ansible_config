@@ -32,3 +32,6 @@ return require('packer').startup(function()
     -- linting
     use 'mhartington/formatter.nvim'
 end)
+
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- plugins.lua...OK!')

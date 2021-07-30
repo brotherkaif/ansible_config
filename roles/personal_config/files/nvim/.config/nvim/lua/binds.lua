@@ -57,4 +57,5 @@ for i = 1, #binds do
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-print('- binds.lua...OK!')
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- binds.lua...OK!')

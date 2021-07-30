@@ -28,4 +28,5 @@ lspconfig.bashls.setup{}
 --  }
 -- )
 
-print('- lsp.lua...OK!')
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- lsp.lua...OK!')
