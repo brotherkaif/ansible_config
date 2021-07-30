@@ -14,7 +14,8 @@ require('telescope').setup({
 
 require('telescope').load_extension('fzf')
 
-print('- plugins/telescope-config.lua...OK!')
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- plugins/telescope-config.lua...OK!')
 
 -- picker configurations for use with binds
 local picker_configs = {}
@@ -44,8 +45,5 @@ picker_configs.current_buffer_fuzzy_find = function()
 
     require('telescope.builtin').current_buffer_fuzzy_find(opts)
 end
-
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- plugins/telescope-config.lua...OK!')
 
 return picker_configs
