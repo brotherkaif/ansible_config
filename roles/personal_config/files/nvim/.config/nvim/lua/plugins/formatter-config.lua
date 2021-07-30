@@ -23,3 +23,6 @@ require('formatter').setup({
     -- },
   }
 })
+
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- plugins/formatter-config.lua...OK!')

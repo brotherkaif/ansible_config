@@ -6,3 +6,6 @@ require('lualine').setup({
 	component_separators = '',
     },
 })
+
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- plugins/lualine-config.lua...OK!')

@@ -45,4 +45,7 @@ picker_configs.current_buffer_fuzzy_find = function()
     require('telescope.builtin').current_buffer_fuzzy_find(opts)
 end
 
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- plugins/telescope-config.lua...OK!')
+
 return picker_configs
