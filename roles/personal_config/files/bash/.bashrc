@@ -51,12 +51,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# convenience aliases
+# CONVENIENCE ALIASES
 alias ll='ls -la'
 alias sc='ansible-pull -U https://github.com/brotherkaif/config.git'
 alias sl='ansible-playbook ~/projects/config/local.yml'
 
-# git aliases
+# GIT ALIASES
 alias gst='git status'
 alias ga='git add'
 alias gaa='git add .'
@@ -64,5 +64,5 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gco='git checkout'
 
-# app aliases
+# APP ALIASES
 alias tmux='tmux -2'
