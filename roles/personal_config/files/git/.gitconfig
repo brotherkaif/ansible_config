@@ -5,3 +5,5 @@
 	rebase = false
 [commit]
 	template = ~/.config/git/git-commit-template.txt
+[push]
+	default = current
