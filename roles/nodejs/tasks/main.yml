@@ -25,4 +25,5 @@
   tags: dev
   package:
     name: node
+    state: present
   when: ansible_distribution == 'MacOSX'
