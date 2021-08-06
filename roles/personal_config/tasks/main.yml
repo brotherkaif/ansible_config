@@ -54,6 +54,7 @@
       - ffmpeg
       - figlet
       - toilet
+    state: present
   become: '{{ should_be_root }}'
 
 - name: additional linux packages
@@ -61,5 +62,12 @@
   package:
     name:
       - build-essential
+    state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: pull down config repository
+  tags: always
+  git:
+    repo: https://github.com/brotherkaif/config.git
+    dest: '{{ home_directory }}/projects/config'
