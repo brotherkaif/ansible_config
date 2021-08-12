@@ -30,9 +30,10 @@ local binds = {
 
     -- BUFFERS = `b`
     {'n', '<leader>bw', ':w'}, -- write buffer
+    {'n', '<leader>bf', ':Format'}, -- runs formatter/linter on current buffer
     {'n', '<Leader>b/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
-    -- SEARCHING = `/`
+    -- FUZZY SEARCHING = `/`
     {'n', '<Leader>/f', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
     {'n', '<Leader>/b', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
