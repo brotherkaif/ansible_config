@@ -69,5 +69,5 @@
 - name: pull down config repository
   tags: always
   git:
-    repo: https://github.com/brotherkaif/config.git
+    repo: git@github.com:brotherkaif/config.git
     dest: '{{ home_directory }}/projects/config'
