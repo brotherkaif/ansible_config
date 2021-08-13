@@ -12,6 +12,7 @@ local binds = {
     -- WINDOW CONTROL = `w`
     {'n', '<leader>wz', ':ZenMode<CR>'}, -- zen mode toggle
     {'n', '<leader>wq', ':q<CR>'}, -- quit window
+    {'n', '<leader>wo', '<C-W>o'}, -- close all other windows
     {'n', '<leader>wh', '<C-W>H'}, -- move window to left
     {'n', '<leader>wj', '<C-W>J'}, -- move window to bottom
     {'n', '<leader>wk', '<C-W>K'}, -- move window to top
@@ -31,6 +32,7 @@ local binds = {
     -- BUFFERS = `b`
     {'n', '<leader>bw', ':w<CR>'}, -- write buffer
     {'n', '<leader>bf', ':Format<CR>'}, -- runs formatter/linter on current buffer
+    {'n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>'}, -- toggle spellcheck on current buffer
     {'n', '<Leader>b/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
     -- FUZZY SEARCHING = `/`
