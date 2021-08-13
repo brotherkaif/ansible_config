@@ -12,6 +12,7 @@ local binds = {
     -- WINDOW CONTROL = `w`
     {'n', '<leader>wz', ':ZenMode<CR>'}, -- zen mode toggle
     {'n', '<leader>wq', ':q<CR>'}, -- quit window
+    {'n', '<leader>wo', '<C-W>o'}, -- close all other windows
     {'n', '<leader>wh', '<C-W>H'}, -- move window to left
     {'n', '<leader>wj', '<C-W>J'}, -- move window to bottom
     {'n', '<leader>wk', '<C-W>K'}, -- move window to top
@@ -31,6 +32,7 @@ local binds = {
     -- BUFFERS = `b`
     {'n', '<leader>bw', ':w<CR>'}, -- write buffer
     {'n', '<leader>bf', ':Format<CR>'}, -- runs formatter/linter on current buffer
+    {'n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>'}, -- toggle spellcheck on current buffer
     {'n', '<Leader>b/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
     -- FUZZY SEARCHING = `/`
@@ -45,6 +47,18 @@ local binds = {
 
     -- TELESCOPE PICKERS = `p`
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
+
+    -- LANGUAGE SERVER PROTOCOL = `l`
+    {'n', '<Leader>ld', '<cmd>lua lua vim.lsp.buf.definition()<CR>'}, -- go to definition
+    {'n', '<Leader>lt', '<cmd>lua lua vim.lsp.buf.type_definition()<CR>'}, -- go to type definition
+    {'n', '<Leader>li', '<cmd>lua lua vim.lsp.buf.implementation()<CR>'}, -- go to implementation
+    {'n', '<Leader>lr', '<cmd>lua lua vim.lsp.buf.references()<CR>'}, -- show references
+    {'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action(}<CR>'}, -- show code actions
+    {'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action(}<CR>'}, -- show code actions
+    {'n', '<Leader>lh', '<cmd>lua lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
+    {'n', '<leader>ln', '<cmd>lua vim.lsp.buf.rename(}<CR>'}, -- rename symbol
+    {'n', '<leader>lj', '<cmd>lua vim.lsp.diagnostic.goto_next(}<CR>'}, -- go to next diagnostic
+    {'n', '<leader>lk', '<cmd>lua vim.lsp.diagnostic.goto_prev(}<CR>'}, -- go to previous diagnostic
 }
 
 -- <leader> = space
