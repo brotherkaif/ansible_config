@@ -38,7 +38,7 @@ bo.softtabstop = 0
 bo.tabstop = 4
 o.shiftwidth = 4
 wo.foldmethod = 'indent'
-o.foldlevel = 1
+o.foldlevel = 2
 
 -- lsp
 vim.cmd('hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red')
