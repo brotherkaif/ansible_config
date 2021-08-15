@@ -52,10 +52,10 @@ configure_os () {
     then
 	echo -e "\e[43;30m CONFIGURE LINUX \e[0m"
 
-	apt update -y
-	apt upgrade -y
-	apt install python -y
-	apt install ansible -y
+	sudo apt update -y
+	sudo apt upgrade -y
+	sudo apt install python -y
+	sudo apt install ansible -y
     elif [ "$OS" = 'Mac' ] && [ "$resp" = 'y' -o "$resp" = 'Y' ]
     then
 	echo -e "\e[43;30m CONFIGURE MACOS \e[0m"
