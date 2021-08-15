@@ -15,5 +15,5 @@ less init.sh
 
 # make executable and run
 chmod +x init.sh
-sudo ./init.sh
+./init.sh
 ```
