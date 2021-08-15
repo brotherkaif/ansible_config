@@ -66,8 +66,8 @@
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-# - name: pull down config repository
-#   tags: always
-#   git:
-#     repo: git@github.com:brotherkaif/config.git
-#     dest: '{{ home_directory }}/projects/config'
+- name: pull down config repository
+  tags: always
+  git:
+    repo: git@github.com:brotherkaif/config.git
+    dest: '{{ home_directory }}/projects/config'
