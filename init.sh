@@ -88,7 +88,7 @@ run_ansible_playbook () {
     read resp
     if [ "$resp" = 'y' -o "$resp" = 'Y' ]
     then
-	ansible-pull -U https://github.com/brotherkaif/ansible-config.git
+	ansible-pull -U https://github.com/brotherkaif/config.git
     else
 	echo "SETUP SKIPPED"
     fi
