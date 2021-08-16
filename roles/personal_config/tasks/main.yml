@@ -7,8 +7,9 @@
     group: '{{ group }}'
     mode: 0755
   loop:
-    - projects
+    - personal
     - playground
+    - projects
     - .local/share/applications
     - .config/git
     - .config/nvim
@@ -70,4 +71,10 @@
   tags: always
   git:
     repo: git@github.com:brotherkaif/config.git
-    dest: '{{ home_directory }}/projects/config'
+    dest: '{{ home_directory }}/personal/config'
+
+- name: pull down dev-notes repository
+  tags: always
+  git:
+    repo: git@github.com:brotherkaif/dev-notes.git
+    dest: '{{ home_directory }}/personal/dev-notes'
