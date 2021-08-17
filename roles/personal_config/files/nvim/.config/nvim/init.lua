@@ -17,6 +17,7 @@ require('plugins/compe-config')
 require('plugins/formatter-config')
 require('plugins/lualine-config')
 require('plugins/telescope-config')
+require('plugins/treesitter-config')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('[COMPLETED]')

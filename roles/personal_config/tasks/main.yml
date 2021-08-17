@@ -37,6 +37,7 @@
     - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/formatter-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/lualine-config.lua' }
