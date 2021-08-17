@@ -48,17 +48,17 @@ local binds = {
     -- TELESCOPE PICKERS = `p`
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
 
-    -- LANGUAGE SERVER PROTOCOL = `l`
-    {'n', '<Leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>'}, -- go to definition
-    {'n', '<Leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>'}, -- go to type definition
-    {'n', '<Leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>'}, -- go to implementation
-    {'n', '<Leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>'}, -- show references
-    {'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
-    {'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
-    {'n', '<Leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
-    {'n', '<leader>ln', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
-    {'n', '<leader>lj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
-    {'n', '<leader>lk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
+    -- LANGUAGE SERVER PROTOCOL = `s`
+    {'n', '<Leader>sd', '<cmd>lua vim.lsp.buf.definition()<CR>'}, -- go to definition
+    {'n', '<Leader>st', '<cmd>lua vim.lsp.buf.type_definition()<CR>'}, -- go to type definition
+    {'n', '<Leader>si', '<cmd>lua vim.lsp.buf.implementation()<CR>'}, -- go to implementation
+    {'n', '<Leader>sr', '<cmd>lua vim.lsp.buf.references()<CR>'}, -- show references
+    {'n', '<leader>sa', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
+    {'n', '<leader>sa', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
+    {'n', '<Leader>sh', '<cmd>lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
+    {'n', '<leader>sn', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
+    {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
+    {'n', '<leader>sk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
 
     -- QUICKFIX LIST = `q`
     {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
