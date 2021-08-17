@@ -9,6 +9,8 @@ return require('packer').startup(function()
 
     -- quality of life
     use 'tpope/vim-vinegar'
+    use 'tpope/vim-surround'
+    use 'tpope/vim-repeat'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'rhlobo/vim-super-retab'
@@ -26,8 +28,18 @@ return require('packer').startup(function()
 	    require("zen-mode").setup{}
 	end
     }
-    use 'hrsh7th/nvim-compe'
+    use {
+	"folke/twilight.nvim",
+	config = function()
+	    require("twilight").setup{}
+	end
+    }
     use 'hoob3rt/lualine.nvim'
+
+    -- completion
+    use 'hrsh7th/nvim-compe'
+    use 'SirVer/ultisnips'
+    use 'honza/vim-snippets'
 
     -- linting
     use 'mhartington/formatter.nvim'
