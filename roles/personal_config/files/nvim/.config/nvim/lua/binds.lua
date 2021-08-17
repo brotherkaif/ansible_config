@@ -59,6 +59,10 @@ local binds = {
     {'n', '<leader>ln', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
     {'n', '<leader>lj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
     {'n', '<leader>lk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
+
+    -- QUICKFIX LIST = `q`
+    {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
+    {'n', '<Leader>qk', ':cn<CR>'}, -- go to previous item in list
 }
 
 -- <leader> = space
