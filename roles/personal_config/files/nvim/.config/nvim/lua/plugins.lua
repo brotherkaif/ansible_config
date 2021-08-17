@@ -34,8 +34,12 @@ return require('packer').startup(function()
 	    require("twilight").setup{}
 	end
     }
-    use 'hrsh7th/nvim-compe'
     use 'hoob3rt/lualine.nvim'
+
+    -- completion
+    use 'hrsh7th/nvim-compe'
+    use 'SirVer/ultisnips'
+    use 'honza/vim-snippets'
 
     -- linting
     use 'mhartington/formatter.nvim'
