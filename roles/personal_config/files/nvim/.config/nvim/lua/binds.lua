@@ -62,7 +62,7 @@ local binds = {
 
     -- QUICKFIX LIST = `q`
     {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
-    {'n', '<Leader>qk', ':cn<CR>'}, -- go to previous item in list
+    {'n', '<Leader>qk', ':cp<CR>'}, -- go to previous item in list
 }
 
 -- <leader> = space
