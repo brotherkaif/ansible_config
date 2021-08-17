@@ -54,7 +54,6 @@ local binds = {
     {'n', '<Leader>si', '<cmd>lua vim.lsp.buf.implementation()<CR>'}, -- go to implementation
     {'n', '<Leader>sr', '<cmd>lua vim.lsp.buf.references()<CR>'}, -- show references
     {'n', '<leader>sa', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
-    {'n', '<leader>sa', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
     {'n', '<Leader>sh', '<cmd>lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
     {'n', '<leader>sn', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
     {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
