@@ -9,6 +9,8 @@ return require('packer').startup(function()
 
     -- quality of life
     use 'tpope/vim-vinegar'
+    use 'tpope/vim-surround'
+    use 'tpope/vim-repeat'
     use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'rhlobo/vim-super-retab'
@@ -24,6 +26,12 @@ return require('packer').startup(function()
 	'folke/zen-mode.nvim',
 	config = function()
 	    require("zen-mode").setup{}
+	end
+    }
+    use {
+	"folke/twilight.nvim",
+	config = function()
+	    require("twilight").setup{}
 	end
     }
     use 'hrsh7th/nvim-compe'
