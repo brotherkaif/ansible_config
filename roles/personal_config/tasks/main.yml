@@ -56,7 +56,6 @@
       - ffmpeg
       - figlet
       - toilet
-      - python3-pip
     state: present
   become: '{{ should_be_root }}'
 
@@ -65,6 +64,7 @@
   package:
     name:
       - build-essential
+      - python3-pip
     state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
