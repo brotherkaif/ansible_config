@@ -20,7 +20,7 @@ fi
 
 # TMUX AUTO LOAD
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux -2 attach -t MAIN || tmux -2 new -s MAIN
+    tmux -2 attach -t TERM || tmux -2 new -s TERM
 fi
 
 # MOTD
