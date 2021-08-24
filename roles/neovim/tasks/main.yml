@@ -27,6 +27,12 @@
     global: yes
   become: '{{ should_be_root }}'
   loop:
+    # Ansible
+    - ansible-language-server
+    # Bash
+    - bash-language-server
+    # HTML/CSS/JSON
+    - vscode-langservers-extracted
     # JavaScript/TypeScript
     - typescript
     - typescript-language-server
@@ -35,10 +41,9 @@
     - prettier
     # YAML
     - yaml-language-server
-    # Bash
-    - bash-language-server
- 
+     
 - name: python dependency installation
   pip:
     name: pynvim
     extra_args: --user --upgrade
+    executable: pip3

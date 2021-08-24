@@ -1,6 +1,31 @@
 local lspconfig = require('lspconfig')
 local util = require ('lspconfig').util
 
+-- language: Ansible
+-- requirements: 'npm', 'ansible-language-server'
+-- command: npm i -g ansible-language-server
+lspconfig.ansiblels.setup{
+    settings = {
+	ansible = {
+	    ansibleLint = {
+		enabled = false,
+	    },
+	},
+    },
+}
+
+-- language: BASH
+-- requirements: 'npm', 'bash-language-server'
+-- command: npm i -g bash-language-server
+lspconfig.bashls.setup{}
+
+-- languages: HTML/CSS/JSON
+-- requirements: 'npm', 'vscode-langservers-extracted'
+-- command: npm i -g vscode-langservers-extracted
+lspconfig.html.setup{}
+lspconfig.cssls.setup{}
+lspconfig.jsonls.setup{}
+
 -- language: JavaScript/TypeScript
 -- requirements: 'npm', 'typescript', 'typescript-language-server'
 -- command: npm install -g typescript typescript-language-server
@@ -52,11 +77,6 @@ lspconfig.diagnosticls.setup{
 -- requirements: 'npm', 'yaml-language-server'
 -- command: npm install -g yaml-language-server
 lspconfig.yamlls.setup{}
-
--- language: BASH
--- requirements: 'npm', 'bash-language-server'
--- command: npm i -g bash-language-server
-lspconfig.bashls.setup{}
 
 -- options
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

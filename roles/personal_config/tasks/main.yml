@@ -59,6 +59,13 @@
     state: present
   become: '{{ should_be_root }}'
 
+- name: additional mac packages
+  tags: always
+  homebrew:
+    name:
+      - python
+  when: ansible_distribution == 'MacOSX'
+
 - name: additional linux packages
   tags: always
   package:
