@@ -46,3 +46,4 @@
   pip:
     name: pynvim
     extra_args: --user --upgrade
+    executable: pip3

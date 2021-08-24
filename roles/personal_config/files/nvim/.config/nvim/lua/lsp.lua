@@ -4,7 +4,15 @@ local util = require ('lspconfig').util
 -- language: Ansible
 -- requirements: 'npm', 'ansible-language-server'
 -- command: npm i -g ansible-language-server
-lspconfig.ansiblels.setup{}
+lspconfig.ansiblels.setup{
+    settings = {
+	ansible = {
+	    ansibleLint = {
+		enabled = false,
+	    },
+	},
+    },
+}
 
 -- language: BASH
 -- requirements: 'npm', 'bash-language-server'
