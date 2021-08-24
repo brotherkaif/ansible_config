@@ -59,9 +59,9 @@ local binds = {
     {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
     {'n', '<leader>sk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
 
-    -- QUICKFIX LIST = `q`
-    {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
-    {'n', '<Leader>qk', ':cp<CR>'}, -- go to previous item in list
+    -- QUICKFIX LIST = `c`
+    {'n', '<Leader>cj', ':cn<CR>'}, -- go to next item in list
+    {'n', '<Leader>ck', ':cp<CR>'}, -- go to previous item in list
 }
 
 -- <leader> = space
