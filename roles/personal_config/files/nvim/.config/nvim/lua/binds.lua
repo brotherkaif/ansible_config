@@ -9,7 +9,7 @@ local binds = {
     {'n', '<leader>k', '<C-W>k'}, -- move cursor to top window
     {'n', '<leader>l', '<C-W>l'}, -- move cursor to right window
 
-    -- WINDOW CONTROL = `w`
+    -- WINDOWS = `w`
     {'n', '<leader>wz', ':ZenMode<CR>'}, -- zen mode toggle
     {'n', '<leader>wq', ':q<CR>'}, -- quit window
     {'n', '<leader>wo', '<C-W>o'}, -- close all other windows
@@ -18,10 +18,15 @@ local binds = {
     {'n', '<leader>wk', '<C-W>K'}, -- move window to top
     {'n', '<leader>wl', '<C-W>L'}, -- move window to right
 
-    -- TERMINAL CONTROL = `t`
+    -- TERMINAL = `t`
     {'n', '<leader>th', ':split<CR>:term<CR>'}, -- open horizontal terminal window
     {'n', '<leader>tv', ':vsplit<CR>:term<CR>'}, -- open vertical terminal window
     {'t', '<leader><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
+
+    -- EXPLORER = `e`
+    {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer
+    {'n', '<leader>eh', ':Sex<CR>'}, -- open horizontal explorer
+    {'n', '<leader>ev', ':Vex<CR>'}, -- open vertical explorer
 
     -- FILES = `f`
     {'n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>'}, -- open file finder
@@ -39,7 +44,7 @@ local binds = {
     {'n', '<Leader>/f', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
     {'n', '<Leader>/b', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
-    -- GIT CONTROL = `g`
+    -- GIT = `g`
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
     {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
     {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
