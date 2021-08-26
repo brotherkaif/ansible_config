@@ -1,5 +1,5 @@
 - name: create required directories
-  tags: always
+  tags: dotfiles
   file:
     path: '{{ home_directory }}/{{ item }}'
     state: directory
@@ -15,9 +15,11 @@
     - .config/nvim
     - .config/nvim/lua
     - .config/nvim/lua/plugins
+    - .local/share/amfora
+    - .config/amfora
 
 - name: sync dotfiles
-  tags: always,dotfiles
+  tags: dotfiles
   copy:
     src: '{{ item.package }}/{{ item.path }}'
     dest: '{{ home_directory }}/{{ item.path }}'
@@ -42,9 +44,12 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins/formatter-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/lualine-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
+    - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
+    - { package: 'amfora', path: '.local/share/amfora/subscriptions.json' }
+    - { package: 'amfora', path: '.config/amfora/config.toml' }
 
 - name: install base packages
-  tags: always
+  tags: packages
   package:
     name:
       - ripgrep
@@ -60,14 +65,14 @@
   become: '{{ should_be_root }}'
 
 - name: additional mac packages
-  tags: always
+  tags: packages
   homebrew:
     name:
       - python
   when: ansible_distribution == 'MacOSX'
 
 - name: additional linux packages
-  tags: always
+  tags: packages
   package:
     name:
       - build-essential
@@ -76,14 +81,14 @@
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-# - name: pull down config repository
-#   tags: always
-#   git:
-#     repo: git@github.com:brotherkaif/config.git
-#     dest: '{{ home_directory }}/personal/config'
+- name: pull down config repository
+  tags: repos
+  git:
+    repo: git@github.com:brotherkaif/config.git
+    dest: '{{ home_directory }}/personal/config'
 
-# - name: pull down dev-notes repository
-#   tags: always
-#   git:
-#     repo: git@github.com:brotherkaif/dev-notes.git
-#     dest: '{{ home_directory }}/personal/dev-notes'
+- name: pull down dev-notes repository
+  tags: repos
+  git:
+    repo: git@github.com:brotherkaif/dev-notes.git
+    dest: '{{ home_directory }}/personal/dev-notes'
