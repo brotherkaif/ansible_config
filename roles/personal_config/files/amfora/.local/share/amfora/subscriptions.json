@@ -1,0 +1,16 @@
+{
+  "pages": {
+    "gemini://friendo.monster/": {
+      "hash": "893ebcff29d29cf9042e9c4bd2c062446666cf98430a730a35576b32abda96fb",
+      "changed": "2021-08-26T15:55:59.183332443Z"
+    },
+    "gemini://gem.chriswere.uk/": {
+      "hash": "0c678d98811df81ab7654a9d541e89a7d22b2d68a196ec6fb5022c8c45ff1795",
+      "changed": "2021-08-26T15:55:40.458010655Z"
+    },
+    "gemini://hexdsl.co.uk/": {
+      "hash": "4950d056b27c5c945a272ea33e12b3f75fd61798b654af69bf83add100d388b1",
+      "changed": "2021-08-26T15:55:18.89797415Z"
+    }
+  }
+}

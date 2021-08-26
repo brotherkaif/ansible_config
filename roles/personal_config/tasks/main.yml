@@ -45,6 +45,7 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins/lualine-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
     - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
+    - { package: 'amfora', path: '.local/share/amfora/subscriptions.json' }
     - { package: 'amfora', path: '.config/amfora/config.toml' }
 
 - name: install base packages
@@ -80,14 +81,14 @@
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
-# - name: pull down config repository
-#   tags: always
-#   git:
-#     repo: git@github.com:brotherkaif/config.git
-#     dest: '{{ home_directory }}/personal/config'
+- name: pull down config repository
+  tags: repos
+  git:
+    repo: git@github.com:brotherkaif/config.git
+    dest: '{{ home_directory }}/personal/config'
 
-# - name: pull down dev-notes repository
-#   tags: always
-#   git:
-#     repo: git@github.com:brotherkaif/dev-notes.git
-#     dest: '{{ home_directory }}/personal/dev-notes'
+- name: pull down dev-notes repository
+  tags: repos
+  git:
+    repo: git@github.com:brotherkaif/dev-notes.git
+    dest: '{{ home_directory }}/personal/dev-notes'
