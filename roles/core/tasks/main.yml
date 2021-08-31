@@ -1,4 +1,4 @@
-- name: install base packages
+- name: base package installation (All)
   tags:
     - core
     - packages
@@ -16,7 +16,7 @@
     state: present
   become: '{{ should_be_root }}'
 
-- name: additional mac packages
+- name: additional package installation (Darwin)
   tags:
     - core
     - packages
@@ -25,14 +25,23 @@
       - python
   when: ansible_distribution == 'MacOSX'
 
-- name: additional linux packages
+- name: additional package installation (Debian)
   tags:
     - core
     - packages
-  package:
-    name:
-      - build-essential
-      - python3-pip
-    state: present
+  block:
+    - name: add the apt repository (Debian)
+      apt_repository:
+        repo: deb http://deb.debian.org/debian buster-backports main contrib non-free
+        state: present
+
+    - name: package installation (Debian)
+      apt:
+        name:
+          - apt-transport-https
+          - build-essential
+          - python3-pip
+          - torbrowser-launcher
+        state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
