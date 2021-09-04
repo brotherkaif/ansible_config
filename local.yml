@@ -30,7 +30,6 @@
 - hosts: localhost
   vars_files:
     - vars/{{ ansible_distribution }}.yml
-  tags: personal
   roles:
     - dotfiles
     - repos
@@ -39,3 +38,5 @@
     - neovim
     - amfora
     - godot
+    - torbrowser
+    - lazygit

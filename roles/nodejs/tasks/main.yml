@@ -1,4 +1,8 @@
 - name: package installation (Debian)
+  tags:
+    - debian
+    - nodejs
+    - packages
   block:
     - name: install nodejs (Debian) | install the gpg key
       tags: dev
@@ -22,7 +26,10 @@
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: package installation (Darwin)
-  tags: dev
+  tags:
+    - darwin
+    - nodejs
+    - packages
   package:
     name: node
     state: present
