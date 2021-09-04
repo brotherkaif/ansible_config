@@ -19,6 +19,7 @@
 
 - name: additional package installation (Darwin)
   tags:
+    - darwin
     - core
     - packages
   homebrew:
@@ -28,21 +29,14 @@
 
 - name: additional package installation (Debian)
   tags:
+    - debian
     - core
     - packages
-  block:
-    - name: add the apt repository (Debian)
-      apt_repository:
-        repo: deb http://deb.debian.org/debian buster-backports main contrib non-free
-        state: present
-
-    - name: package installation (Debian)
-      apt:
-        name:
-          - apt-transport-https
-          - build-essential
-          - python3-pip
-          - torbrowser-launcher
-        state: present
+  apt:
+    name:
+      - apt-transport-https
+      - build-essential
+      - python3-pip
+    state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']

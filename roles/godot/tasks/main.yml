@@ -1,4 +1,8 @@
 - name: installation (Debian)
+  tags:
+    - debian
+    - godot
+    - packages
   block:
     - name: check if already installed (Debian)
       stat: path=/usr/local/bin/godot
