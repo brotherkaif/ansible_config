@@ -17,16 +17,6 @@
     state: present
   become: '{{ should_be_root }}'
 
-- name: additional package installation (Darwin)
-  tags:
-    - darwin
-    - core
-    - packages
-  homebrew:
-    name:
-      - python
-  when: ansible_distribution == 'MacOSX'
-
 - name: additional package installation (Debian)
   tags:
     - debian
@@ -40,3 +30,13 @@
     state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: additional package installation (Darwin)
+  tags:
+    - darwin
+    - core
+    - packages
+  homebrew:
+    name:
+      - python
+  when: ansible_distribution == 'MacOSX'
