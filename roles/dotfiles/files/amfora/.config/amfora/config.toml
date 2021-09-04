@@ -190,9 +190,9 @@ other = 'off'
 #
 # To open jpeg files with the feh command:
 #
-# [[mediatype-handlers]]
-# cmd = ['feh']
-# types = ["image/jpeg"]
+[[mediatype-handlers]]
+cmd = ['feh']
+types = ["image"]
 #
 # Each command that you specify must come under its own [[mediatype-handlers]]. You may
 # specify as many [[mediatype-handlers]] as you want to setup multiple commands.
