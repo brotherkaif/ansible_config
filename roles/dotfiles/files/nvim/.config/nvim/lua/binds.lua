@@ -1,7 +1,7 @@
 local binds = {
-    -- THEME CONTROL = `[` + `]`
-    {'n', '<leader>[', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to light
-    {'n', '<leader>]', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to dark
+    -- INTERFACE = `i`
+    {'n', '<leader>il', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to light
+    {'n', '<leader>id', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to dark
 
     -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
     {'n', '<leader>h', '<C-W>h'}, -- move cursor to left window
