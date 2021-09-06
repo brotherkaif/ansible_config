@@ -8,7 +8,6 @@ return require('packer').startup(function()
     }
 
     -- quality of life
-    use 'tpope/vim-vinegar'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-commentary'
@@ -22,18 +21,6 @@ return require('packer').startup(function()
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- interface
-    use {
-	'folke/zen-mode.nvim',
-	config = function()
-	    require("zen-mode").setup{}
-	end
-    }
-    use {
-	"folke/twilight.nvim",
-	config = function()
-	    require("twilight").setup{}
-	end
-    }
     use 'hoob3rt/lualine.nvim'
 
     -- completion
