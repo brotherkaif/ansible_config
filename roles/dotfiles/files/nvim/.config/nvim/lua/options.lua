@@ -30,6 +30,10 @@ o.hlsearch = false
 o.showmatch = true
 wo.cursorline = true
 
+-- split behaviour
+o.splitbelow = true
+o.splitright = true
+
 -- indentation behaviour
 bo.expandtab = false
 bo.smartindent = true
@@ -43,7 +47,7 @@ o.foldlevel = 2
 -- lsp
 vim.cmd('hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red')
 vim.cmd('hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow')
-vim.cmd('hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White')
+vim.cmd('hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=Blue')
 vim.cmd('hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White')
 vim.cmd('hi lspdiagnosticsunderlineerror guifg=none ctermfg=none cterm=underline gui=underline')
 vim.cmd('hi lspdiagnosticsunderlinewarning guifg=none ctermfg=none cterm=underline gui=underline')

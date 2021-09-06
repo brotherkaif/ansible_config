@@ -10,7 +10,8 @@ local binds = {
     {'n', '<leader>l', '<C-W>l'}, -- move cursor to right window
 
     -- WINDOWS = `w`
-    {'n', '<leader>wz', ':ZenMode<CR>'}, -- zen mode toggle
+    {'n', '<leader>wm', '<C-W>_<C-W>|'}, -- maximise window
+    {'n', '<leader>we', '<C-W>='}, -- equalise widows
     {'n', '<leader>wq', ':q<CR>'}, -- quit window
     {'n', '<leader>wo', '<C-W>o'}, -- close all other windows
     {'n', '<leader>wh', '<C-W>H'}, -- move window to left
@@ -19,8 +20,9 @@ local binds = {
     {'n', '<leader>wl', '<C-W>L'}, -- move window to right
 
     -- TERMINAL = `t`
-    {'n', '<leader>th', ':split<CR>:term<CR>'}, -- open horizontal terminal window
-    {'n', '<leader>tv', ':vsplit<CR>:term<CR>'}, -- open vertical terminal window
+    {'n', '<leader>tt', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open tabbed terminal window
+    {'n', '<leader>th', ':split<CR>:term<CR>:startinsert<CR>'}, -- open horizontal terminal window
+    {'n', '<leader>tv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open vertical terminal window
     {'t', '<leader><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
     -- EXPLORER = `e`
@@ -48,7 +50,9 @@ local binds = {
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
     {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
     {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
-    {'n', '<leader>gg', ':Git<CR>'}, -- open git commit manager
+    {'n', '<leader>gg', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open tabbed git client
+    {'n', '<leader>gh', ':split<CR>:term lazygit<CR>:startinsert<CR>'}, -- open horizontal git client
+    {'n', '<leader>gv', ':vsplit<CR>:term lazygit<CR>:startinsert<CR>'}, -- open vertical git client
 
     -- TELESCOPE PICKERS = `p`
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
