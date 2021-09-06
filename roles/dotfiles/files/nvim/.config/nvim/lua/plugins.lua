@@ -21,7 +21,7 @@ return require('packer').startup(function()
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- interface
-    use 'hoob3rt/lualine.nvim'
+    use 'millermedeiros/vim-statline'
 
     -- completion
     use 'hrsh7th/nvim-compe'

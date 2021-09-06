@@ -10,7 +10,7 @@ bo.swapfile = false
 o.backup = false
 
 -- line numbers
-vim.cmd('set number')
+wo.number = true
 wo.relativenumber = true
 o.scrolloff = 8
 
