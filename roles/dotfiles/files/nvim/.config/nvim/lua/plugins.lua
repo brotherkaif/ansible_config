@@ -8,6 +8,7 @@ return require('packer').startup(function()
     }
 
     -- quality of life
+    use 'tpope/vim-vinegar'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-commentary'
