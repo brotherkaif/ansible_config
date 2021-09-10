@@ -57,6 +57,7 @@ alias sc='ansible-pull -U https://github.com/brotherkaif/config.git'
 alias sl='ansible-playbook ~/personal/config/local.yml'
 
 # GIT ALIASES
+alias lg='lazygit'
 alias gst='git status'
 alias ga='git add'
 alias gaa='git add .'
