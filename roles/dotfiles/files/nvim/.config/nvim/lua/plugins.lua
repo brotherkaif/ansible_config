@@ -24,6 +24,9 @@ return require('packer').startup(function()
     -- interface
     use 'millermedeiros/vim-statline'
 
+    -- window management
+    use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+
     -- completion
     use 'hrsh7th/nvim-compe'
     use 'SirVer/ultisnips'

@@ -4,10 +4,10 @@ local binds = {
     {'n', '<leader>id', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to dark
 
     -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
-    {'n', '<leader>h', '<C-W>h'}, -- move cursor to left window
-    {'n', '<leader>j', '<C-W>j'}, -- move cursor to bottom window
-    {'n', '<leader>k', '<C-W>k'}, -- move cursor to top window
-    {'n', '<leader>l', '<C-W>l'}, -- move cursor to right window
+    {'n', '<leader>h', ':FocusSplitLeft<CR>'}, -- move cursor to left window
+    {'n', '<leader>j', ':FocusSplitDown<CR>'}, -- move cursor to bottom window
+    {'n', '<leader>k', ':FocusSplitUp<CR>'}, -- move cursor to top window
+    {'n', '<leader>l', ':FocusSplitRight<CR>'}, -- move cursor to right window
 
     -- WINDOWS = `w`
     {'n', '<leader>wm', '<C-W>_<C-W>|'}, -- maximise window
