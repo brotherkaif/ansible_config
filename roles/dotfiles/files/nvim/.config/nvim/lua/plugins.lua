@@ -25,7 +25,7 @@ return require('packer').startup(function()
     use 'millermedeiros/vim-statline'
 
     -- window management
-    use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+    use { "beauwilliams/focus.nvim", config = function() require("focus").setup({signcolumn = false, number=false, hybridnumber = true, winhighlight = true}) end }
 
     -- completion
     use 'hrsh7th/nvim-compe'
