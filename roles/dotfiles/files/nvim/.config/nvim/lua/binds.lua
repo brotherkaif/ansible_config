@@ -23,6 +23,7 @@ local binds = {
     {'n', '<leader>tt', ':tabnew<CR>'}, -- open new tab
     {'n', '<leader>tc', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open new tab with terminal console
     {'n', '<leader>te', ':tabnew<CR>:Ex<CR>'}, -- open new tab with explorer
+    {'n', '<leader>tg', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open new tab with git client
 
     -- TERMINAL CONSOLE = `c`
     {'n', '<leader>cc', ':term<CR>:startinsert<CR>'}, -- open terminal console in current window
@@ -35,6 +36,15 @@ local binds = {
     {'n', '<leader>et', ':tabnew<CR>:Ex<CR>'}, -- open explorer in new tab
     {'n', '<leader>eh', ':Sex<CR>'}, -- open explorer in horizontal window
     {'n', '<leader>ev', ':Vex<CR>'}, -- open explorer in vertical window
+
+    -- GIT = `g`
+    {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
+    {'n', '<leader>gt', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open git client in new tab
+    {'n', '<leader>gh', ':split<CR>:term lazygit<CR>:startinsert<CR>'}, -- open terminal console in horizontal window
+    {'n', '<leader>gv', ':vsplit<CR>:term lazygit<CR>:startinsert<CR>'}, -- open terminal console in vertical window
+    {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
+    {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
+    {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
 
     -- FILES = `f`
     {'n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>'}, -- open file finder
@@ -52,14 +62,6 @@ local binds = {
     {'n', '<Leader>/f', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
     {'n', '<Leader>/b', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
-    -- GIT = `g`
-    {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
-    {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
-    {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
-    {'n', '<leader>gg', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open tabbed git client
-    {'n', '<leader>gh', ':split<CR>:term lazygit<CR>:startinsert<CR>'}, -- open horizontal git client
-    {'n', '<leader>gv', ':vsplit<CR>:term lazygit<CR>:startinsert<CR>'}, -- open vertical git client
-
     -- TELESCOPE PICKERS = `p`
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
 
@@ -74,9 +76,9 @@ local binds = {
     {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
     {'n', '<leader>sk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
 
-    -- QUICKFIX LIST = `c`
-    {'n', '<Leader>cj', ':cn<CR>'}, -- go to next item in list
-    {'n', '<Leader>ck', ':cp<CR>'}, -- go to previous item in list
+    -- QUICKFIX LIST = `q`
+    {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
+    {'n', '<Leader>qk', ':cp<CR>'}, -- go to previous item in list
 }
 
 -- <leader> = space
