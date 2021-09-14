@@ -19,15 +19,22 @@ local binds = {
     {'n', '<leader>wk', '<C-W>K'}, -- move window to top
     {'n', '<leader>wl', '<C-W>L'}, -- move window to right
 
-    -- TERMINAL = `t`
-    {'n', '<leader>tt', ':term<CR>:startinsert<CR>'}, -- open terminal
-    {'n', '<leader>th', ':split<CR>:term<CR>:startinsert<CR>'}, -- open horizontal terminal window
-    {'n', '<leader>tv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open vertical terminal window
+    -- TABS = `t`
+    {'n', '<leader>tt', ':tabnew<CR>'}, -- open new tab
+    {'n', '<leader>tc', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open new tab with terminal console
+    {'n', '<leader>te', ':tabnew<CR>:Ex<CR>'}, -- open new tab with explorer
+
+    -- TERMINAL CONSOLE = `c`
+    {'n', '<leader>cc', ':term<CR>:startinsert<CR>'}, -- open terminal console in current window
+    {'n', '<leader>ct', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in new tab
+    {'n', '<leader>ch', ':split<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in horizontal window
+    {'n', '<leader>cv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in vertical window
 
     -- EXPLORER = `e`
-    {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer
-    {'n', '<leader>eh', ':Sex<CR>'}, -- open horizontal explorer
-    {'n', '<leader>ev', ':Vex<CR>'}, -- open vertical explorer
+    {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer in current window
+    {'n', '<leader>et', ':tabnew<CR>:Ex<CR>'}, -- open explorer in new tab
+    {'n', '<leader>eh', ':Sex<CR>'}, -- open explorer in horizontal window
+    {'n', '<leader>ev', ':Vex<CR>'}, -- open explorer in vertical window
 
     -- FILES = `f`
     {'n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>'}, -- open file finder
