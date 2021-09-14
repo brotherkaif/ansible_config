@@ -20,7 +20,7 @@ local binds = {
     {'n', '<leader>wl', '<C-W>L'}, -- move window to right
 
     -- TERMINAL = `t`
-    {'n', '<leader>tt', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open tabbed terminal window
+    {'n', '<leader>tt', ':term<CR>:startinsert<CR>'}, -- open terminal
     {'n', '<leader>th', ':split<CR>:term<CR>:startinsert<CR>'}, -- open horizontal terminal window
     {'n', '<leader>tv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open vertical terminal window
 
