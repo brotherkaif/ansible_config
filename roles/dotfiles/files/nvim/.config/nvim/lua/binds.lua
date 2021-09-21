@@ -30,6 +30,7 @@ local binds = {
     {'n', '<leader>ct', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in new tab
     {'n', '<leader>ch', ':split<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in horizontal window
     {'n', '<leader>cv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in vertical window
+    {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
     -- EXPLORER = `e`
     {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer in current window
