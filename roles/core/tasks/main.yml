@@ -12,6 +12,7 @@
       - git
       - pass
       - feh
+      - mpv
       - ffmpeg
       - figlet
       - toilet
