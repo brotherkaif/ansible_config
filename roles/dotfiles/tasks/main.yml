@@ -7,10 +7,10 @@
     group: '{{ group }}'
     mode: 0755
   loop:
-    - projects
-    - areas
-    - resources
-    - archive
+    - 1-projects
+    - 2-areas
+    - 3-resources
+    - 4-archive
     - .local/share/applications
     - .config/git
     - .config/nvim
