@@ -10,6 +10,8 @@
     - 1-projects
     - 2-areas
     - 3-resources
+    - 3-resources/customisation
+    - 3-resources/customisation/devdocs
     - 4-archive
     - .local/share/applications
     - .config/git
@@ -47,3 +49,4 @@
     - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
     - { package: 'amfora', path: '.local/share/amfora/subscriptions.json' }
     - { package: 'amfora', path: '.config/amfora/config.toml' }
+    - { package: 'devdocs', path: '3-resources/customisation/devdocs/devdocs.json' }
