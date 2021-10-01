@@ -10,6 +10,10 @@
     - 1-projects
     - 2-areas
     - 3-resources
+    - 3-resources/customisation
+    - 3-resources/customisation/devdocs
+    - 3-resources/customisation/rose-pine-terminal-theme
+    - 3-resources/customisation/monoid-font
     - 4-archive
     - .local/share/applications
     - .config/git
@@ -47,3 +51,28 @@
     - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
     - { package: 'amfora', path: '.local/share/amfora/subscriptions.json' }
     - { package: 'amfora', path: '.config/amfora/config.toml' }
+    - { package: 'devdocs', path: '3-resources/customisation/devdocs/devdocs.json' }
+
+- name: download rose-pine theme (Darwin)
+  tags:
+    - dotfiles
+    - customisation
+  get_url:
+    url: '{{item}}'
+    dest: ~/3-resources/customisation/rose-pine-terminal-theme/
+    mode: 0755
+  loop:
+    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine.terminal'
+    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-moon.terminal'
+    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-dawn.terminal'
+  when: ansible_distribution == 'MacOSX'
+
+- name: download monoid font (Darwin)
+  tags:
+    - dotfiles
+    - customisation
+  get_url:
+    url: 'https://cdn.rawgit.com/larsenwork/monoid/2db2d289f4e61010dd3f44e09918d9bb32fb96fd/Monoid.zip'
+    dest: ~/3-resources/customisation/monoid-font/
+    mode: 0755
+  when: ansible_distribution == 'MacOSX'

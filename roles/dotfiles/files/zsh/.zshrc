@@ -15,7 +15,7 @@ bindkey -v
 
 # MOTD
 clear
-echo -e "\e[43;30m T E R M I N A L \e[0m"
+echo -e "\e[43;30m CONSOLE \e[0m"
 
 # PROMPT
 PROMPT="%F{red}%~"$'\n'"%F{blue}%#%f "
