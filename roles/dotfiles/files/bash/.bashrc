@@ -24,7 +24,7 @@ fi
 # fi
 
 # MOTD
-echo -e "\e[43;30m T E R M I N A L \e[0m"
+echo -e "\e[43;30m CONSOLE \e[0m"
 
 # PROMPT
 export PS1="\[\e[31m\]\w\[\e[m\]\[\e[34m\]\n\\$\[\e[39m\] "
