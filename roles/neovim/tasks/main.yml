@@ -1,7 +1,7 @@
 - name: app installation (Debian)
   tags: dev
   get_url:
-    url: 'https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage'
+    url: 'https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage'
     dest: /usr/bin/nvim
     mode: 0755
   become: true
