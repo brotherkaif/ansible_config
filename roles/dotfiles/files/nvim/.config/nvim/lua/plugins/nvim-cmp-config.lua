@@ -42,6 +42,8 @@ cmp.setup({
         feedkey("<Plug>(vsnip-jump-prev)", "")
       end
     end, { "i", "s" }),
+
+    ['<CR>'] = cmp.mapping.confirm({ select = true })
   },
 
   sources = {

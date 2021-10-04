@@ -34,6 +34,7 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
+    use "rafamadriz/friendly-snippets"
 
     -- linting
     use 'mhartington/formatter.nvim'
