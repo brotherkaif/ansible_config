@@ -28,9 +28,14 @@ return require('packer').startup(function()
     use { "beauwilliams/focus.nvim", config = function() require("focus").setup({signcolumn = false, number=false, hybridnumber = true, winhighlight = true}) end }
 
     -- completion
-    use 'hrsh7th/nvim-compe'
-    use 'SirVer/ultisnips'
-    use 'honza/vim-snippets'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'f3fora/cmp-spell'
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
+    use 'hrsh7th/vim-vsnip-integ'
+    use "rafamadriz/friendly-snippets"
 
     -- linting
     use 'mhartington/formatter.nvim'

@@ -45,7 +45,7 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/plugins/compe-config.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/nvim-cmp-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/formatter-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
     - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
