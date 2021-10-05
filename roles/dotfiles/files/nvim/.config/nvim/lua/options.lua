@@ -19,11 +19,13 @@ wo.wrap = false
 wo.signcolumn = 'yes'
 vim.cmd('highlight clear SignColumn')
 vim.cmd('highlight clear Folded')
-vim.cmd('highlight VertSplit cterm=NONE')
-vim.cmd('highlight Pmenu ctermbg=white guibg=white ctermfg=black guifg=black')
-vim.cmd('highlight PmenuSel ctermbg=black guibg=black ctermfg=white guifg=white')
-vim.cmd('highlight PmenuSbar ctermbg=white guibg=white')
-vim.cmd('highlight PmenuThumb ctermbg=black guibg=black')
+vim.cmd('highlight VertSplit cterm=NONE gui=NONE')
+vim.cmd('highlight Pmenu ctermbg=White guibg=White ctermfg=Black guifg=Black')
+vim.cmd('highlight PmenuSel ctermbg=Black guibg=Black ctermfg=White guifg=White')
+vim.cmd('highlight PmenuSbar ctermbg=White guibg=White')
+vim.cmd('highlight PmenuThumb ctermbg=Black guibg=Black')
+vim.cmd('highlight PmenuThumb ctermbg=Black guibg=Black')
+vim.cmd('highlight CursorLine cterm=NONE ctermbg=DarkGrey guibg=Black ctermfg=NONE guifg=NONE')
 
 -- searching
 o.ignorecase = true
@@ -49,14 +51,14 @@ wo.foldmethod = 'indent'
 o.foldlevel = 2
 
 -- lsp
-vim.cmd('hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red')
-vim.cmd('hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow')
-vim.cmd('hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=Blue')
-vim.cmd('hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White')
-vim.cmd('hi lspdiagnosticsunderlineerror guifg=none ctermfg=none cterm=underline gui=underline')
-vim.cmd('hi lspdiagnosticsunderlinewarning guifg=none ctermfg=none cterm=underline gui=underline')
-vim.cmd('hi lspdiagnosticsunderlineinformation guifg=none ctermfg=none cterm=underline gui=underline')
-vim.cmd('hi lspdiagnosticsunderlinehint guifg=none ctermfg=none cterm=underline gui=underline')
+vim.cmd('highlight LspDiagnosticsVirtualTextError ctermfg=Red guifg=Red ')
+vim.cmd('highlight LspDiagnosticsVirtualTextWarning ctermfg=Yellow guifg=Yellow')
+vim.cmd('highlight LspDiagnosticsVirtualTextHint ctermfg=Blue guifg=Blue')
+vim.cmd('highlight LspDiagnosticsVirtualTextInformation ctermfg=DarkGrey guifg=DarkGrey')
+vim.cmd('highlight LspDiagnosticsUnderlineError ctermfg=none guifg=none cterm=underline gui=underline')
+vim.cmd('highlight LspDiagnosticsUnderlineWarning ctermfg=none guifg=none cterm=underline gui=underline')
+vim.cmd('highlight LspDiagnosticsUnderlineInformation ctermfg=none guifg=none cterm=underline gui=underline')
+vim.cmd('highlight LspDiagnosticsUnderlineHint ctermfg=none guifg=none cterm=underline gui=underline')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('- options.lua...OK!')
