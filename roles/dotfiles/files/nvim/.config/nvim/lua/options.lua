@@ -25,7 +25,7 @@ vim.cmd('highlight PmenuSel ctermbg=Black guibg=Black ctermfg=White guifg=White'
 vim.cmd('highlight PmenuSbar ctermbg=White guibg=White')
 vim.cmd('highlight PmenuThumb ctermbg=Black guibg=Black')
 vim.cmd('highlight PmenuThumb ctermbg=Black guibg=Black')
-vim.cmd('highlight CursorLine cterm=NONE ctermbg=DarkGrey guibg=Black ctermfg=NONE guifg=NONE')
+vim.cmd('highlight CursorLine cterm=NONE ctermbg=Black guibg=Black ctermfg=White guifg=White')
 
 -- searching
 o.ignorecase = true
