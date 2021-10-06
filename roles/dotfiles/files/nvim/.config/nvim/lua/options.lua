@@ -20,11 +20,10 @@ wo.signcolumn = 'yes'
 vim.cmd('highlight clear SignColumn')
 vim.cmd('highlight clear Folded')
 vim.cmd('highlight VertSplit cterm=NONE gui=NONE')
-vim.cmd('highlight Pmenu ctermbg=White guibg=White ctermfg=Black guifg=Black')
-vim.cmd('highlight PmenuSel ctermbg=Black guibg=Black ctermfg=White guifg=White')
-vim.cmd('highlight PmenuSbar ctermbg=White guibg=White')
-vim.cmd('highlight PmenuThumb ctermbg=Black guibg=Black')
-vim.cmd('highlight PmenuThumb ctermbg=Black guibg=Black')
+vim.cmd('highlight Pmenu ctermbg=Black guibg=Black ctermfg=White guifg=White')
+vim.cmd('highlight PmenuSel ctermbg=White guibg=White ctermfg=Black guifg=Black')
+vim.cmd('highlight PmenuSbar ctermbg=Black guibg=Black')
+vim.cmd('highlight PmenuThumb ctermbg=White guibg=White')
 
 -- searching
 o.ignorecase = true
