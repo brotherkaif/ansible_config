@@ -7,21 +7,22 @@
     group: '{{ group }}'
     mode: 0755
   loop:
+    - .config/amfora
+    - .config/git
+    - .config/lazygit
+    - .config/nvim
+    - .config/nvim/lua
+    - .config/nvim/lua/plugins
+    - .local/share/amfora
+    - .local/share/applications
     - 1-projects
     - 2-areas
     - 3-resources
     - 3-resources/customisation
     - 3-resources/customisation/devdocs
-    - 3-resources/customisation/macos-terminal-themes
     - 3-resources/customisation/fira-code-font
+    - 3-resources/customisation/macos-terminal-themes
     - 4-archive
-    - .local/share/applications
-    - .config/git
-    - .config/nvim
-    - .config/nvim/lua
-    - .config/nvim/lua/plugins
-    - .local/share/amfora
-    - .config/amfora
 
 - name: sync dotfiles
   tags: dotfiles
@@ -31,27 +32,28 @@
     owner: '{{ owner }}'
     group: '{{ group }}'
   loop:
-    - { package: 'bash', path: '.bashrc' }
-    - { package: 'bash', path: '.bash_profile' }
-    - { package: 'bash', path: '.inputrc' }
-    - { package: 'zsh', path: '.zshrc' }
-    - { package: 'tmux', path: '.tmux.conf' }
-    - { package: 'git', path: '.gitconfig' }
-    - { package: 'git', path: '.config/git/git-commit-template.txt' }
-    - { package: 'gcs', path: '.customize_environment' }
-    - { package: 'nvim', path: '.config/nvim/init.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/plugins/nvim-cmp-config.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/plugins/formatter-config.lua' }
-    - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
+    - { package: 'amfora', path: '.config/amfora/config.toml' }
     - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
     - { package: 'amfora', path: '.local/share/amfora/subscriptions.json' }
-    - { package: 'amfora', path: '.config/amfora/config.toml' }
+    - { package: 'bash', path: '.bash_profile' }
+    - { package: 'bash', path: '.bashrc' }
+    - { package: 'bash', path: '.inputrc' }
     - { package: 'devdocs', path: '3-resources/customisation/devdocs/devdocs.json' }
+    - { package: 'gcs', path: '.customize_environment' }
+    - { package: 'git', path: '.config/git/git-commit-template.txt' }
+    - { package: 'git', path: '.gitconfig' }
+    - { package: 'lazygit', path: '.config/lazygit/config.yml' }
+    - { package: 'nvim', path: '.config/nvim/init.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/formatter-config.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/nvim-cmp-config.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
+    - { package: 'tmux', path: '.tmux.conf' }
+    - { package: 'zsh', path: '.zshrc' }
 
 - name: download Terminal.app themes
   tags:
