@@ -7,13 +7,12 @@
     group: '{{ group }}'
     mode: 0755
   loop:
-    - .config/amfora
     - .config/git
     - .config/lazygit
+    - .config/newsboat
     - .config/nvim
     - .config/nvim/lua
     - .config/nvim/lua/plugins
-    - .local/share/amfora
     - .local/share/applications
     - 1-projects
     - 2-areas
@@ -32,9 +31,6 @@
     owner: '{{ owner }}'
     group: '{{ group }}'
   loop:
-    - { package: 'amfora', path: '.config/amfora/config.toml' }
-    - { package: 'amfora', path: '.local/share/amfora/bookmarks.toml' }
-    - { package: 'amfora', path: '.local/share/amfora/subscriptions.json' }
     - { package: 'bash', path: '.bash_profile' }
     - { package: 'bash', path: '.bashrc' }
     - { package: 'bash', path: '.inputrc' }
@@ -43,6 +39,8 @@
     - { package: 'git', path: '.config/git/git-commit-template.txt' }
     - { package: 'git', path: '.gitconfig' }
     - { package: 'lazygit', path: '.config/lazygit/config.yml' }
+    - { package: 'newsboat', path: '.config/newsboat/config' }
+    - { package: 'newsboat', path: '.config/newsboat/urls' }
     - { package: 'nvim', path: '.config/nvim/init.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
