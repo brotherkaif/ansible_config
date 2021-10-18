@@ -39,6 +39,8 @@
     - { package: 'git', path: '.config/git/git-commit-template.txt' }
     - { package: 'git', path: '.gitconfig' }
     - { package: 'lazygit', path: '.config/lazygit/config.yml' }
+    - { package: 'newsboat', path: '.config/newsboat/config' }
+    - { package: 'newsboat', path: '.config/newsboat/urls' }
     - { package: 'nvim', path: '.config/nvim/init.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
@@ -50,8 +52,6 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
     - { package: 'tmux', path: '.tmux.conf' }
     - { package: 'zsh', path: '.zshrc' }
-    - { package: 'newsboat', path: '.config/newsboat/config' }
-    - { package: 'newsboat', path: '.config/newsboat/urls' }
 
 - name: download Terminal.app themes
   tags:
