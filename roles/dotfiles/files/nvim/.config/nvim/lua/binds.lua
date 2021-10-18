@@ -39,10 +39,7 @@ local binds = {
     {'n', '<leader>ev', ':Vex<CR>'}, -- open explorer in vertical window
 
     -- GIT = `g`
-    {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
-    {'n', '<leader>gt', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open git client in new tab
-    {'n', '<leader>gh', ':split<CR>:term lazygit<CR>:startinsert<CR>'}, -- open terminal console in horizontal window
-    {'n', '<leader>gv', ':vsplit<CR>:term lazygit<CR>:startinsert<CR>'}, -- open terminal console in vertical window
+    {'n', '<leader>gg', ':Git'}, -- open git client
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
     {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
     {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
