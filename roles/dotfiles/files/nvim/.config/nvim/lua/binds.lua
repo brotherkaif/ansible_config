@@ -39,7 +39,7 @@ local binds = {
     {'n', '<leader>ev', ':Vex<CR>'}, -- open explorer in vertical window
 
     -- GIT = `g`
-    {'n', '<leader>gg', ':Git'}, -- open git client
+    {'n', '<leader>gg', ':Git<CR>'}, -- open git client
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
     {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
     {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
