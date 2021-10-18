@@ -9,6 +9,7 @@
   loop:
     - .config/git
     - .config/lazygit
+    - .config/newsboat
     - .config/nvim
     - .config/nvim/lua
     - .config/nvim/lua/plugins
@@ -49,6 +50,8 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
     - { package: 'tmux', path: '.tmux.conf' }
     - { package: 'zsh', path: '.zshrc' }
+    - { package: 'newsboat', path: '.config/newsboat/config' }
+    - { package: 'newsboat', path: '.config/newsboat/urls' }
 
 - name: download Terminal.app themes
   tags:
