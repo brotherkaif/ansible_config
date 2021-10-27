@@ -31,6 +31,6 @@
     - nodejs
     - packages
   package:
-    name: node
+    name: node@14
     state: present
   when: ansible_distribution == 'MacOSX'

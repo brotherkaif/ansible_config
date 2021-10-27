@@ -20,6 +20,9 @@ echo -e "\e[43;30m CONSOLE \e[0m"
 # PROMPT
 PROMPT="%F{red}%~"$'\n'"%F{blue}%#%f "
 
+# NODE PATH FIX DARWIN
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+
 # HISTORY TOGGLE
 export HISTCONTROL=ignorespace
 
