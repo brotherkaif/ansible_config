@@ -61,7 +61,3 @@ alias gco='git checkout'
 
 # APP ALIASES
 alias tmux='tmux -2'
-
-# WORK CONFIG
-# connector-cli autocomplete
-eval $(connector-cli autocomplete:script zsh)
