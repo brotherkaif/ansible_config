@@ -28,18 +28,15 @@ local binds = {
     -- TERMINAL CONSOLE = `c`
     {'n', '<leader>cc', ':term<CR>:startinsert<CR>'}, -- open terminal console in current window
     {'n', '<leader>ct', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in new tab
-    {'n', '<leader>ch', ':split<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in horizontal window
-    {'n', '<leader>cv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in vertical window
     {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
     -- EXPLORER = `e`
     {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer in current window
     {'n', '<leader>et', ':tabnew<CR>:Ex<CR>'}, -- open explorer in new tab
-    {'n', '<leader>eh', ':Sex<CR>'}, -- open explorer in horizontal window
-    {'n', '<leader>ev', ':Vex<CR>'}, -- open explorer in vertical window
 
     -- GIT = `g`
-    {'n', '<leader>gg', ':Git<CR>'}, -- open git client
+    {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
+    {'n', '<leader>gt', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open git client in new tab
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
     {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
     {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
