@@ -6,7 +6,7 @@
   pre_tasks:
 
     - name: install updates (Debian)
-      tags: always
+      tags: updates
       apt:
         upgrade: dist
         update_cache: yes
@@ -14,7 +14,7 @@
       when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: install updates (Darwin)
-      tags: always
+      tags: updates
       homebrew:
         update_homebrew: yes
         upgrade_all: yes
