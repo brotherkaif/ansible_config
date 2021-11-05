@@ -12,7 +12,6 @@ return require('packer').startup(function()
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-commentary'
-    use 'tpope/vim-fugitive'
     use 'rhlobo/vim-super-retab'
 
     -- telescope

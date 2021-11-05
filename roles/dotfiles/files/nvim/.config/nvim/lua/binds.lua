@@ -28,21 +28,18 @@ local binds = {
     -- TERMINAL CONSOLE = `c`
     {'n', '<leader>cc', ':term<CR>:startinsert<CR>'}, -- open terminal console in current window
     {'n', '<leader>ct', ':tabnew<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in new tab
-    {'n', '<leader>ch', ':split<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in horizontal window
-    {'n', '<leader>cv', ':vsplit<CR>:term<CR>:startinsert<CR>'}, -- open terminal console in vertical window
     {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
     -- EXPLORER = `e`
     {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer in current window
     {'n', '<leader>et', ':tabnew<CR>:Ex<CR>'}, -- open explorer in new tab
-    {'n', '<leader>eh', ':Sex<CR>'}, -- open explorer in horizontal window
-    {'n', '<leader>ev', ':Vex<CR>'}, -- open explorer in vertical window
 
     -- GIT = `g`
-    {'n', '<leader>gg', ':Git<CR>'}, -- open git client
-    {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files(require("telescope.themes").get_ivy())<CR>'}, -- browse git files
-    {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches(require("telescope.themes").get_ivy())<CR>'}, -- browse git branches
-    {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_ivy())<CR>'}, -- browse git status
+    {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
+    {'n', '<leader>gt', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open git client in new tab
+    {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files()<CR>'}, -- browse git files
+    {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>'}, -- browse git branches
+    {'n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status()<CR>'}, -- browse git status
 
     -- FILES = `f`
     {'n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>'}, -- open file finder
@@ -64,13 +61,14 @@ local binds = {
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
 
     -- LANGUAGE SERVER PROTOCOL = `s`
-    {'n', '<Leader>sd', '<cmd>lua vim.lsp.buf.definition()<CR>'}, -- go to definition
-    {'n', '<Leader>st', '<cmd>lua vim.lsp.buf.type_definition()<CR>'}, -- go to type definition
-    {'n', '<Leader>si', '<cmd>lua vim.lsp.buf.implementation()<CR>'}, -- go to implementation
-    {'n', '<Leader>sr', '<cmd>lua vim.lsp.buf.references()<CR>'}, -- show references
-    {'n', '<leader>sa', '<cmd>lua vim.lsp.buf.code_action()<CR>'}, -- show code actions
+    {'n', '<Leader>sd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>'}, -- go to definition
+    {'n', '<Leader>st', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>'}, -- go to type definition
+    {'n', '<Leader>si', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>'}, -- go to implementation
+    {'n', '<Leader>sr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>'}, -- show references
+    {'n', '<leader>sa', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>'}, -- show code actions
     {'n', '<Leader>sh', '<cmd>lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
     {'n', '<leader>sn', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
+    {'n', '<leader>ss', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>'}, -- show diagnostics
     {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
     {'n', '<leader>sk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
 

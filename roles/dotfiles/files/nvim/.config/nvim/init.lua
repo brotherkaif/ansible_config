@@ -13,10 +13,10 @@ require('binds')
 require('options')
 require('plugins')
 require('lsp')
+require('plugins/treesitter-config')
+require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')
 require('plugins/formatter-config')
-require('plugins/telescope-config')
-require('plugins/treesitter-config')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('[COMPLETED]')

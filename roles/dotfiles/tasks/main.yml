@@ -37,7 +37,7 @@
     - { package: 'devdocs', path: '3-resources/customisation/devdocs/devdocs.json' }
     - { package: 'gcs', path: '.customize_environment' }
     - { package: 'git', path: '.config/git/git-commit-template.txt' }
-    - { package: 'git', path: '.gitconfig' }
+    # - { package: 'git', path: '.gitconfig' }
     - { package: 'lazygit', path: '.config/lazygit/config.yml' }
     - { package: 'newsboat', path: '.config/newsboat/config' }
     - { package: 'newsboat', path: '.config/newsboat/urls' }
