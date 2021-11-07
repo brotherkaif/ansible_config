@@ -62,6 +62,7 @@ local binds = {
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
 
     -- LANGUAGE SERVER PROTOCOL = `s`
+    {'n', '<leader>ss', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>'}, -- show diagnostics
     {'n', '<Leader>sd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>'}, -- go to definition
     {'n', '<Leader>st', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>'}, -- go to type definition
     {'n', '<Leader>si', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>'}, -- go to implementation
@@ -69,7 +70,6 @@ local binds = {
     {'n', '<leader>sa', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>'}, -- show code actions
     {'n', '<Leader>sh', '<cmd>lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
     {'n', '<leader>sn', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
-    {'n', '<leader>ss', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>'}, -- show diagnostics
     {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
     {'n', '<leader>sk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
 
