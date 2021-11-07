@@ -8,10 +8,8 @@ return require('packer').startup(function()
     }
 
     -- quality of life
-    use 'tpope/vim-vinegar'
-    use 'tpope/vim-surround'
-    use 'tpope/vim-repeat'
-    use 'tpope/vim-commentary'
+    use 'terrortylor/nvim-comment'
+    require('nvim_comment').setup()
     use 'rhlobo/vim-super-retab'
 
     -- telescope

@@ -31,8 +31,8 @@ local binds = {
     {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
     -- EXPLORER = `e`
-    {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer in current window
-    {'n', '<leader>et', ':tabnew<CR>:Ex<CR>'}, -- open explorer in new tab
+    {'n', '<leader>ee', ':Explore<CR>'}, -- open explorer in current window
+    {'n', '<leader>et', ':Texplore<CR>'}, -- open explorer in new tab
 
     -- GIT = `g`
     {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
@@ -44,7 +44,8 @@ local binds = {
     -- FILES = `f`
     {'n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>'}, -- open file finder
     {'n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>'}, -- open git file finder
-    {'n', '<leader>fb', '<cmd>lua require("telescope.builtin").file_browser()<CR>'}, -- open file browser
+    {'n', '<leader>fb', '<cmd>lua require("telescope.builtin").file_browser()<CR>'}, -- open file browser on current working directory
+    {'n', '<leader>fd', '<cmd>lua require("telescope.builtin").file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>'}, -- open file browser on buffer directory
     {'n', '<Leader>f/', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
 
     -- BUFFERS = `b`
@@ -61,6 +62,7 @@ local binds = {
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
 
     -- LANGUAGE SERVER PROTOCOL = `s`
+    {'n', '<leader>ss', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>'}, -- show diagnostics
     {'n', '<Leader>sd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>'}, -- go to definition
     {'n', '<Leader>st', '<cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>'}, -- go to type definition
     {'n', '<Leader>si', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>'}, -- go to implementation
@@ -68,7 +70,6 @@ local binds = {
     {'n', '<leader>sa', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>'}, -- show code actions
     {'n', '<Leader>sh', '<cmd>lua vim.lsp.buf.hover()<CR>'}, -- cursor hover
     {'n', '<leader>sn', '<cmd>lua vim.lsp.buf.rename()<CR>'}, -- rename symbol
-    {'n', '<leader>ss', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>'}, -- show diagnostics
     {'n', '<leader>sj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>'}, -- go to next diagnostic
     {'n', '<leader>sk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'}, -- go to previous diagnostic
 
