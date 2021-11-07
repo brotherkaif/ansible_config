@@ -31,8 +31,8 @@ local binds = {
     {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
 
     -- EXPLORER = `e`
-    {'n', '<leader>ee', ':Ex<CR>'}, -- open explorer in current window
-    {'n', '<leader>et', ':tabnew<CR>:Ex<CR>'}, -- open explorer in new tab
+    {'n', '<leader>ee', ':Explore<CR>'}, -- open explorer in current window
+    {'n', '<leader>et', ':Texplore<CR>'}, -- open explorer in new tab
 
     -- GIT = `g`
     {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
