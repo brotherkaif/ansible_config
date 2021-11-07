@@ -8,6 +8,7 @@ require('telescope').setup({
 	},
 	file_browser = {
 	    disable_devicons = true,
+	    hidden = true,
 	},
     },
 })
