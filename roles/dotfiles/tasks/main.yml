@@ -19,7 +19,7 @@
     - 3-resources
     - 3-resources/customisation
     - 3-resources/customisation/devdocs
-    - 3-resources/customisation/fira-code-font
+    - 3-resources/customisation/fonts
     - 3-resources/customisation/macos-terminal-themes
     - 4-archive
 
@@ -35,6 +35,7 @@
     - { package: 'bash', path: '.bashrc' }
     - { package: 'bash', path: '.inputrc' }
     - { package: 'devdocs', path: '3-resources/customisation/devdocs/devdocs.json' }
+    - { package: 'themes', path: '3-resources/customisation/macos-terminal-themes/zenburn.terminal' }
     - { package: 'gcs', path: '.customize_environment' }
     - { package: 'git', path: '.config/git/git-commit-template.txt' }
     # - { package: 'git', path: '.gitconfig' }
@@ -53,20 +54,26 @@
     - { package: 'tmux', path: '.tmux.conf' }
     - { package: 'zsh', path: '.zshrc' }
 
-- name: download Terminal.app themes
+- name: download rose-pine theme (Darwin)
   tags:
     - dotfiles
     - customisation
   get_url:
-    url: 'https://github.com/dracula/terminal-app/archive/master.zip'
+    url: '{{item}}'
     dest: ~/3-resources/customisation/macos-terminal-themes/
     mode: 0755
+  loop:
+    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine.terminal'
+    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-moon.terminal'
+    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-dawn.terminal'
+  when: ansible_distribution == 'MacOSX'
 
-- name: download Fira Code font
+- name: download monoid font (Darwin)
   tags:
     - dotfiles
     - customisation
   get_url:
-    url: 'https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip'
-    dest: ~/3-resources/customisation/fira-code-font/
+    url: 'https://cdn.rawgit.com/larsenwork/monoid/2db2d289f4e61010dd3f44e09918d9bb32fb96fd/Monoid.zip'
+    dest: ~/3-resources/customisation/fonts/
     mode: 0755
+  when: ansible_distribution == 'MacOSX'
