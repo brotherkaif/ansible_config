@@ -77,3 +77,13 @@
     dest: ~/3-resources/customisation/fonts/
     mode: 0755
   when: ansible_distribution == 'MacOSX'
+
+- name: download noto sans mono font (Darwin)
+  tags:
+    - dotfiles
+    - customisation
+  get_url:
+    url: 'https://fonts.google.com/download?family=Noto%20Sans%20Mono'
+    dest: ~/3-resources/customisation/fonts/
+    mode: 0755
+  when: ansible_distribution == 'MacOSX'
