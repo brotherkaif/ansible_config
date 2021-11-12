@@ -15,6 +15,7 @@ wo.relativenumber = true
 o.scrolloff = 8
 
 -- display
+o.completeopt = 'menu,menuone,noselect'
 wo.wrap = false
 wo.signcolumn = 'yes'
 vim.cmd('highlight clear SignColumn')
