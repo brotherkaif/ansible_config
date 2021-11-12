@@ -50,6 +50,7 @@ local binds = {
 
     -- BUFFERS = `b`
     {'n', '<leader>bw', ':w<CR>'}, -- write buffer
+    {'n', '<leader>br', ':e<CR>'}, -- reload buffer
     {'n', '<leader>bf', ':Format<CR>'}, -- runs formatter/linter on current buffer
     {'n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>'}, -- toggle spellcheck on current buffer
     {'n', '<Leader>b/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
