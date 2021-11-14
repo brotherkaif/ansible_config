@@ -10,17 +10,17 @@
 
     - name: download and unzip (Debian)
       unarchive:
-        src: https://downloads.tuxfamily.org/godotengine/3.2.3/Godot_v3.2.3-stable_x11.64.zip
+        src: https://downloads.tuxfamily.org/godotengine/3.4/Godot_v3.4-stable_x11.64.zip
         dest: /usr/local/bin
         remote_src: yes
       when: godot_installed.stat.exists == false
 
     - name: check if rename required (Debian)
-      stat: path=/usr/local/bin/Godot_v3.2.3-stable_x11.64
+      stat: path=/usr/local/bin/Godot_v3.4-stable_x11.64
       register: godot_rename_required
 
     - name: rename file (Debian)
-      command: mv /usr/local/bin/Godot_v3.2.3-stable_x11.64 /usr/local/bin/godot
+      command: mv /usr/local/bin/Godot_v3.4-stable_x11.64 /usr/local/bin/godot
       when: godot_rename_required.stat.exists == true
 
     - name: copy icon (Debian)
