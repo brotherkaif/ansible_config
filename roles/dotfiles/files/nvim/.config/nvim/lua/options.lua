@@ -40,6 +40,10 @@ o.hlsearch = false
 -- interface
 o.showmatch = true
 wo.cursorline = true
+wo.list = true
+vim.cmd('set listchars=tab:‹·›,trail:•,lead:•,precedes:«,extends:»')
+vim.cmd('highlight SpecialKey ctermfg=DarkGrey guifg=DarkGrey')
+vim.cmd('highlight NonText ctermfg=DarkGrey guifg=DarkGrey')
 
 -- split behaviour
 o.splitbelow = true
@@ -48,10 +52,9 @@ o.splitright = true
 -- indentation behaviour
 bo.expandtab = false
 bo.smartindent = true
-bo.preserveindent = true
 bo.softtabstop = 0
-bo.tabstop = 2
-o.shiftwidth = 2
+bo.tabstop = 4
+o.shiftwidth = 0
 wo.foldmethod = 'indent'
 o.foldlevel = 2
 
