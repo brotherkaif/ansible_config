@@ -53,8 +53,8 @@ o.splitright = true
 bo.expandtab = false
 bo.smartindent = true
 bo.softtabstop = 0
-bo.tabstop = 4
-o.shiftwidth = 0
+bo.tabstop = 2
+o.shiftwidth = 2
 wo.foldmethod = 'indent'
 o.foldlevel = 2
 
