@@ -59,7 +59,7 @@ wo.foldmethod = 'indent'
 o.foldlevel = 2
 
 -- lsp
-vim.cmd('highlight LspDiagnosticsVirtualTextError ctermfg=Red guifg=Red ')
+vim.cmd('highlight LspDiagnosticsVirtualTextError ctermfg=Red guifg=Red')
 vim.cmd('highlight LspDiagnosticsVirtualTextWarning ctermfg=Yellow guifg=Yellow')
 vim.cmd('highlight LspDiagnosticsVirtualTextHint ctermfg=Blue guifg=Blue')
 vim.cmd('highlight LspDiagnosticsVirtualTextInformation ctermfg=DarkGrey guifg=DarkGrey')
