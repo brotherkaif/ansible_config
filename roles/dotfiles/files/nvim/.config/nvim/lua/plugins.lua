@@ -2,14 +2,10 @@ return require('packer').startup(function()
     -- core
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     -- quality of life
-    use 'terrortylor/nvim-comment'
-    require('nvim_comment').setup()
+    use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
     use 'rhlobo/vim-super-retab'
 
     -- telescope
@@ -22,7 +18,7 @@ return require('packer').startup(function()
     use 'millermedeiros/vim-statline'
 
     -- window management
-    use { "beauwilliams/focus.nvim", config = function() require("focus").setup({signcolumn = false, number = false, winhighlight = true}) end }
+    use { 'beauwilliams/focus.nvim', config = function() require('focus').setup() end }
 
     -- completion
     use 'hrsh7th/nvim-cmp'
