@@ -2,6 +2,7 @@ local binds = {
     -- INTERFACE = `i`
     {'n', '<leader>il', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to light
     {'n', '<leader>id', ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>'}, -- set theme to dark
+    {'n', '<leader>in', ':set relativenumber!<CR>'}, -- toggle relative line numbers
 
     -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
     {'n', '<leader>h', ':FocusSplitLeft<CR>'}, -- move cursor to left window

@@ -11,7 +11,6 @@ o.backup = false
 
 -- line numbers
 wo.number = true
-wo.relativenumber = true
 o.scrolloff = 8
 
 -- display
