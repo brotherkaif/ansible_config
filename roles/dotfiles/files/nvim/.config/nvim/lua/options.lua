@@ -41,7 +41,7 @@ o.hlsearch = false
 o.showmatch = true
 wo.cursorline = true
 wo.list = true
-vim.cmd('set listchars=tab:‹·›,trail:•,lead:•,precedes:«,extends:»')
+vim.cmd('set listchars=tab:‹·›,trail:·,lead:·,precedes:«,extends:»')
 vim.cmd('highlight SpecialKey ctermfg=DarkGrey guifg=DarkGrey')
 vim.cmd('highlight NonText ctermfg=DarkGrey guifg=DarkGrey')
 
