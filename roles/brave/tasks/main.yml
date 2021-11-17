@@ -1,0 +1,41 @@
+- name: installation (Debian)
+  tags:
+    - debian
+    - brave
+    - packages
+  block:
+    - name: install the https method driver for apt (Debian)
+      apt:
+        name: apt-transport-https
+        state: present
+        update_cache: yes
+
+    - name: add the apt key (Debian)
+      apt_key:
+        url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
+        state: present
+
+    - name: add the apt repository (Debian)
+      apt_repository:
+        repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        state: present
+
+    - name: package installation (Debian)
+      apt:
+        name: brave-browser
+        state: present
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: installation (Darwin)
+  tags:
+    - darwin
+    - brave
+    - packages
+  block:
+    - name: package installation (Darwin)
+      tags: always
+      homebrew_cask:
+        name: brave-browser
+        state: present
+  when: ansible_distribution == 'MacOSX'
