@@ -4,28 +4,9 @@
     - github-cli
     - packages
   block:
-    - name: add the apt key (Debian)
-      apt_key:
-        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-        state: present
-
-    - name: add the apt repository (Debian)
-      apt_repository:
-        repo: deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main
-        state: present
-
-    - name: install updates (Debian)
-      tags: updates
-      apt:
-        upgrade: dist
-        update_cache: yes
-      become: true
-      when: ansible_distribution in ['Debian', 'Ubuntu']
-
     - name: package installation (Debian)
       apt:
-        name: gh
-        state: present
+        deb: https://github.com/cli/cli/releases/download/v2.2.0/gh_2.2.0_linux_amd64.deb
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
