@@ -1,23 +1,17 @@
 - name: installation (Debian)
   tags:
     - debian
-    - brave
+    - github-cli
     - packages
   block:
-    - name: install the https method driver for apt (Debian)
-      apt:
-        name: apt-transport-https
-        state: present
-        update_cache: yes
-
     - name: add the apt key (Debian)
       apt_key:
-        url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
+        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
         state: present
 
     - name: add the apt repository (Debian)
       apt_repository:
-        repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        repo: deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main
         state: present
 
     - name: install updates (Debian)
@@ -30,7 +24,7 @@
 
     - name: package installation (Debian)
       apt:
-        name: brave-browser
+        name: gh
         state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
@@ -38,11 +32,11 @@
 - name: installation (Darwin)
   tags:
     - darwin
-    - brave
+    - github-cli
     - packages
   block:
     - name: package installation (Darwin)
-      homebrew_cask:
-        name: brave-browser
+      homebrew:
+        name: gh
         state: present
   when: ansible_distribution == 'MacOSX'
