@@ -38,6 +38,8 @@ local binds = {
 
     -- GIT = `g`
     {'n', '<leader>gg', ':term lazygit<CR>:startinsert<CR>'}, -- open git client in current window
+    {'n', '<leader>gh', ':!gh'}, -- open a github cli statement
+    {'n', '<leader>gc', ':!git'}, -- open a git cli statement
     {'n', '<leader>gt', ':tabnew<CR>:term lazygit<CR>:startinsert<CR>'}, -- open git client in new tab
     {'n', '<leader>gf', '<cmd>lua require("telescope.builtin").git_files()<CR>'}, -- browse git files
     {'n', '<leader>gb', '<cmd>lua require("telescope.builtin").git_branches()<CR>'}, -- browse git branches
