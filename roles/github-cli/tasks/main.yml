@@ -1,0 +1,23 @@
+- name: installation (Debian)
+  tags:
+    - debian
+    - github-cli
+    - packages
+  block:
+    - name: package installation (Debian)
+      apt:
+        deb: https://github.com/cli/cli/releases/download/v2.2.0/gh_2.2.0_linux_amd64.deb
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: installation (Darwin)
+  tags:
+    - darwin
+    - github-cli
+    - packages
+  block:
+    - name: package installation (Darwin)
+      homebrew:
+        name: gh
+        state: present
+  when: ansible_distribution == 'MacOSX'

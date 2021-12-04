@@ -36,7 +36,6 @@
     - core
     - nodejs
     - neovim
+    - github-cli
     - godot
     - brave
-    - torbrowser
-    - lazygit
