@@ -1,27 +1,35 @@
 - name: app installation (Debian)
-  tags: dev
+  tags:
+  - neovim
+  - dev
   get_url:
-    url: 'https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage'
+    url: 'https://github.com/neovim/neovim/releases/download/v0.6.0/nvim.appimage'
     dest: /usr/bin/nvim
     mode: 0755
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: app installation (Darwin)
-  tags: dev
+  tags:
+  - neovim
+  - dev
   homebrew:
     name: neovim
     # state: head
   when: ansible_distribution == 'MacOSX'
 
 - name: packer installation
-  tags: dev
+  tags:
+  - neovim
+  - dev
   git:
     repo: https://github.com/wbthomason/packer.nvim.git
     dest: '{{ home_directory }}/.local/share/nvim/site/pack/packer/start/packer.nvim'
 
 - name: lsp dependency installation
-  tags: dev
+  tags:
+  - neovim
+  - dev
   npm:
     name: '{{ item }}'
     global: yes
@@ -41,8 +49,11 @@
     - prettier
     # YAML
     - yaml-language-server
-     
+
 - name: python dependency installation
+  tags:
+  - neovim
+  - dev
   pip:
     name: pynvim
     extra_args: --user --upgrade
