@@ -41,6 +41,9 @@ options.hlsearch = false
 options.showmatch = true
 window_options.cursorline = true
 window_options.list = true
+command('let g:netrw_liststyle = 3')
+command('let g:netrw_menu = 0')
+command('let g:netrw_hide = 0')
 command('set listchars=tab:‹·›,trail:·,lead:·,precedes:«,extends:»')
 command('highlight SpecialKey ctermfg=DarkGrey guifg=DarkGrey')
 command('highlight NonText ctermfg=DarkGrey guifg=DarkGrey')
