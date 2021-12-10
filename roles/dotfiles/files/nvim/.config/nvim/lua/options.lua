@@ -5,6 +5,7 @@ local command = vim.cmd
 
 -- disable annoying stuff
 options.errorbells = false
+command('set clipboard+=unnamedplus')
 
 -- disable backup and swp files
 buffer_options.swapfile = false
