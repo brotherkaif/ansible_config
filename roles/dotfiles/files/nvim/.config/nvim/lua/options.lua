@@ -3,6 +3,9 @@ local window_options = vim.wo
 local buffer_options = vim.bo
 local command = vim.cmd
 
+-- <leader> = space
+vim.g.mapleader = " "
+
 -- disable annoying stuff
 options.errorbells = false
 command('set clipboard+=unnamedplus')

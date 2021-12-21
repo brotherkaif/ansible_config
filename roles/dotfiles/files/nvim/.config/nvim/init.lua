@@ -1,5 +1,5 @@
---  _       _ _     _             
--- (_)_ __ (_) |_  | |_   _  __ _ 
+--  _       _ _     _
+-- (_)_ __ (_) |_  | |_   _  __ _
 -- | | '_ \| | __| | | | | |/ _` |
 -- | | | | | | |_ _| | |_| | (_| |
 -- |_|_| |_|_|\__(_)_|\__,_|\__,_|
@@ -17,6 +17,7 @@ require('plugins/treesitter-config')
 require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')
 require('plugins/formatter-config')
+require('plugins/which-key-config')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('[COMPLETED]')

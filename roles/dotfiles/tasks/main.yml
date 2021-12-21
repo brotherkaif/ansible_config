@@ -51,6 +51,7 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins/nvim-cmp-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/plugins/which-key-config.lua' }
     - { package: 'tmux', path: '.tmux.conf' }
     - { package: 'zsh', path: '.zshrc' }
 
@@ -66,16 +67,6 @@
     - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine.terminal'
     - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-moon.terminal'
     - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-dawn.terminal'
-  when: ansible_distribution == 'MacOSX'
-
-- name: download monoid font (Darwin)
-  tags:
-    - dotfiles
-    - customisation
-  get_url:
-    url: 'https://cdn.rawgit.com/larsenwork/monoid/2db2d289f4e61010dd3f44e09918d9bb32fb96fd/Monoid.zip'
-    dest: ~/3-resources/customisation/fonts/
-    mode: 0755
   when: ansible_distribution == 'MacOSX'
 
 - name: download noto sans mono font (Darwin)

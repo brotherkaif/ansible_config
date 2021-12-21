@@ -7,6 +7,7 @@ return require('packer').startup(function()
     -- quality of life
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
     use 'rhlobo/vim-super-retab'
+    use { 'folke/which-key.nvim', config = function() require('which-key').setup() end }
 
     -- telescope
     use 'nvim-telescope/telescope.nvim'
