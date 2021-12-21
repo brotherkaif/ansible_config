@@ -55,6 +55,7 @@
     - { package: 'tmux', path: '.tmux.conf' }
     - { package: 'zsh', path: '.zshrc' }
 
+# TODO: move this into a separate play
 - name: download rose-pine theme (Darwin)
   tags:
     - dotfiles
