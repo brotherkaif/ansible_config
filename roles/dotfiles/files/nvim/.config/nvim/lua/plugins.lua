@@ -1,27 +1,4 @@
 return require('packer').startup(function()
-    -- interface
-    use {
-      "folke/twilight.nvim",
-      config = function()
-	require("twilight").setup {
-	  -- your configuration comes here
-	  -- or leave it empty to use the default settings
-	  -- refer to the configuration section below
-	}
-      end
-    }
-    use {
-      "folke/zen-mode.nvim",
-      config = function()
-	require("zen-mode").setup {
-	  -- your configuration comes here
-	  -- or leave it empty to use the default settings
-	  -- refer to the configuration section below
-	}
-      end
-    }
-    use 'millermedeiros/vim-statline'
-
     -- core
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
@@ -54,6 +31,29 @@ return require('packer').startup(function()
 
     -- linting
     use 'mhartington/formatter.nvim'
+
+    -- interface
+    use {
+      "folke/twilight.nvim",
+      config = function()
+	require("twilight").setup {
+	  -- your configuration comes here
+	  -- or leave it empty to use the default settings
+	  -- refer to the configuration section below
+	}
+      end
+    }
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+	require("zen-mode").setup {
+	  -- your configuration comes here
+	  -- or leave it empty to use the default settings
+	  -- refer to the configuration section below
+	}
+      end
+    }
+    use 'millermedeiros/vim-statline'
 end)
 
 -- UNCOMMENT FOR DEBUG MESSAGES
