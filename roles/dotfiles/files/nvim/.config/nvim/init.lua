@@ -1,5 +1,5 @@
---  _       _ _     _             
--- (_)_ __ (_) |_  | |_   _  __ _ 
+--  _       _ _     _
+-- (_)_ __ (_) |_  | |_   _  __ _
 -- | | '_ \| | __| | | | | |/ _` |
 -- | | | | | | |_ _| | |_| | (_| |
 -- |_|_| |_|_|\__(_)_|\__,_|\__,_|
@@ -9,14 +9,15 @@
 -- print('| |(/_(_)\\/|| | | ')
 -- print('LOADING CONFIGS...')
 
-require('binds')
-require('options')
 require('plugins')
-require('lsp')
 require('plugins/treesitter-config')
 require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')
 require('plugins/formatter-config')
+require('plugins/which-key-config')
+require('lsp')
+require('binds')
+require('options')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('[COMPLETED]')

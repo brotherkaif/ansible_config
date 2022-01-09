@@ -7,15 +7,13 @@ return require('packer').startup(function()
     -- quality of life
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
     use 'rhlobo/vim-super-retab'
+    use { 'folke/which-key.nvim', config = function() require('which-key').setup() end }
 
     -- telescope
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-    -- interface
-    use 'millermedeiros/vim-statline'
 
     -- window management
     use { 'beauwilliams/focus.nvim', config = function() require('focus').setup() end }
@@ -33,6 +31,29 @@ return require('packer').startup(function()
 
     -- linting
     use 'mhartington/formatter.nvim'
+
+    -- interface
+    use {
+      "folke/twilight.nvim",
+      config = function()
+	require("twilight").setup {
+	  -- your configuration comes here
+	  -- or leave it empty to use the default settings
+	  -- refer to the configuration section below
+	}
+      end
+    }
+    use {
+      "folke/zen-mode.nvim",
+      config = function()
+	require("zen-mode").setup {
+	  -- your configuration comes here
+	  -- or leave it empty to use the default settings
+	  -- refer to the configuration section below
+	}
+      end
+    }
+    use 'millermedeiros/vim-statline'
 end)
 
 -- UNCOMMENT FOR DEBUG MESSAGES
