@@ -14,6 +14,7 @@ return require('packer').startup(function()
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
 
     -- window management
     use { 'beauwilliams/focus.nvim', config = function() require('focus').setup() end }

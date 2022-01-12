@@ -6,14 +6,16 @@ require('telescope').setup({
 	git_files = {
 	    disable_devicons = true,
 	},
-	file_browser = {
-	    disable_devicons = true,
-	    hidden = true,
-	},
+    },
+    extensions = {
+      file_browser = {
+	dir_icon = '›',
+      },
     },
 })
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('file_browser')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('- plugins/telescope-config.lua...OK!')

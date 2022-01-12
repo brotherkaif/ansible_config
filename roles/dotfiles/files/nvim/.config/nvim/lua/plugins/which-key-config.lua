@@ -71,8 +71,8 @@ wk.register({
     name = 'file',
     f = { '<cmd>lua require("telescope.builtin").find_files()<CR>', 'Find File' },
     g = { '<cmd>lua require("telescope.builtin").git_files()<CR>', 'Find Git File' },
-    b = { '<cmd>lua require("telescope.builtin").file_browser()<CR>', 'File Browser (project directory)' },
-    d = { '<cmd>lua require("telescope.builtin").file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', 'File Browser (current directory)' },
+    b = { '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>', 'File Browser (project directory)' },
+    d = { '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', 'File Browser (current directory)' },
     -- TODO: fix this
     -- / = { '<cmd>lua require("plugins.telescope-config").live_grep()<CR>', 'Grep Files' },
   },
