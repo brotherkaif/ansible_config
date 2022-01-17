@@ -91,7 +91,9 @@ wk.register({
 
   s = {
     name = 'language server',
-    s = { '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', 'show diagnostics' },
+    s = { '<cmd>lua vim.diagnostic.open_float()<CR>', 'show diagnostics' },
+    -- TODO: update telescope diagnostic lists (potentially requires new bind namespace?)
+    -- s = { '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', 'show diagnostics' },
     d = { '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', 'go to definition' },
     t = { '<cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>', 'go to type definition' },
     i = { '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', 'go to implementation' },
