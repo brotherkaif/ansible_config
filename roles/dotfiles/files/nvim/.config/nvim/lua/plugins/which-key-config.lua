@@ -101,7 +101,7 @@ wk.register({
     a = { '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>', 'show code actions' },
     h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'cursor hover' },
     n = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'rename symbol' },
-    j = { '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', 'go to next diagnostic' },
-    k = { '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', 'go to previous diagnostic' },
+    j = { '<cmd>lua vim.diagnostic.goto_next()<CR>', 'go to next diagnostic' },
+    k = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', 'go to previous diagnostic' },
   },
 }, { prefix = '<leader>' })

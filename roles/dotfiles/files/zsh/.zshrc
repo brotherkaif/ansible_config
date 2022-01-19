@@ -5,8 +5,9 @@
 #(_)___|___/_| |_|_|  \___|
 #==========================
 
-# VIM MODE
+# VIM MODE & CTRL-R fix
 bindkey -v
+bindkey '^r' history-incremental-search-backward
 
 # TMUX AUTO LOAD
 # if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
