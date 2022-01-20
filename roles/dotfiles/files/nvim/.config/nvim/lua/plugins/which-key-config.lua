@@ -32,6 +32,7 @@ wk.register({
     j = { '<C-W>J', 'move window to bottom' },
     k = { '<C-W>K', 'move window to top' },
     l = { '<C-W>L', 'move window to right' },
+    z = { ':ZenMode<CR>', 'toggle zen mode' },
   },
 
   t = {
