@@ -75,7 +75,7 @@ wk.register({
     b = { '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>', 'File Browser (project directory)' },
     d = { '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', 'File Browser (current directory)' },
     -- TODO: fix this
-    -- / = { '<cmd>lua require("plugins.telescope-config").live_grep()<CR>', 'Grep Files' },
+    -- / = { '<cmd>lua require("telescope.builtin").live_grep()', 'Grep Files' },
   },
 
   b = {
@@ -85,7 +85,7 @@ wk.register({
     f = { ':Format<CR>', 'runs formatter/linter on current buffer' },
     s = { ':setlocal spell! spelllang=en_gb,en_us<CR>', 'toggle spellcheck on current buffer' },
     -- TODO: fix this
-    -- / = { '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>', 'open fuzzy find within current buffer' },
+    -- / = { '<cmd><cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', 'open fuzzy find within current buffer' },
   },
 
 -- TODO: migrate fuzzy keybinds from binds.lua

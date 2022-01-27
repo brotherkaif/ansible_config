@@ -50,14 +50,14 @@ local binds = {
     -- {'n', '<leader>fg', '<cmd>lua require("telescope.builtin").git_files()<CR>'}, -- open git file finder
     -- {'n', '<leader>fb', '<cmd>lua require("telescope.builtin").file_browser()<CR>'}, -- open file browser on current working directory
     -- {'n', '<leader>fd', '<cmd>lua require("telescope.builtin").file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>'}, -- open file browser on buffer directory
-    {'n', '<Leader>f/', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
+    {'n', '<Leader>f/', '<cmd>lua require("telescope.builtin").live_grep()<CR>'}, -- open fuzzy find accross current working directory
 
     -- BUFFERS = `b`
     -- {'n', '<leader>bw', ':w<CR>'}, -- write buffer
     -- {'n', '<leader>br', ':e<CR>'}, -- reload buffer
     -- {'n', '<leader>bf', ':Format<CR>'}, -- runs formatter/linter on current buffer
     -- {'n', '<Leader>bs', ':setlocal spell! spelllang=en_gb,en_us<CR>'}, -- toggle spellcheck on current buffer
-    {'n', '<Leader>b/', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
+    {'n', '<Leader>b/', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
     -- FUZZY SEARCHING = `/`
     {'n', '<Leader>/f', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
