@@ -60,8 +60,8 @@ local binds = {
     {'n', '<Leader>b/', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
     -- FUZZY SEARCHING = `/`
-    {'n', '<Leader>/f', '<cmd>lua require("plugins.telescope-config").live_grep()<CR>'}, -- open fuzzy find accross current working directory
-    {'n', '<Leader>/b', '<cmd>lua require("plugins.telescope-config").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
+    {'n', '<Leader>/f', '<cmd>lua require("telescope.builtin").live_grep()<CR>'}, -- open fuzzy find accross current working directory
+    {'n', '<Leader>/b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
 
     -- TELESCOPE PICKERS = `p`
     {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
