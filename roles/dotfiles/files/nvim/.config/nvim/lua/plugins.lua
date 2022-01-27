@@ -9,6 +9,15 @@ return require('packer').startup(function()
     use 'rhlobo/vim-super-retab'
     use { 'folke/which-key.nvim', config = function() require('which-key').setup() end }
     use 'editorconfig/editorconfig-vim'
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+	'nvim-lua/plenary.nvim'
+      },
+      config = function()
+	require('gitsigns').setup()
+      end
+    }
 
     -- telescope
     use 'nvim-telescope/telescope.nvim'
