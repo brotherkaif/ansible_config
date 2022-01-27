@@ -1,14 +1,46 @@
 -- TODO: look at requiring in setup from here instead
-local wk = require('which-key')
--- As an example, we will create the following mappings:
---  * <leader>ff find files
---  * <leader>fr show recent files
---  * <leader>fb Foobar
--- we'll document:
---  * <leader>fn new file
---  * <leader>fe edit file
--- and hide <leader>1
+local binds = {
+    -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
+    {'n', '<leader>h', ':FocusSplitLeft<CR>'}, -- move cursor to left window
+    {'n', '<leader>j', ':FocusSplitDown<CR>'}, -- move cursor to bottom window
+    {'n', '<leader>k', ':FocusSplitUp<CR>'}, -- move cursor to top window
+    {'n', '<leader>l', ':FocusSplitRight<CR>'}, -- move cursor to right window
 
+    -- TERMINAL CONSOLE = `c`
+    {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
+
+    -- FILES = `f`
+    {'n', '<Leader>f/', '<cmd>lua require("telescope.builtin").live_grep()<CR>'}, -- open fuzzy find accross current working directory
+
+    -- BUFFERS = `b`
+    {'n', '<Leader>b/', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
+
+    -- FUZZY SEARCHING = `/`
+    {'n', '<Leader>/f', '<cmd>lua require("telescope.builtin").live_grep()<CR>'}, -- open fuzzy find accross current working directory
+    {'n', '<Leader>/b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
+
+    -- TELESCOPE PICKERS = `p`
+    {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
+
+    -- QUICKFIX LIST = `q`
+    {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
+    {'n', '<Leader>qk', ':cp<CR>'}, -- go to previous item in list
+}
+-- <leader> = space
+
+vim.g.mapleader = " "
+
+local opts = {noremap = true, silent = true}
+
+for i = 1, #binds do
+    local mode = binds[i][1]
+    local lhs = binds[i][2]
+    local rhs = binds[i][3]
+
+    vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+end
+
+local wk = require('which-key')
 -- TODO: top level cursor movement keybinds from binds.lua
 -- TODO: top level telescope pickers keybinds from binds.lua
 -- TODO: top level quickfix keybinds from binds.lua
@@ -106,3 +138,6 @@ wk.register({
     k = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', 'go to previous diagnostic' },
   },
 }, { prefix = '<leader>' })
+
+-- UNCOMMENT FOR DEBUG MESSAGES
+-- print('- plugins/which-key-config.lua ...OK!')

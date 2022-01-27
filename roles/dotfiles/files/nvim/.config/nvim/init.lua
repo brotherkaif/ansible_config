@@ -16,7 +16,6 @@ require('plugins/nvim-cmp-config')
 require('plugins/formatter-config')
 require('plugins/which-key-config')
 require('lsp')
-require('binds')
 require('options')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
