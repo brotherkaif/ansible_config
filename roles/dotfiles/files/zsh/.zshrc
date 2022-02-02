@@ -48,8 +48,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # CONVENIENCE ALIASES
 alias ll='ls -la'
-alias sc='ansible-pull -U https://github.com/brotherkaif/config.git'
-alias sl='ansible-playbook ~/2-areas/config/local.yml'
+alias sync-config='ansible-pull -U https://github.com/brotherkaif/config.git'
+alias sync-local-config='ansible-playbook ~/2-areas/config/local.yml'
 
 # GIT ALIASES
 alias lg='lazygit'
@@ -62,3 +62,7 @@ alias gco='git checkout'
 
 # APP ALIASES
 alias tmux='tmux -2'
+
+# PRODUCTIVITY ALIASES
+alias notes-scratch = 'nvim $home/3-resources/notes/scratchpads/$(date "+%y-%m-%d").md'
+alias notes-dev-notes = 'nvim $home/3-resources/notes/dev-notes'
