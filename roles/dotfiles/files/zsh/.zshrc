@@ -4,6 +4,17 @@
 # _ / /\__ \ | | | | | (__
 #(_)___|___/_| |_|_|  \___|
 #==========================
+# ADDED VIA ANSIBLE
+
+# SOURCE COMMON
+if [ -f ~/.shell_common ]; then
+   source ~/.shell_common
+fi
+
+# SOURCE ALIASES
+if [ -f ~/.shell_aliases ]; then
+   source ~/.shell_aliases
+fi
 
 # VIM MODE & CTRL-R fix
 bindkey -v
@@ -24,45 +35,7 @@ PROMPT="%F{red}%~"$'\n'"%F{blue}%#%f "
 # NODE PATH FIX DARWIN
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 
-# HISTORY TOGGLE
-export HISTCONTROL=ignorespace
-
-# XDG BASE DIRECTORY CONFIG
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_DATA_DIRS="/usr/local/share:/usr/share"
-export XDG_CONFIG_DIRS="/etc/xdg"
-
-# ENV VARIABLES
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
-# ANSIBLE OPTIONS
-export ANSIBLE_NOCOWS=1
-
 # NVM SETUP
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# CONVENIENCE ALIASES
-alias ll='ls -la'
-alias sync-config='ansible-pull -U https://github.com/brotherkaif/config.git'
-alias sync-local-config='ansible-playbook ~/2-areas/config/local.yml'
-
-# GIT ALIASES
-alias lg='lazygit'
-alias gst='git status'
-alias ga='git add'
-alias gaa='git add .'
-alias gc='git commit'
-alias gcm='git commit -m'
-alias gco='git checkout'
-
-# APP ALIASES
-alias tmux='tmux -2'
-
-# PRODUCTIVITY ALIASES
-alias notes-scratch = 'nvim $home/3-resources/notes/scratchpads/$(date "+%y-%m-%d").md'
-alias notes-dev-notes = 'nvim $home/3-resources/notes/dev-notes'
