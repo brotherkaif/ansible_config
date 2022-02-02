@@ -27,3 +27,5 @@ alias tmux="tmux -2"
 # PRODUCTIVITY ALIASES
 alias notes-scratch="nvim $HOME/3-resources/notes/scratchpads/$(date "+%y-%m-%d").md"
 alias notes-dev-notes="nvim $HOME/3-resources/notes/dev-notes"
+alias notes-til-add="echo '$(date "+%y-%m-%d"):$1' >> $HOME/3-resources/notes/til.md"
+alias notes-til-show="less $HOME/3-resources/notes/til.md"
