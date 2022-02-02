@@ -8,4 +8,4 @@
   tags: repos
   git:
     repo: git@github.com:brotherkaif/dev-notes.git
-    dest: '{{ home_directory }}/3-resources/dev-notes'
+    dest: '{{ home_directory }}/3-resources/notes/dev-notes'
