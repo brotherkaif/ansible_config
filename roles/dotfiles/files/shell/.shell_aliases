@@ -10,7 +10,9 @@
 # CONVENIENCE ALIASES
 alias ll="ls -la"
 alias sync-config="ansible-pull -U https://github.com/brotherkaif/config.git"
-alias sync-local-config="ansible-playbook ~/2-areas/config/local.yml"
+alias sync-dotfiles="ansible-pull -U https://github.com/brotherkaif/config.git --tags dotfiles"
+alias sync-local-config="ansible-playbook $HOME/2-areas/config/local.yml"
+alias sync-local-dotfiles="ansible-playbook $HOME/2-areas/config/local.yml --tags dotfiles"
 
 # GIT ALIASES
 alias lg="lazygit"
@@ -25,7 +27,7 @@ alias gco="git checkout"
 alias tmux="tmux -2"
 
 # PRODUCTIVITY ALIASES
-alias notes-scratch="nvim $HOME/3-resources/notes/scratchpads/$(date "+%y-%m-%d").md"
-alias notes-dev-notes="nvim $HOME/3-resources/notes/dev-notes"
-alias notes-til-add="echo '$(date "+%y-%m-%d"):$1' >> $HOME/3-resources/notes/til.md"
-alias notes-til-show="less $HOME/3-resources/notes/til.md"
+alias scratch="nvim $HOME/3-resources/notes/scratchpads/$(date "+%y-%m-%d").md"
+alias dev-notes="cd $HOME/3-resources/notes/dev-notes && nvim -c ':Telescope file_browser' README.md"
+alias til="echo '$(date "+%y-%m-%d %H%M%S"):$1' >> $HOME/3-resources/notes/til.md"
+alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/3-resources/notes/til.md"
