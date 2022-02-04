@@ -1,143 +1,122 @@
--- TODO: look at requiring in setup from here instead
-local binds = {
-    -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
-    {'n', '<leader>h', ':FocusSplitLeft<CR>'}, -- move cursor to left window
-    {'n', '<leader>j', ':FocusSplitDown<CR>'}, -- move cursor to bottom window
-    {'n', '<leader>k', ':FocusSplitUp<CR>'}, -- move cursor to top window
-    {'n', '<leader>l', ':FocusSplitRight<CR>'}, -- move cursor to right window
-
-    -- TERMINAL CONSOLE = `c`
-    {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
-
-    -- FILES = `f`
-    {'n', '<Leader>f/', '<cmd>lua require("telescope.builtin").live_grep()<CR>'}, -- open fuzzy find accross current working directory
-
-    -- BUFFERS = `b`
-    {'n', '<Leader>b/', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
-
-    -- FUZZY SEARCHING = `/`
-    {'n', '<Leader>/f', '<cmd>lua require("telescope.builtin").live_grep()<CR>'}, -- open fuzzy find accross current working directory
-    {'n', '<Leader>/b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>'}, -- open fuzzy find within current buffer
-
-    -- TELESCOPE PICKERS = `p`
-    {'n', '<Leader>p', '<cmd>lua require("telescope.builtin").builtin(require("telescope.themes").get_dropdown())<CR>'}, -- opens list of Telescope pickers
-
-    -- QUICKFIX LIST = `q`
-    {'n', '<Leader>qj', ':cn<CR>'}, -- go to next item in list
-    {'n', '<Leader>qk', ':cp<CR>'}, -- go to previous item in list
-}
--- <leader> = space
-
-vim.g.mapleader = " "
-
-local opts = {noremap = true, silent = true}
-
-for i = 1, #binds do
-    local mode = binds[i][1]
-    local lhs = binds[i][2]
-    local rhs = binds[i][3]
-
-    vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
-end
-
 local wk = require('which-key')
--- TODO: top level cursor movement keybinds from binds.lua
--- TODO: top level telescope pickers keybinds from binds.lua
--- TODO: top level quickfix keybinds from binds.lua
 
 wk.register({
-  i = {
-    name = 'interface',
-    l = { ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>', 'set theme to light'},
-    d = { ':set background=dark<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>', 'set theme to dark'},
-    n = { ':set relativenumber!<CR>', 'toggle relative line numbers'},
-    c = { ':set list!<CR>', 'toggle display unprintable chars'},
-  },
+  -- # LEADER BINDS
+  ['<leader>'] = {
+    name = 'LEADER BINDS',
+    -- COMMAND PALLETTE = `p`
+    p = {'command pallette'},
 
-  w = {
-    name = 'windows',
-    m = { '<C-W>_<C-W>|', 'maximise window' },
-    e = { '<C-W>=', 'equalise windows' },
-    q = { ':q<CR>', 'quit window' },
-    o = { '<C-W>o', 'close all other windows' },
-    h = { '<C-W>H', 'move window to left' },
-    j = { '<C-W>J', 'move window to bottom' },
-    k = { '<C-W>K', 'move window to top' },
-    l = { '<C-W>L', 'move window to right' },
-    z = { ':ZenMode<CR>', 'toggle zen mode' },
-  },
+    -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
+    h = {'cursor left'},
+    j = {'cursor down'},
+    k = {'cursor up'},
+    l = {'cursor right'},
 
-  t = {
-    name = 'tabs',
-    t = { ':tabnew<CR>', 'open new tab' },
-    c = { ':tabnew<CR>:term<CR>:startinsert<CR>', 'open new tab with terminal console' },
-    e = { ':tabnew<CR>:Ex<CR>', 'open new tab with explorer' },
-    g = { ':tabnew<CR>:term lazygit<CR>:startinsert<CR>', 'open new tab with git client' },
-  },
+    -- # GROUPED BINDS
+    -- BUFFERS = `b`
+    b = {
+      name = 'BUFFERS',
+      w = { 'write buffer' },
+      r = { 'reload buffer' },
+      f = { 'runs formatter/linter on current buffer' },
+      s = { 'toggle spellcheck on current buffer' },
+      ['/'] = { 'grep buffer' },
+    },
 
-  c = {
-    name = 'console',
-    c = { ':term<CR>:startinsert<CR>', 'open terminal console in current window' },
-    t = { ':tabnew<CR>:term<CR>:startinsert<CR>', 'open terminal console in new tab' },
-    -- TODO: fix this
-    -- {'t', '<Esc><Esc>', '<C-\\><C-n>'}, -- normal mode within terminal window
-  },
+    -- EXPLORER = `e`
+    e = {
+      name = 'EXPLORER',
+      e = { 'open explorer in current window' },
+      t = { 'open explorer in new tab' },
+    },
 
-  e = {
-    name = 'explorer',
-    e = { ':Explore<CR>', 'open explorer in current window' },
-    t = { ':Texplore<CR>', 'open explorer in new tab' },
-  },
+    -- FILES = `f`
+    f = {
+      name = 'FILES',
+      f = { 'find file' },
+      g = { 'find git file' },
+      b = { 'file browser (project directory)' },
+      d = { 'file browser (current directory)' },
+      ['/'] = { 'Grep Files' },
+    },
 
-  g = {
-    name = 'git',
-    g = { ':term lazygit<CR>:startinsert<CR>', 'open git client in current window' },
-    h = { ':!gh', 'open a github cli statement' },
-    c = { ':!git', 'open a git cli statement' },
-    t = { ':tabnew<CR>:term lazygit<CR>:startinsert<CR>', 'open git client in new tab' },
-    f = { '<cmd>lua require("telescope.builtin").git_files()<CR>', 'browse git files' },
-    b = { '<cmd>lua require("telescope.builtin").git_branches()<CR>', 'browse git branches' },
-    s = { '<cmd>lua require("telescope.builtin").git_status()<CR>', 'browse git status' },
-  },
+    -- FUZZY SEARCHING = `/`
+    ['/'] = {
+      name = 'FUZZY SEARCHING',
+      f = { 'grep files' },
+      b = { 'grep buffer' },
+    },
 
-  f = {
-    name = 'file',
-    f = { '<cmd>lua require("telescope.builtin").find_files()<CR>', 'Find File' },
-    g = { '<cmd>lua require("telescope.builtin").git_files()<CR>', 'Find Git File' },
-    b = { '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>', 'File Browser (project directory)' },
-    d = { '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', 'File Browser (current directory)' },
-    -- TODO: fix this
-    -- / = { '<cmd>lua require("telescope.builtin").live_grep()', 'Grep Files' },
-  },
+    -- GIT = `g`
+    g = {
+      name = 'GIT',
+      g = { 'open git client in current window' },
+      h = { 'open a github cli statement' },
+      c = { 'open a git cli statement' },
+      t = { 'open git client in new tab' },
+      f = { 'browse git files' },
+      b = { 'browse git branches' },
+      s = { 'browse git status' },
+    },
 
-  b = {
-    name = 'buffer',
-    w = { ':w<CR>', 'write buffer' },
-    r = { ':e<CR>', 'reload buffer' },
-    f = { ':Format<CR>', 'runs formatter/linter on current buffer' },
-    s = { ':setlocal spell! spelllang=en_gb,en_us<CR>', 'toggle spellcheck on current buffer' },
-    -- TODO: fix this
-    -- / = { '<cmd><cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', 'open fuzzy find within current buffer' },
-  },
+    -- INTERFACE = `i`
+    i = {
+      name = 'INTERFACE',
+      l = { 'set theme to light'},
+      d = { 'set theme to dark'},
+      n = { 'toggle relative line numbers'},
+      c = { 'toggle display unprintable chars'},
+    },
 
--- TODO: migrate fuzzy keybinds from binds.lua
+    -- LANGUAGE SERVER PROTOCOL = `s`
+    -- s = {
+    --   name = 'language server',
+    --   s = { 'show diagnostics' },
+    --   -- TODO: update telescope diagnostic lists (potentially requires new bind namespace?)
+    --   -- s = { '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', 'show diagnostics' },
+    --   d = { 'go to definition' },
+    --   t = { 'go to type definition' },
+    --   i = { 'go to implementation' },
+    --   r = { 'show references' },
+    --   a = { 'show code actions' },
+    --   h = { 'cursor hover' },
+    --   n = { 'rename symbol' },
+    --   j = { 'go to next diagnostic' },
+    --   k = { 'go to previous diagnostic' },
+    -- },
 
-  s = {
-    name = 'language server',
-    s = { '<cmd>lua vim.diagnostic.open_float()<CR>', 'show diagnostics' },
-    -- TODO: update telescope diagnostic lists (potentially requires new bind namespace?)
-    -- s = { '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', 'show diagnostics' },
-    d = { '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', 'go to definition' },
-    t = { '<cmd>lua require("telescope.builtin").lsp_type_definitions()<CR>', 'go to type definition' },
-    i = { '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', 'go to implementation' },
-    r = { '<cmd>lua require("telescope.builtin").lsp_references()<CR>', 'show references' },
-    a = { '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>', 'show code actions' },
-    h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'cursor hover' },
-    n = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'rename symbol' },
-    j = { '<cmd>lua vim.diagnostic.goto_next()<CR>', 'go to next diagnostic' },
-    k = { '<cmd>lua vim.diagnostic.goto_prev()<CR>', 'go to previous diagnostic' },
+    -- TABS = `t`
+    t = {
+      name = 'TABS',
+      t = { 'open new tab' },
+      c = { 'open new tab with terminal console' },
+      e = { 'open new tab with explorer' },
+      g = { 'open new tab with git client' },
+    },
+
+    -- TERMINAL CONSOLE = `c`
+    c = {
+      name = 'CONSOLE',
+      c = { 'open terminal console in current window' },
+      t = { 'open terminal console in new tab' },
+    },
+
+    -- WINDOWS = `w`
+    w = {
+      name = 'WINDOWS',
+      m = { 'maximise window' },
+      e = { 'equalise windows' },
+      q = { 'quit window' },
+      o = { 'close all other windows' },
+      h = { 'move window to left' },
+      j = { 'move window to bottom' },
+      k = { 'move window to top' },
+      l = { 'move window to right' },
+      z = { 'toggle zen mode' },
+    },
   },
-}, { prefix = '<leader>' })
+})
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('- plugins/which-key-config.lua ...OK!')
