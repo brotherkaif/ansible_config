@@ -45,6 +45,7 @@
     - { package: 'newsboat', path: '.config/newsboat/urls' }
     - { package: 'nvim', path: '.config/nvim/init.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/lsp.lua' }
+    - { package: 'nvim', path: '.config/nvim/lua/binds.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/options.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/formatter-config.lua' }

@@ -17,6 +17,7 @@ require('plugins/formatter-config')
 require('plugins/which-key-config')
 require('lsp')
 require('options')
+require('binds')
 
 -- UNCOMMENT FOR DEBUG MESSAGES
 -- print('[COMPLETED]')
