@@ -1,11 +1,48 @@
 local wk = require('which-key')
 
 wk.register({
+  -- # PREVIOUS
+  ['['] = {
+    name = 'PREVIOUS',
+    q = {'quick fix'},
+    d = {'LSP: diagnostic'}, -- LSP
+  },
+
+  -- # NEXT
+  [']'] = {
+    name = 'NEXT',
+    q = {'quick fix'},
+    d = {'LSP: diagnostic'}, -- LSP
+  },
+
+  -- # GOTO
+  ['g'] = {
+    name = 'GO TO',
+    D = {'LSP: declaration'}, -- LSP
+    d = {'LSP: definition'}, -- LSP
+    i = {'LSP: implementations'}, -- LSP
+    r = {'LSP: references'}, -- LSP
+  },
+
+  -- # LSP
+  ['<space>e'] = {'LSP: diagnostic hover'}, -- LSP
+  ['<space>q'] = {'LSP: diagnostic set local list'}, -- LSP
+  ['K'] = {'LSP: display hover information'}, -- LSP
+  ['<C-k>'] = {'LSP: display signature information'}, -- LSP
+  ['<space>wa'] = {'LSP: add workspace folder'},
+  ['<space>wr'] = {'LSP: remove workspace folder'},
+  ['<space>wl'] = {'LSP: list workspace folders'},
+  ['<space>D'] = {'LSP: type definition'}, -- LSP
+  ['<space>rn'] = {'LSP: rename'}, -- LSP
+  ['<space>ca'] = {'LSP: code action'}, -- LSP
+  ['<space>f'] = {'LSP: format buffer'}, -- LSP
+
   -- # LEADER BINDS
   ['<leader>'] = {
     name = 'LEADER BINDS',
-    -- COMMAND PALLETTE = `p`
     p = {'command pallette'},
+    g = {'git status'},
+    t = {'open terminal'},
 
     -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
     h = {'cursor left'},
@@ -13,107 +50,50 @@ wk.register({
     k = {'cursor up'},
     l = {'cursor right'},
 
+    -- WINDOW MOVEMENT = `H` + `J` + `K` + `L`
+    H = {'window left'},
+    J = {'window down'},
+    K = {'window up'},
+    L = {'window right'},
+
     -- # GROUPED BINDS
     -- BUFFERS = `b`
     b = {
       name = 'BUFFERS',
-      w = { 'write buffer' },
-      r = { 'reload buffer' },
-      f = { 'runs formatter/linter on current buffer' },
-      s = { 'toggle spellcheck on current buffer' },
-      ['/'] = { 'grep buffer' },
-    },
-
-    -- EXPLORER = `e`
-    e = {
-      name = 'EXPLORER',
-      e = { 'open explorer in current window' },
-      t = { 'open explorer in new tab' },
+      w = {'write buffer'},
+      r = {'reload buffer'},
+      z = {'toggle zen mode'},
+      m = {'maximise buffer window'},
+      e = {'equalise buffer windows'},
+      q = {'quit buffer'},
+      o = {'close other buffer windows'},
+      f = {'format buffer'},
+      s = {'toggle spellcheck'},
+      ['/'] = {'grep buffer'},
     },
 
     -- FILES = `f`
     f = {
       name = 'FILES',
-      f = { 'find file' },
-      g = { 'find git file' },
-      b = { 'file browser (project directory)' },
-      d = { 'file browser (current directory)' },
-      ['/'] = { 'Grep Files' },
-    },
-
-    -- FUZZY SEARCHING = `/`
-    ['/'] = {
-      name = 'FUZZY SEARCHING',
-      f = { 'grep files' },
-      b = { 'grep buffer' },
-    },
-
-    -- GIT = `g`
-    g = {
-      name = 'GIT',
-      g = { 'open git client in current window' },
-      h = { 'open a github cli statement' },
-      c = { 'open a git cli statement' },
-      t = { 'open git client in new tab' },
-      f = { 'browse git files' },
-      b = { 'browse git branches' },
-      s = { 'browse git status' },
+      f = {'find file'},
+      g = {'find git file'},
+      b = {'file browser (project directory)'},
+      d = {'file browser (current directory)'},
+      ['/'] = {'grep files'},
     },
 
     -- INTERFACE = `i`
     i = {
       name = 'INTERFACE',
-      l = { 'set theme to light'},
-      d = { 'set theme to dark'},
-      n = { 'toggle relative line numbers'},
-      c = { 'toggle display unprintable chars'},
+      l = {'set light theme'},
+      d = {'set dark theme'},
+      n = {'toggle relative line numbers'},
+      c = {'toggle character display'},
     },
 
-    -- LANGUAGE SERVER PROTOCOL = `s`
-    -- s = {
-    --   name = 'language server',
-    --   s = { 'show diagnostics' },
-    --   -- TODO: update telescope diagnostic lists (potentially requires new bind namespace?)
-    --   -- s = { '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', 'show diagnostics' },
-    --   d = { 'go to definition' },
-    --   t = { 'go to type definition' },
-    --   i = { 'go to implementation' },
-    --   r = { 'show references' },
-    --   a = { 'show code actions' },
-    --   h = { 'cursor hover' },
-    --   n = { 'rename symbol' },
-    --   j = { 'go to next diagnostic' },
-    --   k = { 'go to previous diagnostic' },
-    -- },
-
-    -- TABS = `t`
-    t = {
-      name = 'TABS',
-      t = { 'open new tab' },
-      c = { 'open new tab with terminal console' },
-      e = { 'open new tab with explorer' },
-      g = { 'open new tab with git client' },
-    },
-
-    -- TERMINAL CONSOLE = `c`
-    c = {
-      name = 'CONSOLE',
-      c = { 'open terminal console in current window' },
-      t = { 'open terminal console in new tab' },
-    },
-
-    -- WINDOWS = `w`
+    -- WORKSPACE = `w`
     w = {
-      name = 'WINDOWS',
-      m = { 'maximise window' },
-      e = { 'equalise windows' },
-      q = { 'quit window' },
-      o = { 'close all other windows' },
-      h = { 'move window to left' },
-      j = { 'move window to bottom' },
-      k = { 'move window to top' },
-      l = { 'move window to right' },
-      z = { 'toggle zen mode' },
+      name = 'WORKSPACE',
     },
   },
 })
