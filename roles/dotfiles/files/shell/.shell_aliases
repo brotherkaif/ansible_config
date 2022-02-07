@@ -27,7 +27,7 @@ alias gco="git checkout"
 alias tmux="tmux -2"
 
 # PRODUCTIVITY ALIASES
-alias scratch="nvim $HOME/3-resources/notes/scratchpads/$(date "+%y-%m-%d").md"
+alias scratch="$HOME/bin/scratch.sh"
 alias dev-notes="cd $HOME/3-resources/notes/dev-notes && nvim -c ':Telescope file_browser' README.md"
 alias til="echo '$(date "+%y-%m-%d %H.%M.%S"):$1' >> $HOME/3-resources/notes/til.md"
 alias til-show="nvim -c ':Telescope current_buffer_fuzzy_find' $HOME/3-resources/notes/til.md"

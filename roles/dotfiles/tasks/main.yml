@@ -17,13 +17,14 @@
     - 1-projects
     - 2-areas
     - 3-resources
-    - 3-resources/notes
-    - 3-resources/notes/scratchpads
     - 3-resources/customisation
     - 3-resources/customisation/devdocs
     - 3-resources/customisation/fonts
     - 3-resources/customisation/macos-terminal-themes
+    - 3-resources/notes
+    - 3-resources/notes/scratchpads
     - 4-archive
+    - bin
 
 - name: sync dotfiles
   tags: dotfiles
@@ -53,11 +54,20 @@
     - { package: 'nvim', path: '.config/nvim/lua/plugins/telescope-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/treesitter-config.lua' }
     - { package: 'nvim', path: '.config/nvim/lua/plugins/which-key-config.lua' }
+    - { package: 'scripts', path: 'bin/scratch.sh' }
     - { package: 'shell', path: '.shell_aliases' }
     - { package: 'shell', path: '.shell_common' }
     - { package: 'themes', path: '3-resources/customisation/macos-terminal-themes/zenburn.terminal' }
     - { package: 'tmux', path: '.tmux.conf' }
     - { package: 'zsh', path: '.zshrc' }
+
+- name: making scripts executable
+  tags: dotfiles
+  file:
+    dest: '{{ home_directory }}/bin/{{ item }}'
+    mode: a+x
+  loop:
+    - scratch.sh
 
 # TODO: move this into a separate play
 - name: download rose-pine theme (Darwin)
