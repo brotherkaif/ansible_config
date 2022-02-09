@@ -31,11 +31,6 @@ command('highlight PmenuSbar ctermbg=Black guibg=Black')
 command('highlight PmenuThumb ctermbg=Grey guibg=Grey')
 command('highlight Twilight ctermfg=8')
 command('highlight LspDiagnosticsFloating ctermbg=Black guibg=Black')
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "rounded"
-  }
-)
 
 -- searching
 options.ignorecase = true
