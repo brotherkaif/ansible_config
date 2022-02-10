@@ -68,28 +68,3 @@
     mode: a+x
   loop:
     - scratch.sh
-
-# TODO: move this into a separate play
-- name: download rose-pine theme (Darwin)
-  tags:
-    - dotfiles
-    - customisation
-  get_url:
-    url: '{{item}}'
-    dest: ~/3-resources/customisation/macos-terminal-themes/
-    mode: 0755
-  loop:
-    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine.terminal'
-    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-moon.terminal'
-    - 'https://raw.githubusercontent.com/rose-pine/terminal.app/main/rose-pine-dawn.terminal'
-  when: ansible_distribution == 'MacOSX'
-
-- name: download noto sans mono font (Darwin)
-  tags:
-    - dotfiles
-    - customisation
-  get_url:
-    url: 'https://fonts.google.com/download?family=Noto%20Sans%20Mono'
-    dest: ~/3-resources/customisation/fonts/
-    mode: 0755
-  when: ansible_distribution == 'MacOSX'
