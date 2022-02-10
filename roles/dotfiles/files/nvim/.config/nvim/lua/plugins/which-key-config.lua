@@ -41,7 +41,6 @@ wk.register({
   ['<leader>'] = {
     name = 'LEADER BINDS',
     p = {'command pallette'},
-    g = {'git status'},
     t = {'open terminal'},
 
     -- CURSOR MOVEMENT = `h` + `j` + `k` + `l`
@@ -80,6 +79,13 @@ wk.register({
       b = {'file browser (project directory)'},
       d = {'file browser (current directory)'},
       ['/'] = {'grep files'},
+    },
+
+    -- GIT = `g`
+    f = {
+      name = 'GIT',
+      s = {'status'},
+      x = {'commit'},
     },
 
     -- INTERFACE = `i`

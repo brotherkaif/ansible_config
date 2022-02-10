@@ -9,7 +9,6 @@ vim.api.nvim_set_keymap('n', ']q', ':cn<CR>', opts) -- next quick fix
 
 -- # LEADER BINDS
 vim.api.nvim_set_keymap('n', '<Leader>p', '<cmd>lua require("telescope.builtin").commands()<CR>', opts) -- command pallette
-vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts) -- git status
 vim.api.nvim_set_keymap('n', '<leader>t', ':term<CR>:startinsert<CR>', opts) -- open terminal
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', '<C-\\><C-n>', opts) -- normal mode within terminal window
 
@@ -44,6 +43,10 @@ vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin"
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>lua require("telescope").extensions.file_browser.file_browser()<CR>', opts) -- file browser (project directory)
 vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>lua require("telescope").extensions.file_browser.file_browser({ cwd = require("telescope.utils").buffer_dir() })<CR>', opts) -- file browser (current directory)
 vim.api.nvim_set_keymap('n', '<Leader>f/', '<cmd>lua require("telescope.builtin").live_grep()<CR>', opts) -- grep files
+
+-- GIT = `g`
+vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts) -- git status
+vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', opts) -- git commit
 
 -- INTERFACE = `i`
 vim.api.nvim_set_keymap('n', '<leader>il', ':set background=light<CR>:highlight clear SignColumn<CR>:highlight clear Folded<CR>', opts) -- set theme to light

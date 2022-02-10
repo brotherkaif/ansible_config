@@ -9,6 +9,7 @@ return require('packer').startup(function()
     use 'rhlobo/vim-super-retab'
     use { 'folke/which-key.nvim', config = function() require('which-key').setup() end }
     use 'editorconfig/editorconfig-vim'
+    use 'tpope/vim-fugitive'
     use {
       'lewis6991/gitsigns.nvim',
       requires = {
