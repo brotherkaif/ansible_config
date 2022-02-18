@@ -82,10 +82,10 @@ wk.register({
     },
 
     -- GIT = `g`
-    f = {
+    g = {
       name = 'GIT',
       s = {'status'},
-      x = {'commit'},
+      c = {'commit'},
     },
 
     -- INTERFACE = `i`
