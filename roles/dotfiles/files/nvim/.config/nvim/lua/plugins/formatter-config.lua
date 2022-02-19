@@ -34,5 +34,6 @@ require('formatter').setup({
   }
 })
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- plugins/formatter-config.lua...OK!')
+if debug_mode==true then
+  print('- plugins/formatter-config.lua...OK!')
+end

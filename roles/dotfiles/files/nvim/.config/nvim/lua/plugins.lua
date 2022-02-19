@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+packer=require('packer').startup(function()
     -- core
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
@@ -68,5 +68,8 @@ return require('packer').startup(function()
     use 'millermedeiros/vim-statline'
 end)
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- plugins.lua...OK!')
+if debug_mode==true then
+  print('- plugins.lua...OK!')
+end
+
+return packer

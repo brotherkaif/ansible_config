@@ -104,5 +104,6 @@ wk.register({
   },
 })
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- plugins/which-key-config.lua ...OK!')
+if debug_mode==true then
+  print('- plugins/which-key-config.lua...OK!')
+end

@@ -71,5 +71,6 @@ command('highlight LspDiagnosticsUnderlineWarning ctermfg=none guifg=none cterm=
 command('highlight LspDiagnosticsUnderlineInformation ctermfg=none guifg=none cterm=underline gui=underline')
 command('highlight LspDiagnosticsUnderlineHint ctermfg=none guifg=none cterm=underline gui=underline')
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- options.lua...OK!')
+if debug_mode==true then
+  print('- options.lua...OK!')
+end

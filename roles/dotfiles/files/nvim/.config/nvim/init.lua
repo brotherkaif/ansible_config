@@ -3,21 +3,25 @@
 -- | | '_ \| | __| | | | | |/ _` |
 -- | | | | | | |_ _| | |_| | (_| |
 -- |_|_| |_|_|\__(_)_|\__,_|\__,_|
+debug_mode=false
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('._  _  _   o._ _  ')
--- print('| |(/_(_)\\/|| | | ')
--- print('LOADING CONFIGS...')
+if debug_mode==true then
+  print(' _| _ |_     _ ')
+  print('(_|(/_|_)|_|(_|')
+  print('             _|')
+  print('LOADING CONFIGS...')
+end
 
+require('options')
+require('lsp')
+require('binds')
 require('plugins')
 require('plugins/treesitter-config')
 require('plugins/telescope-config')
 require('plugins/nvim-cmp-config')
 require('plugins/formatter-config')
 require('plugins/which-key-config')
-require('lsp')
-require('options')
-require('binds')
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('[COMPLETED]')
+if debug_mode==true then
+  print('COMPLETED')
+end

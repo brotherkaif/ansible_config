@@ -54,5 +54,6 @@ vim.api.nvim_set_keymap('n', '<leader>id', ':set background=dark<CR>:highlight c
 vim.api.nvim_set_keymap('n', '<leader>in', ':set relativenumber!<CR>', opts) -- toggle relative line numbers
 vim.api.nvim_set_keymap('n', '<leader>ic', ':set list!<CR>', opts) -- toggle display unprintable chars
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- binds.lua...OK!')
+if debug_mode==true then
+  print('- binds.lua...OK!')
+end

@@ -31,3 +31,7 @@ cmp.setup({
 	{ name = 'vsnip' },
     },
 })
+
+if debug_mode==true then
+  print('- plugins/nvim-cmp-config.lua...OK!')
+end

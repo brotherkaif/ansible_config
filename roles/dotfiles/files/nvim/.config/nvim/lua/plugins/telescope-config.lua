@@ -36,5 +36,6 @@ require('telescope').setup({
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- plugins/telescope-config.lua...OK!')
+if debug_mode==true then
+  print('- plugins/telescope-config.lua...OK!')
+end

@@ -4,3 +4,7 @@ require('nvim-treesitter.configs').setup({
     enable = true,
   },
 })
+
+if debug_mode==true then
+  print('- plugins/treesitter-config.lua...OK!')
+end
