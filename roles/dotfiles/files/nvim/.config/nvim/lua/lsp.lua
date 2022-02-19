@@ -113,5 +113,6 @@ lspconfig.diagnosticls.setup{
     }
 }
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- lsp.lua...OK!')
+if debug_mode==true then
+  print('- lsp.lua...OK!')
+end

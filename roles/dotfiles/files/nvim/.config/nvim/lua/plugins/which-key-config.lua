@@ -82,10 +82,10 @@ wk.register({
     },
 
     -- GIT = `g`
-    f = {
+    g = {
       name = 'GIT',
       s = {'status'},
-      x = {'commit'},
+      c = {'commit'},
     },
 
     -- INTERFACE = `i`
@@ -104,5 +104,6 @@ wk.register({
   },
 })
 
--- UNCOMMENT FOR DEBUG MESSAGES
--- print('- plugins/which-key-config.lua ...OK!')
+if debug_mode==true then
+  print('- plugins/which-key-config.lua...OK!')
+end
