@@ -1,9 +1,7 @@
 # Ansible Configuration
-
-Work in progress repository to hold Ansible configuration files. To be used as part of the improved workflow setup script.
+This repository contains an Ansible playbook that I use to set up local Linux (Debian) and macOS (Darwin) systems. It's primary focus is to set up a local machine to prep it for general development.
 
 # Initialisation
-
 Run the following on a new machine. The `init.sh` script should install the minimal files needed to execute the ansible playbook.
 
 ```sh
