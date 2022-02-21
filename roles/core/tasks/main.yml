@@ -4,6 +4,7 @@
     - packages
   package:
     name:
+      - stow
       - ripgrep
       - tmux
       - tree
