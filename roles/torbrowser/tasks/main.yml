@@ -1,11 +1,18 @@
-- name: app installation (Debian)
+- name: installation (Debian)
   tags:
     - debian
     - torbrowser
     - packages
     - secure
-  apt:
-    name: torbrowser-launcher
-    state: present
+  block:
+    - name: add the buster-backports repository (Debian)
+      apt_repository:
+        repo: deb http://deb.debian.org/debian buster-backports main contrib non-free
+        state: present
+
+    - name: package installation (Debian)
+      apt:
+        name: torbrowser-launcher
+        state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
