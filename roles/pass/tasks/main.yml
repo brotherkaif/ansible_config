@@ -1,0 +1,22 @@
+- name: app installation (Debian)
+  tags:
+    - debian
+    - pass
+    - packages
+    - secure
+  apt:
+    name: pass
+    state: present
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: pull down .password-store
+  tags:
+    - debian
+    - pass
+    - repos
+    - secure
+  git:
+    repo: git@github.com:brotherkaif/.password-store.git
+    dest: '{{ home_directory }}/.password-store'
+  when: ansible_distribution in ['Debian', 'Ubuntu']

@@ -3,6 +3,7 @@
     - debian
     - bisq
     - packages
+    - secure
   block:
     - name: package installation (Debian)
       apt:
