@@ -21,6 +21,13 @@
     state: present
   become: '{{ should_be_root }}'
 
+- name: extend repositories (Debian)
+  apt_repository:
+    repo: deb http://deb.debian.org/debian bullseye main contrib non-free
+    state: present
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
 - name: additional package installation (Debian)
   tags:
     - debian
