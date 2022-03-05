@@ -1,11 +1,11 @@
 - name: app installation (Debian)
   tags:
     - debian
-    - torbrowser
+    - monero
     - packages
     - secure
   apt:
-    name: torbrowser-launcher
+    name: monero
     state: present
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
