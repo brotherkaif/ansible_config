@@ -22,6 +22,10 @@
   become: '{{ should_be_root }}'
 
 - name: extend repositories (Debian)
+  tags:
+    - debian
+    - core
+    - packages
   apt_repository:
     repo: deb http://deb.debian.org/debian bullseye main contrib non-free
     state: present
