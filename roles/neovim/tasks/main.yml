@@ -18,38 +18,6 @@
     # state: head
   when: ansible_distribution == 'MacOSX'
 
-- name: packer installation
-  tags:
-  - neovim
-  - dev
-  git:
-    repo: https://github.com/wbthomason/packer.nvim.git
-    dest: '{{ home_directory }}/.local/share/nvim/site/pack/packer/start/packer.nvim'
-
-- name: lsp dependency installation
-  tags:
-  - neovim
-  - dev
-  npm:
-    name: '{{ item }}'
-    global: yes
-  become: '{{ should_be_root }}'
-  loop:
-    # Ansible
-    - ansible-language-server
-    # Bash
-    - bash-language-server
-    # HTML/CSS/JSON
-    - vscode-langservers-extracted
-    # JavaScript/TypeScript
-    - typescript
-    - typescript-language-server
-    - diagnostic-languageserver
-    - eslint_d
-    - prettier
-    # YAML
-    - yaml-language-server
-
 - name: python dependency installation
   tags:
   - neovim
