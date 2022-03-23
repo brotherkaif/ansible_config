@@ -2,10 +2,10 @@
   tags: repos
   git:
     repo: git@github.com:brotherkaif/config.git
-    dest: '{{ home_directory }}/2-areas/config'
+    dest: '{{ home_directory }}/config'
 
 - name: pull down dev-notes repository
   tags: repos
   git:
     repo: git@github.com:brotherkaif/dev-notes.git
-    dest: '{{ home_directory }}/3-resources/notes/dev-notes'
+    dest: '{{ home_directory }}/dev-notes'

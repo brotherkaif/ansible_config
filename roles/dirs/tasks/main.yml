@@ -1,0 +1,11 @@
+- name: create directories
+  tags: dirs
+  file:
+    path: '{{ home_directory }}/{{ item }}'
+    state: directory
+    owner: '{{ owner }}'
+    group: '{{ group }}'
+    mode: 0755
+  loop:
+    - projects
+    - playground
