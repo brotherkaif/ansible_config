@@ -32,6 +32,7 @@
     - vars/{{ ansible_distribution }}.yml
   roles:
     - core
+    - dirs
     - dotfiles
     - repos
     - nodejs
