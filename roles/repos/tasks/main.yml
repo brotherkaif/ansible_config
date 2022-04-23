@@ -1,8 +1,8 @@
-- name: pull down config repository
+- name: pull down ansible config repository
   tags: repos
   git:
-    repo: git@github.com:brotherkaif/config.git
-    dest: '{{ home_directory }}/config'
+    repo: git@github.com:brotherkaif/ansible_config.git
+    dest: '{{ home_directory }}/ansible_config'
 
 - name: pull down dev-notes repository
   tags: repos
