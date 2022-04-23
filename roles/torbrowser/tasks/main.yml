@@ -6,6 +6,6 @@
     - secure
   apt:
     name: torbrowser-launcher
-    state: present
+    state: absent
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']

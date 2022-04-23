@@ -6,7 +6,7 @@
   block:
     - name: package installation (Debian)
       apt:
-        deb: https://github.com/cli/cli/releases/download/v2.6.0/gh_2.6.0_linux_amd64.deb
+        deb: https://github.com/cli/cli/releases/download/v2.8.0/gh_2.8.0_linux_amd64.deb
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
