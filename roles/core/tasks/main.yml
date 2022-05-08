@@ -4,13 +4,14 @@
     - packages
   package:
     name:
+      - tmux
+      - git
       - stow
       - ripgrep
-      - tmux
+      - fzf
       - tree
       - htop
       - ncdu
-      - git
       - feh
       - mpv
       - ffmpeg
