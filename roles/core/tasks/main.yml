@@ -4,11 +4,18 @@
     - packages
   package:
     name:
+<<<<<<< HEAD
+=======
+      - tmux
+>>>>>>> 48f5014902900e761d11abbe79aa31806ca9ebe2
       - git
       - stow
       - ripgrep
       - fzf
+<<<<<<< HEAD
       - tmux
+=======
+>>>>>>> 48f5014902900e761d11abbe79aa31806ca9ebe2
       - tree
       - htop
       - ncdu
