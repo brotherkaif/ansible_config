@@ -4,13 +4,14 @@
     - packages
   package:
     name:
+      - git
       - stow
       - ripgrep
+      - fzf
       - tmux
       - tree
       - htop
       - ncdu
-      - git
       - feh
       - mpv
       - ffmpeg
@@ -37,13 +38,31 @@
     - debian
     - core
     - packages
+    - flatpak
   apt:
     name:
       - apt-transport-https
       - build-essential
       - python3-pip
+      - flatpak
     state: present
   become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: additional configuration (Debian)
+  tags:
+    - debian
+    - core
+    - config
+    - flatpak
+  block:
+    - name: add the flathub flatpak repository remote to the user installation (Debian)
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+        method: user
+      become: false
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: additional package installation (Darwin)

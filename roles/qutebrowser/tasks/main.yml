@@ -1,0 +1,23 @@
+- name: installation (Debian)
+  tags:
+    - tasks
+    - flatpak
+    - qutebrowser
+  block:
+    - name: flatpak package installation (Debian)
+      community.general.flatpak:
+        name: org.qutebrowser.qutebrowser
+        state: absent
+        method: user
+      become: false
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+# - name: installation (Darwin)
+#   block:
+#     - name: package installation (Darwin)
+#       tags: always
+#       homebrew_cask:
+#         name: brave-browser
+#         state: present
+#         ignore_errors: yes
+#   when: ansible_distribution == 'MacOSX'

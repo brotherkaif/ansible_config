@@ -1,10 +1,14 @@
 - name: pull down dotfiles repository
-  tags: dotfiles
+  tags:
+    - dotfiles
+    - repos
   git:
     repo: git@github.com:brotherkaif/dotfiles.git
     dest: '{{ home_directory }}/dotfiles'
 
-- name: run symlink_dotfiles script
-  tags: dotfiles
+- name: run bootstrap script
+  tags:
+    - dotfiles
+    - scripts
   script:
-    cmd: '{{ home_directory }}/dotfiles/scripts/symlink_dotfiles.sh'
+    cmd: '{{ home_directory }}/dotfiles/bootstrap.sh'
