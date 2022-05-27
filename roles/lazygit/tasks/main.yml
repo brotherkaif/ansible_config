@@ -1,0 +1,50 @@
+- name: package installation (Debian)
+  tags:
+    - debian
+    - lazygit
+    - packages
+  block:
+    - name: check if already installed (Debian)
+      stat: path=/usr/local/bin/lazygit
+      register: lazygit_installed
+
+    - name: download and unarchive (Debian)
+      block:
+        - name: x86_64 installation (Debian)
+          unarchive:
+            src: https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
+            dest: /usr/local/bin
+            remote_src: yes
+          when: ansible_userspace_architecture == "x86_64"
+
+        - name: arm64 installation (Debian)
+          unarchive:
+            src: https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_arm64.tar.gz
+            dest: /usr/local/bin
+            remote_src: yes
+          when: ansible_userspace_architecture == "aarch64"
+      when: lazygit_installed.stat.exists == false
+
+    - name: remove LICENCE file
+      tags: always
+      file:
+        path: /usr/local/bin/LICENSE
+        state: absent
+
+    - name: remove README.md file
+      tags: always
+      file:
+        path: /usr/local/bin/README.md
+        state: absent
+  become: true
+  when: ansible_distribution in ['Debian', 'Ubuntu']
+
+- name: package installation (Darwin)
+  tags:
+    - darwin
+    - lazygit
+    - packages
+  package:
+    name: lazygit
+    state: present
+  when: ansible_distribution == 'MacOSX'

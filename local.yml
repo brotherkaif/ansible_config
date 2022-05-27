@@ -39,7 +39,6 @@
     - neovim
     - github-cli
     - pass
-    - brave
+    - lazygit
     - torbrowser
     - monero
-    - qutebrowser

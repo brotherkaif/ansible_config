@@ -4,18 +4,11 @@
     - packages
   package:
     name:
-<<<<<<< HEAD
-=======
       - tmux
->>>>>>> 48f5014902900e761d11abbe79aa31806ca9ebe2
       - git
       - stow
       - ripgrep
       - fzf
-<<<<<<< HEAD
-      - tmux
-=======
->>>>>>> 48f5014902900e761d11abbe79aa31806ca9ebe2
       - tree
       - htop
       - ncdu
@@ -45,31 +38,13 @@
     - debian
     - core
     - packages
-    - flatpak
   apt:
     name:
       - apt-transport-https
       - build-essential
       - python3-pip
-      - flatpak
     state: present
   become: true
-  when: ansible_distribution in ['Debian', 'Ubuntu']
-
-- name: additional configuration (Debian)
-  tags:
-    - debian
-    - core
-    - config
-    - flatpak
-  block:
-    - name: add the flathub flatpak repository remote to the user installation (Debian)
-      community.general.flatpak_remote:
-        name: flathub
-        state: present
-        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-        method: user
-      become: false
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
 - name: additional package installation (Darwin)
