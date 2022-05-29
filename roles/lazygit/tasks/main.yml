@@ -15,14 +15,14 @@
             src: https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_x86_64.tar.gz
             dest: /usr/local/bin
             remote_src: yes
-          when: ansible_userspace_architecture == "x86_64"
+          when: ansible_architecture == "x86_64"
 
         - name: arm64 installation (Debian)
           unarchive:
             src: https://github.com/jesseduffield/lazygit/releases/download/v0.34/lazygit_0.34_Linux_arm64.tar.gz
             dest: /usr/local/bin
             remote_src: yes
-          when: ansible_userspace_architecture == "aarch64"
+          when: ansible_architecture == "aarch64"
       when: lazygit_installed.stat.exists == false
 
     - name: remove LICENCE file

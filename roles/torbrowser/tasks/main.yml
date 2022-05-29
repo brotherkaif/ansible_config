@@ -8,4 +8,6 @@
     name: torbrowser-launcher
     state: present
   become: true
-  when: ansible_distribution in ['Debian', 'Ubuntu']
+  when:
+    - ansible_distribution in ['Debian', 'Ubuntu']
+    - ansible_architecture == "x86_64"

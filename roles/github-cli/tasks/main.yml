@@ -4,9 +4,17 @@
     - github-cli
     - packages
   block:
-    - name: package installation (Debian)
-      apt:
-        deb: https://github.com/cli/cli/releases/download/v2.8.0/gh_2.8.0_linux_amd64.deb
+    - name: download and unarchive (Debian)
+      block:
+        - name: x86_64 installation (Debian)
+          apt:
+            deb: https://github.com/cli/cli/releases/download/v2.11.3/gh_2.11.3_linux_amd64.deb
+          when: ansible_architecture == "x86_64"
+
+        - name: arm64 installation (Debian)
+          apt:
+            deb: https://github.com/cli/cli/releases/download/v2.11.3/gh_2.11.3_linux_arm64.deb
+          when: ansible_architecture == "aarch64"
   become: true
   when: ansible_distribution in ['Debian', 'Ubuntu']
 
