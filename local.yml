@@ -38,6 +38,7 @@
     - nodejs
     - neovim
     - github-cli
+    - glow
     - pass
     - lazygit
     - torbrowser
